@@ -25,16 +25,14 @@ function feedme(address, divname,keyword, number) {
       				
       			}
    			 }
-		//html += '<input type="button" onclick="feedme("https://news.google.com/news/feeds?um=1&ned=us&hl=en&q=ab32+california&output=rss", "content", "",5);" value="Feed me more"/> ';
    		container.innerHTML = html;
         
         }
-		
       }
     
     
     function OnLoad() {
-      // Create a feed instance that will grab the feed.
+      // Create a feed instance that will grab Digg's feed.
       var feed = new google.feeds.Feed(address);
       feed.setNumEntries(number);
     
