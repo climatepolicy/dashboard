@@ -29,7 +29,7 @@ ul.update_tabs li{
 
 .updatewrapper{
 	height: 300px;
-	width: 40%;
+	width: 33%;
 	float:right;
 	overflow-y:scroll;
 }
@@ -112,7 +112,7 @@ h1#logo a { width:271px; height:121px; background:url('http://climatepolicyiniti
 /* root element for tabs  */
 ul.tabs {
     list-style:none;
-    margin:30 !important;
+    margin:35 !important;
     padding:0;
     height:30px;
 }
