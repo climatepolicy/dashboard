@@ -5,25 +5,33 @@ body{
 
 a{color:#F96302; text-decoration:none;}
 
-
-#pricediv {
- width: 300px;
-}
-
-#bardiv {
- margin-left:20px;
- width: 780px;
-}
-
 #textdiv {
  clear:both;
 }
 
-#newsdiv{
- width: 350px;
-}
-.box {
+#pricediv{
+	height: 300px;
+	width:33%;
+	overflow:auto;
 	float: left;
+}
+
+.update_panes{
+	height: 300px;
+}
+.update_tabs{
+	float:left;
+}
+
+ul.update_tabs li{
+	height:33%;
+}
+
+.updatewrapper{
+	height: 300px;
+	width: 33%;
+	float:right;
+	overflow-y:scroll;
 }
 
 .axis path{
@@ -64,14 +72,14 @@ p{ margin-top: 10px; font-family: 'CronosProLight'; color:#666; font-size: 16px;
 
 }
 
-h1{font-family: 'ChaparralProRegular'; color:#666; margin:0px; padding: 0px;}
+h1{font-family: 'ChaparralProRegular'; color:#666; margin-top:0px; padding: 0px;}
 
 h2{font-family: 'ChaparralProRegular'; color:#666; margin:0px; padding: 0px;}
 
 h1#logo a { width:271px; height:121px; background:url('http://climatepolicyinitiative.org/wp-content/themes/cpi/images/logo.png') no-repeat 0 0; float:right; display:inline; }
 .notext { font-size: 0; line-height: 0; text-indent: -4000px; }
 
-#header{height: 121px; margin-top:30px;}
+#header{height: 121px; margin-top:30px; margin-bottom: 30px;}
 
 
 .axis path,
@@ -99,4 +107,86 @@ h1#logo a { width:271px; height:121px; background:url('http://climatepolicyiniti
 .focus circle {
   fill: none;
   stroke: #F96302;
+}
+
+/* root element for tabs  */
+ul.tabs {
+    list-style:none;
+    margin:35 !important;
+    padding:0;
+    height:30px;
+}
+
+/* single tab */
+ul.tabs li {
+    float:left;
+    text-indent:0;
+    padding:0;
+    margin:0 !important;
+    list-style-image:none !important;
+    width: 33%;
+}
+
+/* link inside the tab. uses a background image */
+ul.tabs a {
+    font-family: 'ChaparralProRegular';
+    display:block;
+    height: 30px;
+    line-height:30px;
+    text-align:center;
+    text-decoration:none;
+    color:#666;
+    padding:0px;
+    margin:0px;
+    position:relative;
+    top:1px;
+    opacity:0.25;
+}
+
+/* when mouse enters the tab move the background image */
+ul.tabs a:hover {
+    color:#F96302;
+}
+
+
+/* active tab uses a class name "current" */
+ul.tabs a.current, ul.tabs a.current:hover, ul.tabs li.current a {
+    cursor:default !important;
+    opacity: 1.0 !important;
+}
+
+/* initially all panes are hidden */
+.panes .pane {
+    display:none;
+}
+
+
+/*STYLING FOR TOP TABS*/
+
+ul.update_tabs {
+    list-style:none;
+	height: 33%;
+}
+
+ul.update_tabs li{
+	margin: 30px;
+    height: 30px;
+}
+
+ul.update_tabs a{
+	display:block;
+	text-align:center;
+	color: #666;
+	opacity:0.25;
+}
+
+/* when mouse enters the tab*/
+ul.update_tabs a:hover {
+    color:#F96302;
+}
+
+/* active tab uses a class name "current"*/
+ul.update_tabs a.current, ul.update_tabs a.current:hover, ul.update_tabs li.current a {
+    cursor:default !important;
+    opacity: 1.0 !important;
 }

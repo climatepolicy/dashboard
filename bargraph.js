@@ -1,7 +1,7 @@
-function bargraph(csvfile, sectornames){
+function bargraph(csvfile, sectornames, where){
 
-var w = document.getElementById("bardiv").offsetWidth,
-    h = w*(2/3),
+var w = document.getElementById(where).offsetWidth,
+    h = w*(1/2),
 	des_space = 100,
     p = [20, 50, 130, 20],
     x = d3.scale.ordinal().rangeRoundBands([50, w]),
@@ -10,7 +10,7 @@ var w = document.getElementById("bardiv").offsetWidth,
     uncapcolor = "#EAC881",
     z = d3.scale.ordinal().range(["white", capcolor, capcolor, capcolor, uncapcolor, uncapcolor, uncapcolor, uncapcolor, uncapcolor]);
 
-var svg1 = d3.select("#bardiv").append("svg:svg")
+var svg1 = d3.select("#" + where).append("svg:svg")
     .attr("width", w)
     .attr("height", h)
 	.attr("font-family", 'CronosProLight')
