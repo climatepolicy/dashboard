@@ -150,28 +150,30 @@ ul.tabs a.current, ul.tabs a.current:hover, ul.tabs li.current a {
 }
 .update_tabs{
 	float:right;
-	width:45%;
+	width:520px;
 	margin: 0px;
+
 }
 
 .updatewrapper{
-	height: 220px;
-	width: 45%;
+	height: 275px;
+	width: 520px;
 	float:right;
 	overflow-y:scroll;
 }
 
 ul.update_tabs {
     list-style:none;
+    padding:0;
 }
 
 ul.update_tabs li{
 	float:left;
-    text-indent:0;
+    text-indent:0 !important;
     padding:0 !important;
     margin:0 !important;
     list-style-image:none !important;
-    width: 33%;
+    width: 33.33%;
 }
 
 ul.update_tabs a{

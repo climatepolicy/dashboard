@@ -1,5 +1,5 @@
-var margin = {top: 10, right: 50, bottom: 30, left: 25},
-    width = document.getElementById("pricediv").offsetWidth-180,
+var margin = {top: 10, right: 20, bottom: 30, left: 25},
+    width = document.getElementById("pricediv").offsetWidth-60,
     height = document.getElementById("pricediv").offsetHeight-100;
 
 var parseDate = d3.time.format("%m/%d/%Y").parse,
@@ -8,7 +8,7 @@ var parseDate = d3.time.format("%m/%d/%Y").parse,
     formatCurrency = function(d) { return "$" + formatValue(d); };
 
 var x = d3.time.scale()
-    .range([0, width]);
+    .range([0, width-30]);
 
 var y = d3.scale.linear()
     .range([height, 0]);
@@ -100,7 +100,7 @@ d3.csv("carbon_prices.csv", function(error, data) {
       .on("mousemove", mousemove);
       
   function focusIt(){
-  	focus.attr("transform", "translate(" + width + "," + y(data[data.length-1].close) + ")");
+  	focus.attr("transform", "translate(" + (width-30) + "," + y(data[data.length-1].close) + ")");
   	focus.select("text").text(formatCurrency(data[data.length-1].close));
   }
 
