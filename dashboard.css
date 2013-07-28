@@ -11,27 +11,9 @@ a{color:#F96302; text-decoration:none;}
 
 #pricediv{
 	height: 300px;
-	width:33%;
+	width:50%;
 	overflow:auto;
 	float: left;
-}
-
-.update_panes{
-	height: 300px;
-}
-.update_tabs{
-	float:left;
-}
-
-ul.update_tabs li{
-	height:33%;
-}
-
-.updatewrapper{
-	height: 300px;
-	width: 33%;
-	float:right;
-	overflow-y:scroll;
 }
 
 .axis path{
@@ -112,7 +94,6 @@ h1#logo a { width:271px; height:121px; background:url('http://climatepolicyiniti
 /* root element for tabs  */
 ul.tabs {
     list-style:none;
-    margin:35 !important;
     padding:0;
     height:30px;
 }
@@ -158,19 +139,39 @@ ul.tabs a.current, ul.tabs a.current:hover, ul.tabs li.current a {
 /* initially all panes are hidden */
 .panes .pane {
     display:none;
+    width: 50%
 }
 
 
 /*STYLING FOR TOP TABS*/
 
+.update_panes{
+	height: 300px;
+}
+.update_tabs{
+	float:right;
+	width:45%;
+	margin: 0px;
+}
+
+.updatewrapper{
+	height: 220px;
+	width: 45%;
+	float:right;
+	overflow-y:scroll;
+}
+
 ul.update_tabs {
     list-style:none;
-	height: 33%;
 }
 
 ul.update_tabs li{
-	margin: 30px;
-    height: 30px;
+	float:left;
+    text-indent:0;
+    padding:0 !important;
+    margin:0 !important;
+    list-style-image:none !important;
+    width: 33%;
 }
 
 ul.update_tabs a{
@@ -178,6 +179,13 @@ ul.update_tabs a{
 	text-align:center;
 	color: #666;
 	opacity:0.25;
+	
+
+    text-decoration:none;
+    padding:0px;
+    margin:0px;
+    position:relative;
+    top:1px;
 }
 
 /* when mouse enters the tab*/

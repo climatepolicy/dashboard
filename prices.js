@@ -1,6 +1,6 @@
 var margin = {top: 10, right: 50, bottom: 30, left: 25},
-    width = document.getElementById("pricediv").offsetWidth-80,
-    height = width*(4/5);
+    width = document.getElementById("pricediv").offsetWidth-180,
+    height = document.getElementById("pricediv").offsetHeight-100;
 
 var parseDate = d3.time.format("%m/%d/%Y").parse,
     bisectDate = d3.bisector(function(d) { return d.date; }).left,
