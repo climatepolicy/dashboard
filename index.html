@@ -39,8 +39,13 @@
 		});
 		$(function() {
 		    // setup ul.tabs to work as tabs for each div directly under div.panes
-		    $("ul.update_tabs").tabs("div.update_panes > div");
+		    $("ul.update_tabs").tabs("div.update_panes > div", {
+			 	interval:5000,
+			    rotate: true
+		    }).slideshow();
+		    $("ul.update_tabs").data("slideshow").play();
 		});
+		
 		</script>
         
 		<title>California Carbon Dashboard</title>
