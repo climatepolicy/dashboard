@@ -9,6 +9,8 @@
 		
 		<!-- include jQuery Tools -->
   		<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+  		
+  		
 		
 		<!-- CPI Style Stuff 
 		<link rel="stylesheet" href="http://climatepolicyinitiative.org/wp-content/themes/cpi/style.css" type="text/css" media="screen" />
@@ -26,7 +28,7 @@
 		
 		<script type="text/javascript">
 			feedme("https://news.google.com/news/feeds?um=1&ned=us&hl=en&q=ab32+california&output=rss", "news", "",100);
-			feedme("http://www.arb.ca.gov/lispub/rss/listserv.rss", "content", "arbcombo",100)
+			feedme("http://www.arb.ca.gov/lispub/rss/listserv.rss", "content", "arbcombo", 150)
 		</script>
 		
 		<script>
@@ -51,13 +53,14 @@
     	<div id = "header">
     	<h1 id = "logo"><a class="notext" href="http://climatepolicyinitiative.org/">CPI</a><br>CALIFORNIA CARBON DASHBOARD </h1>
         </div>	
-        <div>
+        <div style = "vertical-align:top">
 	        <div id = "pricediv">
 				<h2>CARBON PRICE</h2>
 				<script type="text/javascript" src ="prices.js"></script>
 			</div>
 	    	
-	    	<div style = "height:400px  width: 800px float:left">    	<!-- the tabs -->
+	    	<div style = "height:400px  width: 800px float:right vertical-align:top">    	
+	    		<!-- the tabs -->
 				<ul class="update_tabs">
 					<li><a href="#"><h2>NEWS</h2></a></li>
 					<li><a href="#"><h2>ARB UPDATES</h2></a></li>
@@ -68,13 +71,16 @@
 				<div class="update_panes">
 					<div id="news" class = "updatewrapper"><p>Loading...</p></div>
 					<div id="content" class = "updatewrapper"><p>Loading...</p></div>
-					<div id = "tweets" class = "updatewrapper">
-						<a class="twitter-timeline" height = "300px" href="https://twitter.com/search?q=%23ab32" data-widget-id="347851819915042816" data-chrome="noheader noscrollbar transparent nofooter">Tweets about "#ab32"</a>
+					<div id = "tweets" class = "updatewrapper" style = "overflow: hidden">
+						<a class="twitter-timeline" height = "220px" href="https://twitter.com/search?q=%23ab32" data-widget-id="347851819915042816" data-chrome="noheader transparent nofooter">Tweets about "#ab32"</a>
 						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>		
 					</div>
 				</div>
 	    	</div>
  		</div>
+ 		
+		
+			
 		<div>
 			<!-- the tabs -->
 			<ul class="tabs">
@@ -144,6 +150,7 @@
 				</div>
 			</div>
 		</div>
+
 	</body>		
 		
 </html>

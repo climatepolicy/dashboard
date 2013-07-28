@@ -20,8 +20,17 @@ function feedme(address, divname,keyword, number) {
          var html = '';
            for (var i = 0; i < result.feed.entries.length; i++) {
       			var entry = result.feed.entries[i];
+      			var date = new Date(entry.publishedDate);
+      			var dispDate = date.toDateString();
+      			
       			if (entry.title.indexOf(keyword) >= 0){ 
-      				html += '<p><a href="' + entry.link + '">' + entry.title.replace("arbcombo -- ","") + '</a></p>';
+      			    if(address == "https://news.google.com/news/feeds?um=1&ned=us&hl=en&q=ab32+california&output=rss"){
+      			       var splitTitle = entry.title.split(" - ");
+      			       html += '<p><a href="' + entry.link + '">' + splitTitle[0]  + '</a><br>' + splitTitle[1]+ " " + '<br>' + dispDate + '</p>';
+      			    }
+      			    else{
+      			       html += '<p><a href="' + entry.link + '">' + entry.title.replace(keyword + " -- ","")  + '</a><br>' + dispDate + '</p>';
+      			    }
       				
       			}
    			 }
