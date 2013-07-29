@@ -1,7 +1,7 @@
 function bargraph(csvfile, sectornames, where){
 
 var w = document.getElementById(where).offsetWidth,
-    h = w*(1/2),
+    h = w*(2/3),
 	des_space = 100,
     p = [20, 50, 130, 20],
     x = d3.scale.ordinal().rangeRoundBands([50, w]),

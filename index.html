@@ -40,7 +40,7 @@
 		$(function() {
 		    // setup ul.tabs to work as tabs for each div directly under div.panes
 		    $("ul.update_tabs").tabs("div.update_panes > div", {
-			 	interval:5000,
+			 	interval:7000,
 			    rotate: true
 		    }).slideshow();
 		    $("ul.update_tabs").data("slideshow").play();
@@ -67,9 +67,9 @@
    	
     		<!-- the tabs -->
 			<ul class="update_tabs">
-				<li><a href="#"><h2>NEWS</h2></a></li>
+				<li><a href="#" style="text-align:left"><h2>NEWS</h2></a></li>
 				<li><a href="#"><h2>ARB UPDATES</h2></a></li>
-				<li><a href="#"><h2>TWEETS</h2></a></li>
+				<li><a href="#" style="text-align:right"><h2>TWEETS</h2></a></li>
 			</ul>
 			
 			<!-- tab "panes" -->
@@ -77,31 +77,43 @@
 				<div id="news" class = "updatewrapper"><p>Loading...</p></div>
 				<div id="content" class = "updatewrapper"><p>Loading...</p></div>
 				<div id = "tweets" class = "updatewrapper" style = "overflow: hidden">
-					<a class="twitter-timeline" height = "20px" href="https://twitter.com/search?q=%23ab32" data-widget-id="347851819915042816" data-chrome="noheader transparent nofooter">Tweets about "#ab32"</a>
+					<a class="twitter-timeline" height = "275" href="https://twitter.com/search?q=%23ab32" data-widget-id="347851819915042816" data-chrome="noheader transparent nofooter">Tweets about "#ab32"</a>
 					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>		
 				</div>
 			</div>
 
  		</div>
  		
-		
-			
-		<div>
+		<div id = "lower" style = "vertical-align:top">
+		<div id = "capandtrade">
+			<h2>CAP AND TRADE</h2>
+				<p>
+					California's Cap and Trade Program caps greenhouse gas (GHG) emissions from key sectors in California as a central component of the Assembly Bill 32 (AB32) framework to return California emissions to 1990 levels by 2020. 
+				</p>
+				<p>	
+					The California Cap and Trade Program is designed to achieve the cheapest emissions reductions across the capped sectors. It sets maximum, combined greenhouse gas emissions for all covered sectors each year (the “cap”), and allows covered entities to trade allowances (GHG permits). The California carbon price is a result of this trading. 
+				</p>
+				<p>	
+					The Cap and Trade Program is expected to drive [X%] of the targeted greenhouse gas reductions by 2020, while complementary carbon policies will achieve the rest. For more information on how cap and trade systems work, check this out.
+				</p>	
+				<p>
+					The Cap and Trade Program covers the power and industrial sector starting in 2013 and will expand to cover transportation fuels in 2015. The California Air Resources Board (CARB) auctions allowances to covered entities. Electric utilities and some industrial emitters receive freely allocated allowances; free allocation decreases over time. Regulated entities can also meet 8% of their obligations by buying CARB-approved offsets — emissions reductions from uncapped sectors. 
+				</p>
+		</div>
+		<div id = "bargraphs">
 			<!-- the tabs -->
 			<ul class="tabs">
-				<li><a href="#"><h2>CAP AND TRADE</h2></a></li>
-				<li><a href="#"><h2>COMPLEMENTARY POLICIES</h2></a></li>
-				<li><a href="#"><h2>EMISSIONS HISTORY</h2></a></li>
+				<li><a href="#" style = "float:left"><h2>EMISSIONS CAP</h2></a></li>
+				<li><a href="#"><h2>  &nbsp;  COMPLEMENTARY POLICIES</h2></a></li>
+				<li style = "float:right"><a href="#" ><h2>EMISSIONS HISTORY</h2></a></li>
 			</ul>
 			
 			<!-- tab "panes" -->
 			<div class="panes">
 				<div id = "allodiv">
-						<p>					
-							California's cap and trade system kicked off in 2013 with the overarching goal of returning emissions to 1990 levels by 2020. The program starts with the electric and industrial sectors, and includes transportation fuels starting in 2015.  The cap works by setting the maximum total emissions for regulated sectors (it increases in 2015 with the inclusion of the transportation sector), and allowing facilities to trade so the cheapest reductions take place.  Regulated entities can also meet their obligations by buying offsets, which guarantee emissions reductions elsewhere.  For more on how cap and trade works, check <a href="http://www.c2es.org/docUploads/Cap&Trade.pdf">this</a> out.
-						</p>
 						<p>
-							This graphic shows projected business-as-usual emissions through 2020.  Capped sectors are colored in red, and the overlaid black line indicates the cap for that year.  Note that permits not used in a given year can be saved for a future year ("banked"), but permits for future years cannot be "borrowed" to meet current obligations.  Mouse over a sector to see how permits are allocated.
+							This graphic shows projected business-as-usual emissions through 2020 for capped and uncapped sectors. The overlaid black line indicates the cap for each year. 
+							<i>Mouse over a sector to see how permits are allocated to each sector.	</i>
 						</p>
 						<script type="text/javascript">
 							var allocation = ["", 
@@ -119,7 +131,8 @@
 				</div>
 				<div id = "compdiv">
 						<p>
-							California's cap and trade system is a backstop &#8212; a number of other important policies are in place to achieve the bulk of required emissions reductions.  This graphic shows 2020 business-as-usual greenhouse gas emissions, the contributions of complementary policies, and the 2020 cap. Mouse over for overviews of the policies for each sector.
+							California's cap and trade system is a backstop &#8212; a number of other important policies are in place to achieve the bulk of required emissions reductions.  This graphic shows 2020 business-as-usual greenhouse gas emissions, the contributions of complementary policies, and the 2020 cap. 
+							<i>Mouse over for overviews of the policies for each sector.</i>
 						</p>
 						<script type="text/javascript">
 							var othernames = ["", 
@@ -137,7 +150,8 @@
 				</div>
 				<div id = "histdiv">
 						<p>
-							For decades, emissions in California have come primarily from the transportation, electric, and industrial sectors.  Mouse over to see sector names.
+							For decades, emissions in California have come primarily from the transportation, electric, and industrial sectors.  
+							<i>Mouse over to see sector names.</i>
 						</p>
 						<script type="text/javascript">
 							var sectornames = ["", 
@@ -153,6 +167,7 @@
 							bargraph("history_data.csv", sectornames, "histdiv");
 						</script>
 				</div>
+			</div>
 			</div>
 		</div>
 
