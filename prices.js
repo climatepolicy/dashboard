@@ -1,21 +1,23 @@
-var margin = {top: 10, right: 50, bottom: 30, left: 25},
-    width = document.getElementById("pricediv").offsetWidth-180,
-    height = document.getElementById("pricediv").offsetHeight-100;
+var margin = {top: 10, right: 20, bottom: 30, left: 25},
+    width = document.getElementById("pricediv").offsetWidth-60,
+    height = 230;
 
 var parseDate = d3.time.format("%m/%d/%Y").parse,
     bisectDate = d3.bisector(function(d) { return d.date; }).left,
     formatValue = d3.format(",.2f"),
+    formatDate = d3.time.format("%B %e"),
     formatCurrency = function(d) { return "$" + formatValue(d); };
 
 var x = d3.time.scale()
-    .range([0, width]);
+    .range([0, width-30]);
 
 var y = d3.scale.linear()
     .range([height, 0]);
 
 var xAxis = d3.svg.axis()
     .scale(x)
-    .tickFormat(d3.time.format("%-m/%y"))
+    .tickFormat(d3.time.format("%Y"))
+    .ticks(d3.time.years, 1)
     .orient("bottom");
 
 var yAxis = d3.svg.axis()
@@ -87,6 +89,22 @@ d3.csv("carbon_prices.csv", function(error, data) {
 
   focus.append("text")
       .attr("x", 9)
+      .style("background-color",'white')
+      .attr("dy", ".35em");
+      
+  var currentDate = svg.append("g")
+      .attr("class", "focus");
+
+  currentDate.append("line")
+      .attr("x0", 0)
+      .attr("y0", 0)
+      .attr("x1", 0)
+      .attr("y1", -height)
+      .style("stroke", "gray");
+      
+  currentDate.append("text")
+      .style("text-anchor", "middle")
+      .attr("x", 9)
       .attr("dy", ".35em");
 	
   focusIt();
@@ -100,8 +118,11 @@ d3.csv("carbon_prices.csv", function(error, data) {
       .on("mousemove", mousemove);
       
   function focusIt(){
-  	focus.attr("transform", "translate(" + width + "," + y(data[data.length-1].close) + ")");
+  	focus.attr("transform", "translate(" + (width-30) + "," + y(data[data.length-1].close) + ")");
   	focus.select("text").text(formatCurrency(data[data.length-1].close));
+  	
+  	currentDate.attr("transform", "translate(" + (width-30) + "," + height + ")");
+    currentDate.select("text").text(formatDate(data[data.length-1].date));
   }
 
   function mousemove() {
@@ -112,5 +133,8 @@ d3.csv("carbon_prices.csv", function(error, data) {
         d = x0 - d0.date > d1.date - x0 ? d1 : d0;
     focus.attr("transform", "translate(" + x(d.date) + "," + y(d.close) + ")");
     focus.select("text").text(formatCurrency(d.close));
+    
+    currentDate.attr("transform", "translate(" + x(d.date) + "," + height + ")");
+    currentDate.select("text").text(formatDate(d.date));
   }
 });

@@ -16,6 +16,26 @@ a{color:#F96302; text-decoration:none;}
 	float: left;
 }
 
+#capandtrade{
+	width:320px;
+	float:left;
+	padding-right:20px;
+}
+
+#bargraphs{
+	height:100%;
+	width:760px;
+	float:left;
+}
+
+#lower{
+	margin-top:20px;
+	height:800px;
+	width:100%;
+	overflow:hidden;
+
+}
+
 .axis path{
   stroke: #000000 ;
   fill: #FFFFFF;
@@ -96,6 +116,7 @@ ul.tabs {
     list-style:none;
     padding:0;
     height:30px;
+    margin:0;
 }
 
 /* single tab */
@@ -105,7 +126,6 @@ ul.tabs li {
     padding:0;
     margin:0 !important;
     list-style-image:none !important;
-    width: 33%;
 }
 
 /* link inside the tab. uses a background image */
@@ -155,7 +175,7 @@ ul.tabs a.current, ul.tabs a.current:hover, ul.tabs li.current a {
 }
 
 .updatewrapper{
-	height: 220px;
+	height: 275px;
 	width: 45%;
 	float:right;
 	overflow-y:scroll;
