@@ -78,10 +78,11 @@ h1{font-family: 'ChaparralProRegular'; color:#666; margin-top:0px; padding: 0px;
 
 h2{font-family: 'ChaparralProRegular'; color:#666; margin:0px; padding: 0px;}
 
-h1#logo a { width:271px; height:121px; background:url('http://climatepolicyinitiative.org/wp-content/themes/cpi/images/logo.png') no-repeat 0 0; float:right; display:inline; }
+#title {width:816px; height:121px; background:url('California-Carbon-Price-Dashboard-Header-Left.png') no-repeat left center; float:left; display:inline; }
+#logo a { width:133px; height:121px; margin-right: 10px; background:url('California-Carbon-Price-Dashboard-Header-Right.png') no-repeat right center; float:right; display:inline; }
 .notext { font-size: 0; line-height: 0; text-indent: -4000px; }
 
-#header{height: 121px; margin-top:30px; margin-bottom: 30px;}
+#header{height: 121px; margin-top:30px; margin-bottom: 30px; background-color:#DEDEDE; vertical-align:center; border-top-left-radius: 5px; border-top-right-radius: 5px;}
 
 
 .axis path,
