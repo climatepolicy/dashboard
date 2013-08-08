@@ -10,27 +10,27 @@ a{color:#F96302; text-decoration:none;}
 }
 
 #pricediv{
-	height: 300px;
+	height: 18.75em;
 	width:50%;
 	overflow:auto;
 	float: left;
 }
 
 #capandtrade{
-	width:320px;
+	width:20em;
 	float:left;
-	padding-right:20px;
+	padding-right:1.25em;
 }
 
 #bargraphs{
 	height:100%;
-	width:760px;
+	width:47.5em;
 	float:left;
 }
 
 #lower{
-	margin-top:20px;
-	height:800px;
+	margin-top:1.25em;
+	height:50em;
 	width:100%;
 	overflow:hidden;
 
@@ -39,14 +39,19 @@ a{color:#F96302; text-decoration:none;}
 .axis path{
   stroke: #000000 ;
   fill: #FFFFFF;
-  stroke-width: 1.5px;
+  stroke-width: 0.1em;
 }
 
 .axis text{
  font-family: 'CronosProLight'; color:#666;
 }
 
-p{ margin-top: 10px; font-family: 'CronosProLight'; color:#666; font-size: 16px;}
+p{margin-top: 0.5em; font-family: 'CronosProLight'; color:#666; font-size: 1em;}
+
+.subtext {
+	font-size: 0.75em;
+	margin-top: 0em !important;
+}
 
 @font-face {
     font-family: 'ChaparralProRegular';
@@ -74,9 +79,9 @@ p{ margin-top: 10px; font-family: 'CronosProLight'; color:#666; font-size: 16px;
 
 }
 
-h1{font-family: 'ChaparralProRegular'; color:#666; margin-top:0px; padding: 0px;}
+h1{font-family: 'ChaparralProRegular'; color:#666; margin-top:0em; padding: 0em;}
 
-h2{font-family: 'ChaparralProRegular'; color:#666; margin:0px; padding: 0px;}
+h2{font-family: 'ChaparralProRegular'; color:#666; margin:0em; padding: 0em;}
 
 #title {width:816px; height:121px; background:url('California-Carbon-Price-Dashboard-Header-Left.png') no-repeat left center; float:left; display:inline; }
 #logo a { width:133px; height:121px; margin-right: 10px; background:url('California-Carbon-Price-Dashboard-Header-Right.png') no-repeat right center; float:right; display:inline; }
@@ -99,7 +104,7 @@ h2{font-family: 'ChaparralProRegular'; color:#666; margin:0px; padding: 0px;}
 .line {
   fill: none;
   stroke: #F96302;
-  stroke-width: 1.5px;
+  stroke-width: 0.09375em;
 }
 
 .overlay {
@@ -116,7 +121,7 @@ h2{font-family: 'ChaparralProRegular'; color:#666; margin:0px; padding: 0px;}
 ul.tabs {
     list-style:none;
     padding:0;
-    height:30px;
+    height:2em;
     margin:0;
 }
 
@@ -133,15 +138,15 @@ ul.tabs li {
 ul.tabs a {
     font-family: 'ChaparralProRegular';
     display:block;
-    height: 30px;
-    line-height:30px;
+    height: 2em;
+    line-height:2em;
     text-align:center;
     text-decoration:none;
     color:#666;
-    padding:0px;
-    margin:0px;
+    padding:0em;
+    margin:0em;
     position:relative;
-    top:1px;
+    top:0.1em;
     opacity:0.25;
 }
 
@@ -167,7 +172,9 @@ ul.tabs a.current, ul.tabs a.current:hover, ul.tabs li.current a {
 /*STYLING FOR TOP TABS*/
 
 .update_panes{
-	height: 300px;
+	height: 18.75em;
+	width:45%;
+	float:right;
 }
 .update_tabs{
 	float:right;
@@ -176,8 +183,7 @@ ul.tabs a.current, ul.tabs a.current:hover, ul.tabs li.current a {
 }
 
 .updatewrapper{
-	height: 275px;
-	width: 45%;
+	height: 15em;
 	float:right;
 	overflow-y:scroll;
 }
@@ -203,10 +209,10 @@ ul.update_tabs a{
 	
 
     text-decoration:none;
-    padding:0px;
-    margin:0px;
+    padding:0em;
+    margin:0em;
     position:relative;
-    top:1px;
+    top:0.1em;
 }
 
 /* when mouse enters the tab*/
