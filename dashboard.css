@@ -30,7 +30,7 @@ a{color:#F96302; text-decoration:none;}
 
 #lower{
 	margin-top:1.25em;
-	height:50em;
+	height:40em;
 	width:100%;
 	overflow:hidden;
 
@@ -184,7 +184,7 @@ ul.tabs a.current, ul.tabs a.current:hover, ul.tabs li.current a {
 
 .updatewrapper{
 	height: 15em;
-	float:right;
+	float:left;
 	overflow-y:scroll;
 }
 
