@@ -63,6 +63,7 @@
 	        <div id = "pricediv">
 				<h2>CARBON PRICE</h2>
 				<script type="text/javascript" src ="prices.js"></script>
+				<p class = "subtext">Source: not yet final.</p>
 			</div>
 	    	
    	
@@ -71,20 +72,33 @@
 				<li><a href="#" style="text-align:left"><h2>NEWS</h2></a></li>
 				<li><a href="#"><h2>ARB UPDATES</h2></a></li>
 				<li><a href="#" style="text-align:right"><h2>TWEETS</h2></a></li>
+				
 			</ul>
 			
 			<!-- tab "panes" -->
 			<div class="update_panes">
-				<div id="news" class = "updatewrapper"><p>Loading...</p></div>
-				<div id="content" class = "updatewrapper"><p>Loading...</p></div>
-				<div id = "tweets" class = "updatewrapper" style = "overflow: hidden">
-					<a class="twitter-timeline" height = "275" href="https://twitter.com/search?q=%23ab32" data-widget-id="347851819915042816" data-chrome="noheader transparent nofooter">Tweets about "#ab32"</a>
-					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>		
+				<div>
+					<div id="news" class = "updatewrapper"><p>Loading...</p></div>
+					<p class = "subtext" style = "float:left">This content is live-updated from <a href = "https://www.google.com/search?hl=en&gl=us&tbm=nws&authuser=0&q=ab32+california&oq=ab32+california&gs_l=news-cc.3..43j43i53.821.858.0.1428.9.2.0.0.0.0.216.369.0j1j1.2.0...0.0...1ac.1.cRPXqp5Zva4">Google News</a> and is not curated by Climate Policy Initiative.</p>
 				</div>
-			</div>
+				<div >
+					<div id="content" class = "updatewrapper"><p>Loading...</p></div>
+					<p class = "subtext" style = "float:left">This content is live-updated from the <a href = "http://www.arb.ca.gov/lispub/rss/listserv.rss">California Air Resources Board</a> and is not curated by Climate Policy Initiative.</p>
+				</div>
+				<div>
+					<div id = "tweets" class = "updatewrapper" style = "overflow: hidden">
+					<a class="twitter-timeline" height = "272" href="https://twitter.com/search?q=%23ab32" data-widget-id="347851819915042816" data-chrome="noheader transparent nofooter">Tweets about "#ab32"</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>		
+					</div>
+					<div>
+						<p class = "subtext" style = "float:left">
+							This content is live-updated from <a href = "https://twitter.com/search?q=%23ab32&mode=relevance&src=typd">Twitter</a> and is not curated by Climate Policy Initiative.
+						</p>
+					</div>
+				</div>
+			</div>		
+		</div>
 
- 		</div>
- 		
 		<div id = "lower" style = "vertical-align:top">
 		<div id = "capandtrade">
 			<h2>CAP AND TRADE</h2>
@@ -129,6 +143,7 @@
 								];
 							bargraph("projection_data.csv", allocation, "allodiv");
 						</script>
+						<p class = "subtext">Source: Annual figures are linearly interpolated based on the California Air Resources Board's <a href = "http://www.arb.ca.gov/cc/inventory/inventory.htm">Greenhouse Gas Emissions Inventory</a> and <a href = "http://www.arb.ca.gov/cc/inventory/data/forecast.htm">2020 Emissions Forecast</a>.</p>
 				</div>
 				<div id = "compdiv">
 						<p>
@@ -148,6 +163,7 @@
 								];
 							bargraph("inventory_data.csv", othernames, "compdiv");
 						</script>
+						<p class = "subtext">Source: The California Air Resources Board's <a href = "http://www.arb.ca.gov/cc/scopingplan/scopingplan.htm">2013 Update to the AB32 Scoping Plan</a>.</p>
 				</div>
 				<div id = "histdiv">
 						<p>
@@ -167,11 +183,17 @@
 								];
 							bargraph("history_data.csv", sectornames, "histdiv");
 						</script>
+						<p class = "subtext">Source: The California Air Resources Board's <a href = "http://www.arb.ca.gov/cc/inventory/inventory.htm">Greenhouse Gas Emissions Inventory</a>.</p>
 				</div>
 			</div>
 			</div>
 		</div>
 
-	</body>		
+	</body>	
+	<footer>
+		<p>
+			This page was built  Open Source projects, including <a href = "http://d3js.org/">D3.js</a>,  <a href = "https://developers.google.com/feed/">Google Feed API</a>, and <a href = "http://jquerytools.org/">jQuery Tools </a>. 
+		</p>	
+	</footer>	
 		
 </html>
