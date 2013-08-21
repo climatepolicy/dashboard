@@ -186,6 +186,7 @@ ul.tabs a.current, ul.tabs a.current:hover, ul.tabs li.current a {
 	height: 15em;
 	float:left;
 	overflow-y:scroll;
+	width: 100%;
 }
 
 ul.update_tabs {
