@@ -225,3 +225,14 @@ ul.update_tabs a.current, ul.update_tabs a.current:hover, ul.update_tabs li.curr
     cursor:default !important;
     opacity: 1.0 !important;
 }
+
+/*tables*/
+table, th, td{
+	margin-top: 0.5em; 
+	font-family: 'CronosProLight'; 
+	color:#666; 
+	font-size: 1em;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    border-collapse: collapse;
+}​
