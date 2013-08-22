@@ -37,7 +37,7 @@
 		// perform JavaScript after the document is scriptable.
 		$(function() {
 		    // setup ul.tabs to work as tabs for each div directly under div.panes
-		    $("ul.tabs").tabs("div.panes > div");
+		    $("table.tabs").tabs("div.panes > div");
 		});
 		$(function() {
 		    // setup ul.tabs to work as tabs for each div directly under div.panes
@@ -116,12 +116,13 @@
 		</div>
 		<div id = "bargraphs">
 			<!-- the tabs -->
-			<ul class="tabs">
-				<li><a href="#" style = "float:left"><h2>EMISSIONS CAP</h2></a></li>
-				<li><a href="#"><h2>  &nbsp;  COMPLEMENTARY POLICIES</h2></a></li>
-				<li style = "float:right"><a href="#" ><h2>EMISSIONS HISTORY</h2></a></li>
-			</ul>
-			
+			<table class = "tabs" cellspacing="0" cellpadding="0">
+				<tr>
+					<th><a href="#" style = "float:left"><h2>EMISSIONS CAP</h2></a></th>
+					<th><a href="#"><h2>COMPLEMENTARY POLICIES</h2></a></th>
+					<th><a href="#" style = "float:right"><h2>EMISSIONS HISTORY</h2></a></th>
+				</tr>
+			</table>
 			<!-- tab "panes" -->
 			<div class="panes">
 				<div id = "allodiv">
