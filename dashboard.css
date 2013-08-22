@@ -30,10 +30,8 @@ a{color:#F96302; text-decoration:none;}
 
 #lower{
 	margin-top:1.25em;
-	height:40em;
 	width:100%;
 	overflow:hidden;
-
 }
 
 .axis path{
@@ -46,10 +44,10 @@ a{color:#F96302; text-decoration:none;}
  font-family: 'CronosProLight'; color:#666;
 }
 
-p{margin-top: 0.5em; font-family: 'CronosProLight'; color:#666; font-size: 1em;}
+p{margin-top: 0.5em; font-family: 'CronosProLight'; color:#666; font-size: 1.2em;}
 
 .subtext {
-	font-size: 0.75em;
+	font-size: 1em;
 	margin-top: 0em !important;
 }
 
@@ -81,7 +79,7 @@ p{margin-top: 0.5em; font-family: 'CronosProLight'; color:#666; font-size: 1em;}
 
 h1{font-family: 'ChaparralProRegular'; color:#666; margin-top:0em; padding: 0em;}
 
-h2{font-family: 'ChaparralProRegular'; color:#666; margin:0em; padding: 0em;}
+h2{font-family: 'ChaparralProRegular'; color:#666; margin:0em; padding: 0em; font-size: 1.2em;}
 
 #title {width:816px; height:121px; background:url('California-Carbon-Price-Dashboard-Header-Left.png') no-repeat left center; float:left; display:inline; }
 #logo a { width:133px; height:121px; margin-right: 10px; background:url('California-Carbon-Price-Dashboard-Header-Right.png') no-repeat right center; float:right; display:inline; }
@@ -118,46 +116,49 @@ h2{font-family: 'ChaparralProRegular'; color:#666; margin:0em; padding: 0em;}
 }
 
 /* root element for tabs  */
-ul.tabs {
-    list-style:none;
+table.tabs {
     padding:0;
-    height:2em;
     margin:0;
+    width: 100%;
+   	margin-top: 0em; 
+	font-family: 'CronosProLight'; 
+	color:#666; 
+	font-size: 1em;
+    border: none;
+    border-collapse: collapse;
 }
 
 /* single tab */
-ul.tabs li {
-    float:left;
+table.tabs th {
     text-indent:0;
     padding:0;
     margin:0 !important;
+    width:auto;
     list-style-image:none !important;
+    border:none;
 }
 
 /* link inside the tab. uses a background image */
-ul.tabs a {
+table.tabs a {
     font-family: 'ChaparralProRegular';
     display:block;
-    height: 2em;
-    line-height:2em;
     text-align:center;
     text-decoration:none;
     color:#666;
     padding:0em;
     margin:0em;
     position:relative;
-    top:0.1em;
     opacity:0.25;
 }
 
 /* when mouse enters the tab move the background image */
-ul.tabs a:hover {
+table.tabs a:hover {
     color:#F96302;
 }
 
 
 /* active tab uses a class name "current" */
-ul.tabs a.current, ul.tabs a.current:hover, ul.tabs li.current a {
+table.tabs a.current, table.tabs a.current:hover, table.tabs th.current a {
     cursor:default !important;
     opacity: 1.0 !important;
 }
@@ -236,4 +237,12 @@ table, th, td{
     border-bottom: 1px solid black;
     border-top: 1px solid black;
     border-collapse: collapse;
+}
+
+table p{
+	font-size: 1em;
+}
+table p.subtext{
+	font-style: italic;
+	font-size: 1em;
 }​
