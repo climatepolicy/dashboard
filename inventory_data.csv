@@ -1,19 +1,1 @@
-date,Blank,Transportation,Electric Power,Commercial and Residential,Industrial,Recycling and Waste,High GWP,Agriculture,Forestry,cap,policy,view
-BAU 2020,0,210,122.4,45.3,91.5,8.5,37.9,29.1,0.2,334.2,0,1
-Pavley,518.8,26.1,, ,,,,,,334.2,1,1
-RPS,506.8,,12,,,,,,,334.2,1,1
-Pavley II,503,3.8,,,,,,,,334.2,1,1
-RES,489.6,,12,,,,,,,334.2,1,1
-LCFS,474.6,15, ,,,,,,,334.2,1,1
-EE,462.7,,,11.9,,,,,,334.2,1,1
-Regional Transportation Targets,459.7,3,,,,,,,,334.2,1,1
-Vehicle Efficiency Measures,455.2,4.5,,,,,,,,334.2,1,1
-Goods Movement,451.7,3.5,,,,,,,,334.2,1,1
-Million Solar Roofs,450.6,,1.1,,,,,,,334.2,1,1
-Medium/Heavy Duty Vehicles,449.2,1.4,,,,,,,,334.2,1,1
-High Speed Rail,448.2,1,,,,,,,,334.2,1,1
-Industrial Audits,447.9,,,,0.3,,,,,334.2,1,1
-High GWP,427.7,,,,,,20.2,,,334.2,1,1
-Sustainable Forests,422.7,,,,,,,,5,334.2,1,1
-Recycling/Waste,421.2,,,,,1.5,,,,334.2,1,1
-Post AB32,,151.7,95.9,33.4,91.2,7,17.7,29.1,-4.8,334.2,0,1
+date,Blank,Transportation,Electric Power,Commercial and Residential,Industrial,Recycling and Waste,High GWP,Agriculture,Forestry,cap,policy,view,linkBusiness-as-Usual 2020,0,210,122.4,45.3,91.5,8.5,37.9,29.1,0.2,334.2,0,1, Clean Cars (Pavley Standards),518.8,26.1,, ,,,,,,334.2,1,1,http://www.arb.ca.gov/cc/ccms/ccms.htmRenewable Portfolio Standard,506.8,,12,,,,,,,334.2,1,1,http://www.cpuc.ca.gov/PUC/energy/Renewables/Advanced Clean Cars (Pavley II),503,3.8,,,,,,,,334.2,1,1,http://www.arb.ca.gov/msprog/consumer_info/advanced_clean_cars/consumer_acc.htmRenewable Energy Standard,489.6,,12,,,,,,,334.2,1,1,http://www.arb.ca.gov/regact/2010/res2010/res10isor.pdfLow Carbon Fuel Standard,474.6,15, ,,,,,,,334.2,1,1,http://www.arb.ca.gov/fuels/lcfs/lcfs.htmEnergy Efficiency,462.7,,,11.9,,,,,,334.2,1,1,http://www.cpuc.ca.gov/PUC/energy/Energy+Efficiency/Regional Transportation Targets,459.7,3,,,,,,,,334.2,1,1,http://arb.ca.gov/cc/sb375/staffreport_sb375080910.pdfVehicle Efficiency Measures,455.2,4.5,,,,,,,,334.2,1,1,http://www.arb.ca.gov/regact/2009/tirepres09/tireisor.pdfGoods Movement,451.7,3.5,,,,,,,,334.2,1,1,http://www.arb.ca.gov/planning/gmerp/gmerp.htmMillion Solar Roofs,450.6,,1.1,,,,,,,334.2,1,1,http://www.cpuc.ca.gov/PUC/energy/Solar/aboutsolar.htmMedium/Heavy Duty Vehicles,449.2,1.4,,,,,,,,334.2,1,1,http://www.arb.ca.gov/regact/2008/ghghdv08/ghgisor.pdfHigh Speed Rail,448.2,1,,,,,,,,334.2,1,1,http://www.hsr.ca.gov/Industrial Audits,447.9,,,,0.3,,,,,334.2,1,1,http://www.arb.ca.gov/cc/energyaudits/energyaudits.htmHigh Global Warming Potential Gases,427.7,,,,,,20.2,,,334.2,1,1,http://www.arb.ca.gov/cc/ghgsectors/ghgsectors.htm#highSustainable Forests,422.7,,,,,,,,5,334.2,1,1,http://www.arb.ca.gov/cc/forestry/forestry.htmRecycling/Waste Measures,421.2,,,,,1.5,,,,334.2,1,1,http://www.arb.ca.gov/cc/waste/waste.htmPost-AB32 2020,,151.7,95.9,33.4,91.2,7,17.7,29.1,-4.8,334.2,0,1,

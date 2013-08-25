@@ -79,7 +79,7 @@ p{margin-top: 0.5em; font-family: 'CronosProLight'; color:#666; font-size: 1.2em
 
 h1{font-family: 'ChaparralProRegular'; color:#666; margin-top:0em; padding: 0em;}
 
-h2{font-family: 'ChaparralProRegular'; color:#666; margin:0em; padding: 0em; font-size: 1.2em;}
+h2{font-family: 'ChaparralProRegular'; color:#F96302; margin:0em; padding: 0em; font-size: 1.2em;}
 
 #title {width:816px; height:121px; background:url('California-Carbon-Price-Dashboard-Header-Left.png') no-repeat left center; float:left; display:inline; }
 #logo a { width:133px; height:121px; margin-right: 10px; background:url('California-Carbon-Price-Dashboard-Header-Right.png') no-repeat right center; float:right; display:inline; }
