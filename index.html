@@ -23,6 +23,8 @@
 		<link rel="stylesheet" href="dashboard.css" type="text/css" media="screen" />
 		
 		<script type="text/javascript" src ="bargraph.js"></script>
+		<script type="text/javascript" src ="compgraph.js"></script>
+		
 		
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 		
@@ -54,6 +56,7 @@
     </head>
 
     <body>
+    	<p style = "text-align:center">THIS IS A WORK IN PROGRESS AND MAY CONTAIN ERRORS - NOT FOR CIRCULATION.</p>
     	<div id = "header">
     	<div id = "title"><a class="notext" href="http://climatepolicyinitiative.org/">CPI</a></div>
     	<div id = "logo"><a class="notext" href="http://climatepolicyinitiative.org/">CPI</a></div>
@@ -148,7 +151,7 @@
 				<div id = "compdiv">
 						<p>
 							California's cap and trade system is a backstop &#8212; a number of other important policies are in place to achieve the bulk of required emissions reductions.  This graphic shows 2020 business-as-usual greenhouse gas emissions, the contributions of complementary policies, and the 2020 cap. 
-							<i>Mouse over for overviews of the policies for each sector.</i>
+							<i>Mouse over to see which policies apply to a given sector.  Click on any policy for more details.</i>
 						</p>
 						<script type="text/javascript">
 							var othernames = ["", 
@@ -161,9 +164,9 @@
 								"<b>Agriculture</b> emissions aren't addressed by the cap or complementary policies, but offsets protocols may apply.", 
 								"Current <b>Forestry</b> sector emissions are almost nonexistent, but new programs are designed to make them a significant net carbon sink by 2020."
 								];
-							bargraph("inventory_data.csv", othernames, "compdiv");
+							compgraph("inventory_data.csv", othernames, "compdiv");
 						</script>
-						<p class = "subtext">Source: The California Air Resources Board's <a href = "http://www.arb.ca.gov/cc/scopingplan/scopingplan.htm">2013 Update to the AB32 Scoping Plan</a>.</p>
+						<p class = "subtext">Source: The California Air Resources Board's <a href = "http://www.arb.ca.gov/cc/scopingplan/sp_measures_implementation_timeline.pdf">Status of Scoping Plan Recommended Measures</a>.</p>
 				</div>
 				<div id = "histdiv">
 						<p>
