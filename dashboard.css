@@ -53,7 +53,7 @@ p{margin-top: 0.5em; font-family: 'CronosProLight'; color:#666; font-size: 1.2em
 
 @font-face {
     font-family: 'ChaparralProRegular';
-    src: url('http://climatepolicyinitiative.org/wp-content/themes/cpi/font-face/chaparralpro-regular-webfont.eot');
+    src: url('http://climatepolicyinitiative.org/wp-content/themes/cpi/font-face/chaparralpro-regular-webfont.eot?#iefix');
     src:local('ChaparralProRegular'),
 		url('http://climatepolicyinitiative.org/wp-content/themes/cpi/font-face/chaparralpro-regular-webfont.eot?#iefix') format('embedded-opentype'),
          url('http://climatepolicyinitiative.org/wp-content/themes/cpi/font-face/chaparralpro-regular-webfont.woff') format('woff'),
@@ -66,7 +66,7 @@ p{margin-top: 0.5em; font-family: 'CronosProLight'; color:#666; font-size: 1.2em
 
 @font-face {
     font-family: 'CronosProLight';
-    src: url('http://climatepolicyinitiative.org/wp-content/themes/cpi/font-face/cronospro-lt-webfont.eot');
+    src: url('http://climatepolicyinitiative.org/wp-content/themes/cpi/font-face/cronospro-lt-webfont.eot?#iefix');
     src: local('CronosProLight'),
 		url('http://climatepolicyinitiative.org/wp-content/themes/cpi/font-face/cronospro-lt-webfont.eot?#iefix') format('embedded-opentype'),
          url('http://climatepolicyinitiative.org/wp-content/themes/cpi/font-face/cronospro-lt-webfont.woff') format('woff'),
