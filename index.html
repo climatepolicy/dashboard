@@ -5,42 +5,31 @@
     	 <base target="_blank">
 
          <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		
+
 		<!-- D3.js Latest Version -->
 		<script src="http://d3js.org/d3.v3.min.js"></script>
-		
+
 		<!-- include jQuery Tools -->
   		<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
   		
-<<<<<<< HEAD
   		<!-- CPI icon -->
   		<link rel="shortcut icon" href="http://climatepolicyinitiative.org/wp-content/themes/cpi/images/favicon.ico?cb=1" />
   		  		
-=======
-  		<link rel="shortcut icon" href="http://climatepolicyinitiative.org/wp-content/themes/cpi/images/favicon.ico?cb=1" />
-
-		
-		<!-- CPI Style Stuff 
-		<link rel="stylesheet" href="http://climatepolicyinitiative.org/wp-content/themes/cpi/style.css" type="text/css" media="screen" />
-		<link rel="stylesheet" href="http://climatepolicyinitiative.org/?setup_color_scheme=1" type="text/css" media="screen" />
-		<link rel="pingback" href="http://climatepolicyinitiative.org/xmlrpc.php" />-->
-		
->>>>>>> gh-pages
 		<link rel="stylesheet" href="dashboard.css" type="text/css" media="screen" />
-		
+
 		<script type="text/javascript" src ="bargraph.js"></script>
 		<script type="text/javascript" src ="compgraph.js"></script>
-		
-		
+
+
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-		
+
 		<script type="text/javascript" src ="newsfeed.js"></script>
-		
+
 		<script type="text/javascript">
 			feedme("https://news.google.com/news/feeds?um=1&ned=us&hl=en&q=ab32+california&output=rss", "news", "",100);
 			feedme("http://www.arb.ca.gov/lispub/rss/listserv.rss", "content", "arbcombo", 150)
 		</script>
-		
+
 		<script>
 		// perform JavaScript after the document is scriptable.
 		$(function() {
@@ -50,16 +39,12 @@
 		$(function() {
 		    // setup ul.tabs to work as tabs for each div directly under div.panes
 		    $("ul.update_tabs").tabs("div.update_panes > div", {
-<<<<<<< HEAD
 			 	interval:7000,
-=======
-			 	interval:5000,
->>>>>>> gh-pages
 			    rotate: true
 		    }).slideshow();
 		    $("ul.update_tabs").data("slideshow").play();
 		});
-		
+
 		</script>
         
 		<title>California Carbon Dashboard</title>
@@ -78,16 +63,16 @@
 				<p class = "subtext">Price of 2013 California GHG <span title = "An allowance is a tradable permit that allows the emission of one metric ton of CO2e." style="color:blue">Allowance</span> Futures. See prices for <a href = "https://www.theice.com/productguide/ProductSpec.shtml?specId=26190238">2013</a>, <a href = "https://www.theice.com/productguide/ProductSpec.shtml;jsessionid=4C0CF40265173EAF3661845192076191?specId=6747557#data">2014</a>, <a href = "https://www.theice.com/productguide/ProductSpec.shtml?specId=6747558#data">2015</a>, <a href = "https://www.theice.com/productguide/ProductSpec.shtml?specId=20328818">2016</a>.</p>
 
 			</div>
-	    	
+
    	
     		<!-- the tabs -->
 			<ul class="update_tabs">
 				<li><a href="#" style="text-align:left"><h2>NEWS</h2></a></li>
 				<li><a href="#"><h2>ARB UPDATES</h2></a></li>
 				<li><a href="#" style="text-align:right"><h2>TWEETS</h2></a></li>
-				
+
 			</ul>
-			
+
 			<!-- tab "panes" -->
 			<div class="update_panes">
 				<div style = "width: 100%">
@@ -296,7 +281,7 @@
 			<td>Auction Reserve Price: </td>
 			<td>
 				<p>For each auction, CARB sets an Auction Reserve Price—a minimum price below which allowances cannot be sold at auction. The Regulation (<a href = "http://www.arb.ca.gov/cc/capandtrade/ct_rf_april2013.pdf#page=135">§ 95911</a>) set the first 2012 Auction Reserve Price at $10/allowance for both the current and advanced auctions. The Auction Reserve Price increases annually by 5% plus the rate of inflation (Consumer Price Index for All Urban Consumers). </p>
-				
+
 				<p class = "subtext">For more details, see CARB’s Regulatory Guidance Document <a href = "http://www.arb.ca.gov/cc/capandtrade/guidance/chapter5.pdf#page=7">Section 5.4.1</a></p>
 			</td>
 		</tr>
@@ -334,7 +319,7 @@
 					<li><a href = "http://www.arb.ca.gov/regact/2010/capandtrade10/coplivestockfin.pdf">Livestock Projects Compliance Offset Protocol</a href = "Livestock Projects Compliance Offset Protocol "> </li>
 					<li><a href = "http://www.arb.ca.gov/regact/2010/capandtrade10/copodsfin.pdf">ODS Compliance Offset Protocol</a href = "http://www.arb.ca.gov/regact/2010/capandtrade10/copodsfin.pdf"> </li>
 				</ul>
-				
+
 				<p class = "subtext">See <a href = "http://www.arb.ca.gov/cc/capandtrade/offsets/offsets.htm">here</a> for detailed and updated information on Compliance Offset Protocols.</p>
 			</td>
 		</tr>
@@ -349,7 +334,7 @@
 
 			</td>
 		</tr>
-		
+
 	</table>
 
 	</body>	
@@ -358,5 +343,5 @@
 			This page was built using several Open Source projects, including <a href = "http://d3js.org/">D3.js</a>,  <a href = "https://developers.google.com/feed/">Google Feed API</a>, and <a href = "http://jquerytools.org/">jQuery Tools </a>. 
 		</p>	
 	</footer>	
-		
+
 </html>
