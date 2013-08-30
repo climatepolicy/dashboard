@@ -10,27 +10,50 @@ a{color:#F96302; text-decoration:none;}
 }
 
 #pricediv{
-	height: 300px;
+	height: 18.75em;
 	width:50%;
 	overflow:auto;
 	float: left;
 }
 
+#capandtrade{
+	width:20em;
+	float:left;
+	padding-right:1.25em;
+}
+
+#bargraphs{
+	height:100%;
+	width:47.5em;
+	float:left;
+}
+
+#lower{
+	margin-top:1.25em;
+	width:100%;
+	overflow:hidden;
+}
+
 .axis path{
   stroke: #000000 ;
   fill: #FFFFFF;
-  stroke-width: 1.5px;
+  stroke-width: 0.1em;
 }
 
 .axis text{
  font-family: 'CronosProLight'; color:#666;
 }
 
-p{ margin-top: 10px; font-family: 'CronosProLight'; color:#666; font-size: 16px;}
+p{margin-top: 0.5em; font-family: 'CronosProLight'; color:#666; font-size: 1.2em;}
+
+.subtext {
+	font-size: 1em;
+	margin-top: 0em !important;
+}
 
 @font-face {
     font-family: 'ChaparralProRegular';
-    src: url('http://climatepolicyinitiative.org/wp-content/themes/cpi/font-face/chaparralpro-regular-webfont.eot');
+    src: url('http://climatepolicyinitiative.org/wp-content/themes/cpi/font-face/chaparralpro-regular-webfont.eot?#iefix');
     src:local('ChaparralProRegular'),
 		url('http://climatepolicyinitiative.org/wp-content/themes/cpi/font-face/chaparralpro-regular-webfont.eot?#iefix') format('embedded-opentype'),
          url('http://climatepolicyinitiative.org/wp-content/themes/cpi/font-face/chaparralpro-regular-webfont.woff') format('woff'),
@@ -43,7 +66,7 @@ p{ margin-top: 10px; font-family: 'CronosProLight'; color:#666; font-size: 16px;
 
 @font-face {
     font-family: 'CronosProLight';
-    src: url('http://climatepolicyinitiative.org/wp-content/themes/cpi/font-face/cronospro-lt-webfont.eot');
+    src: url('http://climatepolicyinitiative.org/wp-content/themes/cpi/font-face/cronospro-lt-webfont.eot?#iefix');
     src: local('CronosProLight'),
 		url('http://climatepolicyinitiative.org/wp-content/themes/cpi/font-face/cronospro-lt-webfont.eot?#iefix') format('embedded-opentype'),
          url('http://climatepolicyinitiative.org/wp-content/themes/cpi/font-face/cronospro-lt-webfont.woff') format('woff'),
@@ -54,14 +77,15 @@ p{ margin-top: 10px; font-family: 'CronosProLight'; color:#666; font-size: 16px;
 
 }
 
-h1{font-family: 'ChaparralProRegular'; color:#666; margin-top:0px; padding: 0px;}
+h1{font-family: 'ChaparralProRegular'; color:#666; margin-top:0em; padding: 0em;}
 
-h2{font-family: 'ChaparralProRegular'; color:#666; margin:0px; padding: 0px;}
+h2{font-family: 'ChaparralProRegular'; color:#F96302; margin:0em; padding: 0em; font-size: 1.2em;}
 
-h1#logo a { width:271px; height:121px; background:url('http://climatepolicyinitiative.org/wp-content/themes/cpi/images/logo.png') no-repeat 0 0; float:right; display:inline; }
+#title {width:816px; height:121px; background:url('California-Carbon-Price-Dashboard-Header-Left.png') no-repeat left center; float:left; display:inline; }
+#logo a { width:133px; height:121px; margin-right: 10px; background:url('California-Carbon-Price-Dashboard-Header-Right.png') no-repeat right center; float:right; display:inline; }
 .notext { font-size: 0; line-height: 0; text-indent: -4000px; }
 
-#header{height: 121px; margin-top:30px; margin-bottom: 30px;}
+#header{height: 121px; margin-top:30px; margin-bottom: 30px; background-color:#DEDEDE; vertical-align:center; border-top-left-radius: 5px; border-top-right-radius: 5px;}
 
 
 .axis path,
@@ -78,7 +102,7 @@ h1#logo a { width:271px; height:121px; background:url('http://climatepolicyiniti
 .line {
   fill: none;
   stroke: #F96302;
-  stroke-width: 1.5px;
+  stroke-width: 0.09375em;
 }
 
 .overlay {
@@ -92,46 +116,49 @@ h1#logo a { width:271px; height:121px; background:url('http://climatepolicyiniti
 }
 
 /* root element for tabs  */
-ul.tabs {
-    list-style:none;
+table.tabs {
     padding:0;
-    height:30px;
+    margin:0;
+    width: 100%;
+   	margin-top: 0em; 
+	font-family: 'CronosProLight'; 
+	color:#666; 
+	font-size: 1em;
+    border: none;
+    border-collapse: collapse;
 }
 
 /* single tab */
-ul.tabs li {
-    float:left;
+table.tabs th {
     text-indent:0;
     padding:0;
     margin:0 !important;
+    width:auto;
     list-style-image:none !important;
-    width: 33%;
+    border:none;
 }
 
 /* link inside the tab. uses a background image */
-ul.tabs a {
+table.tabs a {
     font-family: 'ChaparralProRegular';
     display:block;
-    height: 30px;
-    line-height:30px;
     text-align:center;
     text-decoration:none;
     color:#666;
-    padding:0px;
-    margin:0px;
+    padding:0em;
+    margin:0em;
     position:relative;
-    top:1px;
     opacity:0.25;
 }
 
 /* when mouse enters the tab move the background image */
-ul.tabs a:hover {
+table.tabs a:hover {
     color:#F96302;
 }
 
 
 /* active tab uses a class name "current" */
-ul.tabs a.current, ul.tabs a.current:hover, ul.tabs li.current a {
+table.tabs a.current, table.tabs a.current:hover, table.tabs th.current a {
     cursor:default !important;
     opacity: 1.0 !important;
 }
@@ -146,7 +173,9 @@ ul.tabs a.current, ul.tabs a.current:hover, ul.tabs li.current a {
 /*STYLING FOR TOP TABS*/
 
 .update_panes{
-	height: 300px;
+	height: 18.75em;
+	width:45%;
+	float:right;
 }
 .update_tabs{
 	float:right;
@@ -155,10 +184,10 @@ ul.tabs a.current, ul.tabs a.current:hover, ul.tabs li.current a {
 }
 
 .updatewrapper{
-	height: 220px;
-	width: 45%;
-	float:right;
+	height: 15em;
+	float:left;
 	overflow-y:scroll;
+	width: 100%;
 }
 
 ul.update_tabs {
@@ -182,10 +211,10 @@ ul.update_tabs a{
 	
 
     text-decoration:none;
-    padding:0px;
-    margin:0px;
+    padding:0em;
+    margin:0em;
     position:relative;
-    top:1px;
+    top:0.1em;
 }
 
 /* when mouse enters the tab*/
@@ -198,3 +227,22 @@ ul.update_tabs a.current, ul.update_tabs a.current:hover, ul.update_tabs li.curr
     cursor:default !important;
     opacity: 1.0 !important;
 }
+
+/*tables*/
+table, th, td{
+	margin-top: 0.5em; 
+	font-family: 'CronosProLight'; 
+	color:#666; 
+	font-size: 1em;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    border-collapse: collapse;
+}
+
+table p{
+	font-size: 1em;
+}
+table p.subtext{
+	font-style: italic;
+	font-size: 1em;
+}​

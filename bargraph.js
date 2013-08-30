@@ -1,9 +1,9 @@
 function bargraph(csvfile, sectornames, where){
 
 var w = document.getElementById(where).offsetWidth,
-    h = w*(1/2),
+    h = w*(3/4),
 	des_space = 100,
-    p = [20, 50, 130, 20],
+    p = [20, 50, 100, 20],
     x = d3.scale.ordinal().rangeRoundBands([50, w]),
     y = d3.scale.linear().range([0, h - p[0] - p[2]]),
     capcolor = "#B53C36",
