@@ -12,7 +12,7 @@ a{color:#F96302; text-decoration:none;}
 #pricediv{
 	height: 18.75em;
 	width:50%;
-	overflow:auto;
+	overflow:hidden;
 	float: left;
 }
 
