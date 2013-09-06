@@ -53,12 +53,12 @@ p{margin-top: 0.5em; font-family: 'CronosProLight'; color:#666; font-size: 1.2em
 
 @font-face {
     font-family: 'ChaparralProRegular';
-    src: url('http://climatepolicyinitiative.org/wp-content/themes/cpi/font-face/chaparralpro-regular-webfont.eot?#iefix');
+    src: url('font-face/chaparralpro-regular-webfont.eot?#iefix');
     src:local('ChaparralProRegular'),
-		url('http://climatepolicyinitiative.org/wp-content/themes/cpi/font-face/chaparralpro-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('http://climatepolicyinitiative.org/wp-content/themes/cpi/font-face/chaparralpro-regular-webfont.woff') format('woff'),
-         url('http://climatepolicyinitiative.org/wp-content/themes/cpi/font-face/chaparralpro-regular-webfont.ttf') format('truetype'),
-         url('http://climatepolicyinitiative.org/wp-content/themes/cpi/font-face/chaparralpro-regular-webfont.svg#ChaparralProRegular') format('svg');
+		url('font-face/chaparralpro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font-face/chaparralpro-regular-webfont.woff') format('woff'),
+         url('font-face/chaparralpro-regular-webfont.ttf') format('truetype'),
+         url('font-face/chaparralpro-regular-webfont.svg#ChaparralProRegular') format('svg');
 	font-weight: normal;
     font-style: normal;
 
@@ -66,12 +66,12 @@ p{margin-top: 0.5em; font-family: 'CronosProLight'; color:#666; font-size: 1.2em
 
 @font-face {
     font-family: 'CronosProLight';
-    src: url('http://climatepolicyinitiative.org/wp-content/themes/cpi/font-face/cronospro-lt-webfont.eot?#iefix');
+    src: url('font-face/cronospro-lt-webfont.eot?#iefix');
     src: local('CronosProLight'),
-		url('http://climatepolicyinitiative.org/wp-content/themes/cpi/font-face/cronospro-lt-webfont.eot?#iefix') format('embedded-opentype'),
-         url('http://climatepolicyinitiative.org/wp-content/themes/cpi/font-face/cronospro-lt-webfont.woff') format('woff'),
-         url('http://climatepolicyinitiative.org/wp-content/themes/cpi/font-face/cronospro-lt-webfont.ttf') format('truetype'),
-         url('http://climatepolicyinitiative.org/wp-content/themes/cpi/font-face/cronospro-lt-webfont.svg#CronosProLight') format('svg');
+		url('font-face/cronospro-lt-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font-face/cronospro-lt-webfont.woff') format('woff'),
+         url('font-face/cronospro-lt-webfont.ttf') format('truetype'),
+         url('font-face/cronospro-lt-webfont.svg#CronosProLight') format('svg');
     font-weight: normal;
     font-style: normal;
 
