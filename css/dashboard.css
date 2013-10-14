@@ -7,7 +7,7 @@
 }
 
 #title {
-	width:816px; 
+	width:635px; 
 	height:70px; 
 	background:url('img/California-Carbon-Price-Dashboard-Header-Left.png') no-repeat left center; 
 	float:left; 
@@ -16,7 +16,7 @@
 
 #logo a { 
 	width:133px; 
-	height:121px; 
+	height:70px; 
 	margin-right: 10px; 
 	background:url('img/California-Carbon-Price-Dashboard-Header-Right.png') no-repeat right center; 
 	float:right; 
@@ -47,4 +47,3 @@
 .panes {
 	height: 37em;
 }
-
