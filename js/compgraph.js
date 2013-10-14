@@ -249,7 +249,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
             .attr("x", w)
             .attr("y", ".8em")
             .style("text-anchor", "end")
-            .text('Million Metric Tonnes Carbon Dioxide Equivalents');
+            .text('Annual Emissions (MMTCO2e)');
             
                 keydata = [{name:'CAPPED', color: capcolor}, {name:'UNCAPPED', color: uncapcolor}];
         
