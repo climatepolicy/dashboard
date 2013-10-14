@@ -1,0 +1,52 @@
+/* root element for tabs  */
+table.tabs {
+    padding:0;
+    margin:0;
+    width: 100%;
+   	margin-top: 0em; 
+	font-family: 'CronosProLight'; 
+	color:#666; 
+    border-collapse: collapse;
+    border:none;
+    
+}
+
+/* single tab */
+table.tabs th {
+    text-indent:0;
+    padding:0;
+    margin:0 !important;
+    width:auto;
+    list-style-image:none !important;
+	border:none;
+}
+
+/* link inside the tab*/
+table.tabs a {
+    font-family: 'ChaparralProRegular';
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    color:#666;
+    padding:0em;
+    margin:0em;
+    position:relative;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+}
+
+table.tabs h2{
+	opacity: 0.25;
+	margin-bottom:0.55em;
+}
+
+/* active tab uses a class name "current" */
+table.tabs a.current, table.tabs th.current, table.tabs th.current a, table.tabs a.current h2 {
+    cursor:default !important;
+    opacity: 1.0 !important;
+    border-bottom: 1px solid white !important;
+}

@@ -1,10 +1,9 @@
 function compgraph(csvfile, sectornames, where){
 
 var w = document.getElementById(where).offsetWidth,
-    h = w*(3/4),
-    des_space = 100,
-    p = [20, 50, 100, 20],
-    x = d3.scale.ordinal().rangeRoundBands([30, h- p[2] - p[0]]),
+    h = w*(5/6),
+    p = [40, 50, 80, 20],
+    x = d3.scale.ordinal().rangeRoundBands([p[0], h- p[2] - p[0]]),
     y = d3.scale.linear().range([0, w]),
     capcolor = "#B53C36",
     uncapcolor = "#EAC881",
@@ -38,19 +37,34 @@ var svg1 = d3.select("#" + where).append("svg:svg")
         
 
         function mouseOver(){
+            var max = d3.max(sectors[sectors.length - 1], function(d){return d.y0 + d.y;});
+            var cap = 334.2;
+            var capSpot = y(cap);
             var thisSector = d3.select(this);
-            thisSector.selectAll("rect").style("fill-opacity", "0.6");
+            thisSector.selectAll("rect").style("fill-opacity", "1");
             thisSector.selectAll(".group-label").attr("visibility", "visible");
             groupname.html(function(d, i){
                     return thisSector.attr("desc");
                 });
+            rect.transition().attr("transform","scale(1 " + max/(max-cap) + ") translate(0 " + capSpot + ")");
+            capLine.transition().attr("transform","translate(0 " + capSpot + ")");
+            capLine.selectAll("text").attr("dx",30);
+            rule.transition().attr("transform", function(d){return "translate(25 " + -y(d-cap)*(max/(max-cap)) + ") rotate (270)";});   
+            policynumbers.transition().attr("transform", function(d) { return "translate(" + (x(d.x) + x.rangeBand() / 2 + 5) + "," + -y((d.y0-cap)*(max/(max-cap)))  + ") rotate(270)";});
         }
         
         function mouseOut(){
             var thisSector = d3.select(this);
-            thisSector.selectAll("rect").style("fill-opacity", "1");
+            thisSector.selectAll("rect").style("fill-opacity", "0.8");
             thisSector.selectAll(".group-label").attr("visibility", "hidden");
-            groupname.html("");
+            groupname.html(sectornames[0]);
+            
+            rect.transition().attr("transform","");
+            capLine.transition().attr("transform","");
+            capLine.selectAll("text").attr("dx", 0);
+            rule.transition().attr("transform", function(d){return "translate(25 " + -y(d) + ") rotate (270)";});
+            policynumbers.transition().attr("transform", function(d) { return "translate(" + (x(d.x) + x.rangeBand() / 2 + 5) + "," + (-y(d.y0))  + ") rotate(270)";});
+
         }
         
         /*function click(){
@@ -86,28 +100,43 @@ var svg1 = d3.select("#" + where).append("svg:svg")
             })
             .on("mouseover", mouseOver).on("mouseout", mouseOut);
        
+         var capLine = svg1.append("svg:g");
+         
          var lineFunction = d3.svg.line()
             .x(function(d) { return x(d.x); })
             .y(function(d) { return -y(d.cap); })
             .interpolate("step-after");
                                  
         //The line SVG Path we draw
-        var lineGraph = svg1.append("path")
+        var lineGraph = capLine.append("path")
             .attr("d", lineFunction(sectors[8]) + "h" + x.rangeBand())
             .attr("stroke", "#666")
-            .attr("stroke-width", 2)
+            .attr("stroke-width", 1)
             .attr("fill", "none");
         
+        capLine.append("svg:text")
+            .attr("transform", "rotate(-90)")
+            .attr("x", y(334.2))
+            .attr("y", "2.3em")
+            .style("text-anchor", "middle")
+            .text('2020 Cap');
+        
         // Add a rect for each date.
-        var rect = sector.selectAll("rect").data(Object).enter().append("svg:rect").attr("transform", function(d){
-            return "translate(" + x(d.x) + "," + (-y(d.y0) - y(d.y)) + ")";
-        }).attr("height", function(d){
-            return y(d.y);
-        }).style("stroke", "white")
+        var rect = sector.selectAll("rect").data(Object).enter().append("svg:rect")
+            /*.attr("transform", function(d){
+                return "translate(" + x(d.x) + "," + (-y(d.y0) - y(d.y)) + ")";
+                })*/
+            .attr("x", function(d){ return x(d.x);})
+            .attr("y", function(d){ return (-y(d.y0) - y(d.y));})
+            .attr("height", function(d){
+                return y(d.y);
+                })
+            .style("stroke", "white")
             .style("fill",function(d, i){ 
                 if((d.info=="2013"||d.info=="2014")&&d.y>180){return uncapcolor;} // THIS IS NOT ELEGANT
-                
-            }).attr("width", x.rangeBand());
+                })
+            .attr("width", x.rangeBand())
+           .style("fill-opacity", "0.8");
         
         var dots = sector.selectAll("circle")
          .data(Object)
@@ -116,7 +145,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
          .attr("visibility", "hidden")
          .attr("fill", "#666")
          .attr("cx", function(d) { return x(d.x) + x.rangeBand()/2; })
-         .attr("cy", -3)//function(d) { return -y(d.y0) - y(d.y) -10; })
+         .attr("cy", -6)//function(d) { return -y(d.y0) - y(d.y) -10; })
          .attr("r", function(d,i){if(d.policy==='1' && d.y>0 && d.y<300){return 3;} else{return 0;}});
         
         var policytext = sector.selectAll("text")
@@ -133,7 +162,24 @@ var svg1 = d3.select("#" + where).append("svg:svg")
              })
             .text(function(d, i){
                 if (d.policy==='1' && d.y > 0 && d.y < 300) {
-                    return d.info + ": -" + d.y + " MMTCO2e";
+                    return d.info;
+                }
+            });
+            
+        var policynumbers = sector.selectAll(".numbers")
+            .data(Object)
+            .enter()
+            .append("svg:text")
+            .style("stroke", "blank")
+            .style("fill", "#666")
+            .style("text-anchor", "end")
+            .attr("transform", function(d){
+                xcoord = x(d.x) + x.rangeBand() / 2 + 5;
+                return "translate(" + xcoord + "," + (-y(d.y0)) + ") rotate(270)";
+             })
+            .text(function(d, i){
+                if (d.policy==='1' && d.y > 0 && d.y < 300) {
+                    return "-" + d.y;
                 }
             });
         
@@ -151,7 +197,8 @@ var svg1 = d3.select("#" + where).append("svg:svg")
             {
                 return d;
             }
-        });
+        })
+        .style("pointer-events","none");
         
         //add group info      
         
@@ -169,18 +216,18 @@ var svg1 = d3.select("#" + where).append("svg:svg")
                 .append('foreignObject')
                 .attr("class", "group-label")
                 .attr("x", 0)
-                .attr("y", h-100)
+                .attr("y", h-p[2])
                 .attr("transform", "rotate(270)")
                 //.attr("dy", ".35em")
                 //.attr("fill", "black")
                 //.attr("visibility", "hidden")
                 //.attr("font-size", "12")
                 .attr('width', w - p[1] - p[3])
-                .attr('height', 100)
+                .attr('height', p[2])
                 
                 .append("xhtml:p")
                 .style("background-color","white")
-                .html("");
+                .html(sectornames[0]);
                 //.html('This is some information about whatever');
                 //.html(function(d, i){
                 //  return sectornames[1];
@@ -189,19 +236,20 @@ var svg1 = d3.select("#" + where).append("svg:svg")
         d3.selectAll("p").style("stroke","red");
         
         // Add y-axis rules.
-        var rule = svg1.selectAll("g.rule").data(y.ticks(5)).enter().append("svg:g").attr("class", "rule").attr("transform", function(d){
-            return "translate(25," + -y(d) + ") rotate(270)";
-        });
+        var rule = svg1.selectAll("g.rule").data(y.ticks(5)).enter().append("svg:g").attr("class", "rule")
+        .attr("transform", function(d){return "translate(25 " + -y(d) + ") rotate (270)";});
         
-        rule.append("svg:text").attr("x", 0).attr("dy", ".35em").text(d3.format(",d"));
+        rule.append("svg:text")
+            .attr("dx", ".35em")
+            .text(d3.format(",d"));
         
         // add y-axis label
         svg1.append("text")
             .attr("transform", "rotate(-90)")
-            .attr("x", w-20)
-            .attr("y", "1em")
+            .attr("x", w)
+            .attr("y", ".8em")
             .style("text-anchor", "end")
-            .text('MMTCO2e');
+            .text('Million Metric Tonnes Carbon Dioxide Equivalents');
             
                 keydata = [{name:'CAPPED', color: capcolor}, {name:'UNCAPPED', color: uncapcolor}];
         
@@ -213,7 +261,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
             .attr("x", function(d,i){
                 return (i+1)/3*w-50;
             })
-            .attr("y", h-p[2]-20)
+            .attr("y", h-p[2]-30)
             .attr("transform", "rotate(270)")
             .attr("height", "1.3em")
             .style("fill", function(d){return d.color});
@@ -223,7 +271,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
             .attr("x", function(d,i){
                 return (i+1)/3*w;
             })
-            .attr("y", h-p[2]-20)
+            .attr("y", h-p[2]-30)
             .attr("transform", "rotate(270)")
             .attr("text-anchor","middle")
             .style("fill", "white")
