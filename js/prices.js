@@ -1,6 +1,6 @@
-var margin = {top: 10, right: 20, bottom: 30, left: 25},
+var margin = {top: 10, right: 30, bottom: 30, left: 25},
     width = document.getElementById("pricediv").offsetWidth-60,
-    height = 200;
+    height = 219;
 
 var parseDate = d3.time.format("%m/%d/%Y").parse,
     bisectDate = d3.bisector(function(d) { return d.date; }).left,
@@ -16,7 +16,7 @@ var y = d3.scale.linear()
 
 var xAxis = d3.svg.axis()
     .scale(x)
-    .tickFormat(d3.time.format("%Y"))
+    .tickFormat(d3.time.format("20%y"))
     .ticks(d3.time.years, 1)
     .orient("bottom");
 
@@ -34,10 +34,11 @@ var svg = d3.select("#pricediv").append("svg")
     .attr("height", height + margin.top + margin.bottom)
     //.style("font-size", "11px")
     .style("font-family", 'CronosProLight')
+    .style("fill","#666")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("carbon_prices.csv", function(error, data) {
+d3.csv("csv/carbon_prices.csv", function(error, data) {
   data.forEach(function(d) {
     d.date = parseDate(d.date);
     d.close = +d.close;
@@ -53,7 +54,6 @@ d3.csv("carbon_prices.csv", function(error, data) {
   svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
-      .style("font-size", "10px")
       .call(xAxis);
 
   path = svg.append("path")
@@ -75,11 +75,10 @@ d3.csv("carbon_prices.csv", function(error, data) {
       .attr("class", "y axis")
       .call(yAxis)
     .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".5em")
-      .style("text-anchor", "end")
-      .text("$/Ton CO2e");
+      .attr("y", 5)
+      .attr("x", -20)
+      .style("text-anchor", "left")
+      .text("$/Tonne Carbon Dioxide Equivalent");
   
   var focus = svg.append("g")
       .attr("class", "focus");
@@ -90,7 +89,7 @@ d3.csv("carbon_prices.csv", function(error, data) {
   focus.append("text")
       .attr("x", 9)
       .style("background-color",'white')
-      .attr("dy", ".35em");
+      .attr("dy", "0em");
       
   var currentDate = svg.append("g")
       .attr("class", "focus");
@@ -99,7 +98,7 @@ d3.csv("carbon_prices.csv", function(error, data) {
       .attr("x0", 0)
       .attr("y0", 0)
       .attr("x1", 0)
-      .attr("y1", -height)
+      .attr("y1", -height+10)
       .style("stroke", "gray");
       
   currentDate.append("text")

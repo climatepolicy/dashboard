@@ -37,7 +37,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 
 		function mouseOver(){
 			var thisSector = d3.select(this);
-			thisSector.selectAll("rect").style("fill-opacity", "0.6");
+			thisSector.selectAll("rect").style("fill-opacity", "1");
 			thisSector.selectAll(".group-label").attr("visibility", "visible");
 			groupname.html(function(d, i){
 					return thisSector.attr("desc");
@@ -46,9 +46,9 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 		
 		function mouseOut(){
 			var thisSector = d3.select(this);
-			thisSector.selectAll("rect").style("fill-opacity", "1");
+			thisSector.selectAll("rect").style("fill-opacity", "0.8");
 			thisSector.selectAll(".group-label").attr("visibility", "hidden");
-			groupname.html("");
+			groupname.html(sectornames[0]);
 		}
 		
 		/*function click(){
@@ -92,7 +92,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 		//The line SVG Path we draw
 		var lineGraph = svg1.append("path")
 			.attr("d", lineFunction(sectors[8]) + "h" + x.rangeBand())
-			.attr("stroke", "black")
+			.attr("stroke", "#666")
 			.attr("stroke-width", 2)
 			.attr("fill", "none");
 	
@@ -106,7 +106,8 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 			.style("fill",function(d, i){ 
 				if((d.info=="2013"||d.info=="2014")&&d.y>180){return uncapcolor;} // THIS IS NOT ELEGANT
 				
-			}).attr("width", x.rangeBand());
+			}).attr("width", x.rangeBand())
+           .style("fill-opacity", "0.8");
 		
 		var dots = sector.selectAll("circle")
 		 .data(Object)
@@ -118,15 +119,6 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 		 .attr("cy", function(d) { return -y(d.y0) - y(d.y) -10; })
 		 .attr("r", function(d,i){if(d.policy==='1' && d.y>0 && d.y<300){return 5;} else{return 0;}});
 		
-		var policytext = sector.selectAll("text").data(Object).enter().append("svg:text").style("stroke", "blank").style("fill", "black").attr("transform", function(d){
-			ycoord = -y(d.y0) + 15;
-			xcoord = x(d.x) + x.rangeBand() / 2;
-			return "translate(" + xcoord + "," + ycoord + ")rotate(45)";
-		}).text(function(d, i){
-			if (d.policy==='1' && d.y > 0 && d.y < 300) {
-				return d.info + ": -" + d.y + " MMTCO2e";
-			}
-		});
 		
 		// Add a label per date.
 		var label = svg1.selectAll("g.labels").data(x.domain()).enter().append("svg:text").attr("x", function(d){
@@ -168,7 +160,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 				
 				.append("xhtml:p")
 				.style("background-color","white")
-				.html("");
+				.html(sectornames[0]);
 				//.html('This is some information about whatever');
 				//.html(function(d, i){
 				//	return sectornames[1];
@@ -189,7 +181,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
       		.attr("x", h-150)
 			.attr("y", "1em")
       		.style("text-anchor", "end")
-      		.text('MMTCO2e');
+      		.text('Million Metric Tonnes Carbon Dioxide Equivalents');
 			
 				keydata = [{name:'CAPPED', color: capcolor}, {name:'UNCAPPED', color: uncapcolor}];
 		
@@ -210,7 +202,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 			.attr("x", function(d,i){
 				return (i+1)/3*w + 50;
 			})
-			.attr("y", 25)
+			.attr("y", 24)
 			.attr("text-anchor","middle")
 			.style("fill", "white")
 			.attr("dy", "1em")

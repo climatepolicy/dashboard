@@ -1,0 +1,50 @@
+#header{
+	height: 70px; 
+	margin-top:30px; 
+	margin-bottom: 30px; 
+	vertical-align:center;
+	width:100%;
+}
+
+#title {
+	width:816px; 
+	height:70px; 
+	background:url('img/California-Carbon-Price-Dashboard-Header-Left.png') no-repeat left center; 
+	float:left; 
+	display:inline; 
+}
+
+#logo a { 
+	width:133px; 
+	height:121px; 
+	margin-right: 10px; 
+	background:url('img/California-Carbon-Price-Dashboard-Header-Right.png') no-repeat right center; 
+	float:right; 
+	display:inline; }
+	
+.notext { 
+	font-size: 0; 
+	line-height: 0; 
+	text-indent: -4000px;
+}
+
+.subtext {
+	font-size: 0.8em;
+	margin-top: 0em !important;
+}
+
+.updatewrapper{
+	height: 15em;
+	float:left;
+	overflow-y:scroll;
+	width: 100%;
+}
+
+.update_panes {
+	height: 18.5em;
+}
+
+.panes {
+	height: 37em;
+}
+
