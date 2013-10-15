@@ -14,6 +14,7 @@ $(function() {
 
 $(function(){
   $("#accordion").accordion({
+                            header: "h2",
                             collapsible:true,
                             heightStyle: "content",
                             active:false,

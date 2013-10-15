@@ -1,6 +1,27 @@
  <!DOCTYPE HTML PUBLIC "-//W3C//h3D HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.h3d">
 <html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<!--General Meta Tags and Google Plus-->
+	<title>California Carbon Dashboard: Carbon Prices, the Latest News, and California Policy</title> <!--Up to 70 characters-->
+	<meta name='description' content='155 characters of message matching text with a call to action goes here'>	 <!--Up to 155 characters-->
+	<link rel='publisher' href='https://plus.google.com/108188097526626850974'/> <!--Specify CPI as the publisher-->
+	
+	<!--This stuff is for Facebook-->
+	<meta property="og:title" content="California Carbon Dashboard: Carbon Prices, the Latest News, and California Policy"/>
+	<meta property="og:type" content="website"/>
+	<meta property='og:image' content=''/>
+	<meta property='og:url' content=''/>
+	<meta property='og:description' content=''/>
+	<meta property='fb:admins' content=''/> <!--NEED TO GET FROM FACEBOOK - see https://developers.facebook.com/docs/insights/-->
+	
+	
+	<meta name='twitter:card' content='summary'> <!-- leave this as is - other options are photo and player-->
+	<meta name='twitter:url' content=''>
+	<meta name='twitter:title' content=''>
+	<meta name='twitter:description' content=''>
+	<meta name='twitter:image' content=''>
+	
 	<link rel = "stylesheet" href = "css/reset.css" type: "text/css" media: "screen">
 	<link rel = "stylesheet" href = "css/stylish.css" type: "text/css" media: "screen">
 	<link rel = "stylesheet" href = "css/tabs.css" type: "text/css" media: "screen">
@@ -8,8 +29,6 @@
 	<link rel = "stylesheet" href = "css/dashboard.css" type: "text/css" media: "screen">
 	<link rel = "stylesheet" href = "css/prices.css" type: "text/css" media: "screen">
 	
-
-
 	<script type = "text/javascript" src = "js/d3.v3.min.js"></script>
 	<script type = "text/javascript" src = "js/jquery.js"></script>
 	<script type = "text/javascript" src = "js/jquery.tools.min.js"></script>
@@ -24,18 +43,19 @@
 			feedme("https://news.google.com/news/feeds?hl=en&gl=us&authuser=0&q=(%22cap+and+trade%22+OR+%22ab32%22)+AND+%22california%22&um=1&ie=UTF-8&output=rss", "news", "",100);
 			feedme("http://www.arb.ca.gov/lispub/rss/listserv.rss", "content", "arbcombo", 150)
 	</script>
+	</head>	
 	
 	<body>
 		
 		<div class = "container" >
 			<div id = "header">
-	    		<div id = "title"><a class="notext" href="http://climatepolicyinitiative.org/">CPI</a></div>
-	    		<div id = "logo"><a class="notext" href="http://climatepolicyinitiative.org/">CPI</a></div>
+	    		<div id = "title"><a class="notext" href="http://climatepolicyinitiative.org/">California Carbon Dashboard</a></div>
+	    		<div id = "logo"><a class="notext" href="http://climatepolicyinitiative.org/">CPI: Climate Policy Initiative</a></div>
         	</div>	
         	<hr>
 			<div class="span-11 colborder">
         		<div id = "pricediv">
-				<h2>CARBON PRICE</h2>
+				<h1>CARBON PRICE</h1>
 				<script type="text/javascript" src ="js/prices.js"></script>
 				<p class = "subtext">Price of 2013 California GHG <span class = "tooltip" title = "An allowance is a tradable permit that allows the emission of one metric ton of CO2e." style="color:blue">Allowance</span> Futures as reported by <a href = "https://www.theice.com/productguide/ProductSpec.shtml?specId=6747556#data">ICE</a>. See prices for <a href = "https://www.theice.com/productguide/ProductSpec.shtml?specId=6747556#data">2013</a>, <a href = "https://www.theice.com/productguide/ProductSpec.shtml;jsessionid=4C0CF40265173EAF3661845192076191?specId=6747557#data">2014</a>, <a href = "https://www.theice.com/productguide/ProductSpec.shtml?specId=6747558#data">2015</a>, <a href = "https://www.theice.com/productguide/ProductSpec.shtml?specId=20328818">2016</a>.</p>
 
@@ -45,9 +65,9 @@
 		        <div class = "updates">
 				<table class = "tabs" cellspacing="0" cellpadding="0">
 					<tr>
-						<th><a href="#"><h2>NEWS</h2></a></th>
-						<th><a href="#"><h2>CARB UPDATES</h2></a></th>
-						<th><a href="#"><h2>TWEETS</h2></a></th>
+						<th><a href="#"><h1>NEWS</h1></a></th>
+						<th><a href="#"><h1>CARB UPDATES</h1></a></th>
+						<th><a href="#"><h1>TWEETS</h1></a></th>
 					</tr>
 				</table>
 	    		
@@ -81,7 +101,7 @@
 		    <hr>
 		    <div>
 			    <div class = "span-7 colborder">
-			    	<h2>CAP AND TRADE</h2>
+			    	<h1>CAP AND TRADE</h1>
 					<p>
 						California&rsquo;s <a href = "http://www.arb.ca.gov/cc/capanh3rade/capanh3rade.htm">Cap and Trade Program</a> caps greenhouse gas (GHG) emissions from key sectors in California as a central component of the Assembly Bill 32 (AB32) framework to return California emissions to 1990 levels by 2020. 
 					</p>
@@ -89,7 +109,7 @@
 						The California Cap and Trade Program is designed to achieve cost-effective emissions reductions across the capped sectors. The Program sets maximum, statewide greenhouse gas (GHG) emissions for all covered sectors each year (the &ldquo;cap&rdquo;), and allows covered entities to sell off <span class = "tooltip" title="An allowance is a tradable permit that allows the emission of one metric ton of CO2e." style="color:blue">allowances</span> (permits) that they do not need (the &ldquo;trade&rdquo;). The California carbon price is driven by allowance trading. 
 					</p>
 					<p>	
-						The Cap and Trade Program is expected to drive 3.7% of the targeted greenhouse gas reductions by 2020, while complementary carbon policies will achieve the rest. For general information on how cap and trade systems work, check out this <a href = "http://www.c2es.org/docUploads/climate101-captrade.pdf">C2ES primer on cap and trade for more general information.</a> out.
+						The Cap and Trade Program is expected to drive 3.7% of the targeted greenhouse gas reductions by 2020, while complementary carbon policies will achieve the rest. For general information on how cap and trade systems work, check out this <a href = "http://www.c2es.org/docUploads/climate101-captrade.pdf">C2ES primer on cap and trade for more general information</a>.
 					</p>	
 					
 			    </div>
@@ -97,9 +117,9 @@
 			    	<!-- the tabs -->
 				<table class = "tabs" cellspacing="0" cellpadding="0">
 					<tr>
-						<th><a href="#"><h2>COMPLEMENTARY POLICIES</h2></a></th>
-						<th><a href="#"><h2>EMISSIONS CAP</h2></a></th>
-						<th><a href="#"><h2>EMISSIONS HISTORY</h2></a></th>
+						<th><a href="#"><h1>COMPLEMENTARY POLICIES</h1></a></th>
+						<th><a href="#"><h1>EMISSIONS CAP</h1></a></th>
+						<th><a href="#"><h1>EMISSIONS HISTORY</h1></a></th>
 					</tr>
 				</table>
 				<!-- tab "panes" -->
@@ -164,12 +184,12 @@
 			    </div>
 			    </div>
 		    <hr>
-		    <h2>CAP AND TRADE PROGRAM DETAILS</h2>
+		    <h1>CAP AND TRADE PROGRAM DETAILS</h1>
             <p>
-            The Cap and Trade Program <a href = "http://www.arb.ca.gov/cc/capanh3rade/guidance/chapter2.pdf">covers</a> the power and industrial sectors starting in 2013 and will expand to cover natural gas and transportation fuels in 2015. Once fully in effect, the program will cover roughly 85% of California&rsquo;s GHG emissionsThe California Air Resources Board <a href = "http://www.arb.ca.gov">auctions</a> allowances to covered entities.  Allowances are <a href = "http://www.arb.ca.gov/cc/capanh3rade/allowanceallocation/allowanceallocation.htm">allocated freely</a> to electric utilities to mitigate costs on customers. Utilities must use the value associated with the allowances to benefit ratepayers. Free allocation decreases over time. Regulated entities can also meet 8% of their obligations by buying <a href = "http://www.arb.ca.gov/cc/capanh3rade/offsets/offsets.htm#protocols">CARB-approved offsets</a> &mdash; emissions reductions from uncapped sectors.
+            The Cap and Trade Program <a href = "http://www.arb.ca.gov/cc/capanh3rade/guidance/chapter2.pdf">covers</a> the power and industrial sectors starting in 2013 and will expand to cover natural gas and transportation fuels in 2015. Once fully in effect, the program will cover roughly 85% of California&rsquo;s GHG emissions. The California Air Resources Board <a href = "http://www.arb.ca.gov">auctions</a> allowances to covered entities.  Allowances are <a href = "http://www.arb.ca.gov/cc/capanh3rade/allowanceallocation/allowanceallocation.htm">allocated freely</a> to electric utilities to mitigate costs on customers. Utilities must use the value associated with the allowances to benefit ratepayers. Free allocation decreases over time. Regulated entities can also meet 8% of their obligations by buying <a href = "http://www.arb.ca.gov/cc/capanh3rade/offsets/offsets.htm#protocols">CARB-approved offsets</a> &mdash; emissions reductions from uncapped sectors.
             </p>
             <div id = "accordion">
-                <h3><a href = "">Allowance Allocation</a></h3>
+                <h2><a href = "">Allowance Allocation</a></h2>
                 <div>
                     <table>
                     <tr>
@@ -223,7 +243,7 @@
                             </table>
                             </div>
             
-                <h3><a href = "">Covered Entities</a></h3>
+                <h2><a href = "">Covered Entities</a></h2>
                 <div>
                 <table>
                 <tr>
@@ -257,7 +277,7 @@
                 <tr>
                 </table>
                 </div>
-                <h3><a href = "">Compliance Periods and Allowance Submission</a></h3>
+                <h2><a href = "">Compliance Periods and Allowance Submission</a></h2>
                 <div>
                 <table>
                 <tr>
@@ -292,7 +312,7 @@
                 </tr>
                 </table>
                 </div>
-                <h3><a href = "">Offsets</a></h3>
+                <h2><a href = "">Offsets</a></h2>
                 <div>
                 <table>
                 <tr>
@@ -320,7 +340,7 @@
                 <tr>
                 </table>
                 </div>
-                <h3><a href = "">Linkage to Other Trading Programs</a></h3>
+                <h2><a href = "">Linkage to Other Trading Programs</a></h2>
                 <div>
                 <table>
                 </tr>
