@@ -76,7 +76,7 @@ d3.csv("csv/carbon_prices.csv", function(error, data) {
       .call(yAxis)
     .append("text")
       .attr("y", 5)
-      .attr("x", -20)
+      .attr("x", -25)
       .style("text-anchor", "left")
       .text("$/Tonne Carbon Dioxide Equivalent");
   
