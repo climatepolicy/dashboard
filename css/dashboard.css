@@ -21,6 +21,24 @@
 	background:url('img/California-Carbon-Price-Dashboard-Header-Right.png') no-repeat right center; 
 	float:right; 
 	display:inline; }
+
+#social {
+	margin-top:5px;
+	line-height: 40px;
+	height: 30px;
+	width:100%;
+}
+
+#social img {
+	height: 30px;
+	width: 30px;
+	float: right;
+	margin-right:5px;
+}
+
+#social img path {
+	fill:red;
+}
 	
 .notext { 
 	font-size: 0; 
