@@ -30,6 +30,7 @@
 	<link rel = "stylesheet" href = "css/grid.css" type: "text/css" media: "screen">
 	<link rel = "stylesheet" href = "css/dashboard.css" type: "text/css" media: "screen">
 	<link rel = "stylesheet" href = "css/prices.css" type: "text/css" media: "screen">
+	<link rel = "stylesheet" href = "css/jquery-ui-1.10.3.custom.css" type: "text/css" media: "screen">
 	
 	<script type = "text/javascript" src = "js/d3.v3.min.js"></script>
 	<script type = "text/javascript" src = "js/jquery.js"></script>
@@ -48,8 +49,21 @@
 	</head>	
 	
 	<body>
-		
+			
 		<div class = "container" >
+			<div id = "social">			
+			  <a href="http://www.facebook.com/sharer/sharer.php?u={URL}" onclick="javascript:window.open(this.href,
+			  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img
+			  src="css/img/webicon-facebook.svg" alt="Share on Facebook"/></a>
+			  <a href="http://www.linkedin.com/shareArticle?mini=true&url={URL}" onclick="javascript:window.open(this.href,
+			  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img
+			  src="css/img/webicon-linkedin.svg" alt="Share on LinkedIn"/></a>
+			  <a href="http://twitter.com/intent/tweet?text={TWEET}"><img
+			  src="css/img/webicon-twitter.svg" alt="Share on Twitter"/></a>
+			  <a href="https://plus.google.com/share?url={URL}" onclick="javascript:window.open(this.href,
+			  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img
+			  src="css/img/webicon-google.svg" alt="Share on Google+"/></a>
+  			</div>
 			<div id = "header">
 	    		<div id = "title"><a class="notext" href="http://climatepolicyinitiative.org/">California Carbon Dashboard</a></div>
 	    		<div id = "logo"><a class="notext" href="http://climatepolicyinitiative.org/">CPI: Climate Policy Initiative</a></div>
