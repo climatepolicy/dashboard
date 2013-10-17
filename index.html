@@ -164,6 +164,8 @@
 								Projected business-as-usual emissions through 2020 for capped and uncapped sectors. The overlaid black line indicates the cap for each year.  The overlaid line indicates the cap for each year. 
 							
 							<script type="text/javascript">
+								var allospots = [0, 56.91858325,    156.3865976, 296.5904607, 415.3103487, 440.3284842, 461.9054634, 493.0618774, 506.6869958];
+								
 								var allocation = ["<i>Mouse over a row to see how permits are allocated to each sector.	</i>", 
 									"<b>Electricity</b> Sector: allowances are allocated freely to insulate electricity customers from sudden price increases.", 
 									"<b>Industrial</b> Sector: allowances are allocated freely until 2015 for all sectors.  After that, allocation is partially free, depending on leakage risk",  
@@ -174,7 +176,7 @@
 									"<b>Agriculture</b> emissions are uncapped, but complementary policies apply (see complementary policies tab).", 
 									"<b>Forestry</b> emissions are uncapped, but complementary policies apply (see complementary policies tab)."
 									];
-								bargraph("csv/projection_data.csv", allocation, "allodiv");
+								bargraph("csv/projection_data.csv", allocation, allospots, "allodiv");
 							</script>
 							<p class = "subtext">Source: Annual figures are linearly interpolated based on the California Air Resources Board's <a href = "http://www.arb.ca.gov/cc/inventory/inventory.htm">Greenhouse Gas Emissions Inventory</a> and <a href = "http://www.arb.ca.gov/cc/inventory/data/forecast.htm">2020 Emissions Forecast</a>.</p>
 					</div>
@@ -183,6 +185,7 @@
 								California statewide greenhouse gas emissions from 2000 to 2011. The transportation, electric, and industrial sectors have generated the majority of emissions in California for decades. 
 							
 							<script type="text/javascript">
+								var sectorspots = [0, 46.65,   136.28,  265.85,  374.385, 396, 409,  431.605, 447.925];
 								var sectornames = ["<i>Mouse over to see sector names.</i>", 
 									"<b>Electricity</b>", 
 									"<b>Industrial</b>",  
@@ -193,7 +196,7 @@
 									"<b>Agriculture</b>", 
 									"<b>Forestry</b>"
 									];
-								bargraph("csv/history_data.csv", sectornames, "histdiv");
+								bargraph("csv/history_data.csv", sectornames, sectorspots, "histdiv");
 							</script>
 							<p class = "subtext">Source: The California Air Resources Board's <a href = "http://www.arb.ca.gov/cc/inventory/inventory.htm">Greenhouse Gas Emissions Inventory</a>.</p>
 					</div>
