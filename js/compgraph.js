@@ -12,9 +12,7 @@ var w = document.getElementById(where).offsetWidth,
 var svg1 = d3.select("#" + where).append("svg:svg")
     .attr("width", w)
     .attr("height", h)
-    .attr("font-family", 'CronosProLight')
     .attr("fill", "#666")
-    .attr("font-size", "16px")
   .append("svg:g")
     .attr("transform", "translate(0," + (h - p[2]) + ")")
     .attr("transform", "rotate(90)"); //Note that I'm doing this strangely because I'm lazily modifying bargraph.js - x and y axes end up inverted
@@ -237,7 +235,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
         
         // Add y-axis rules.
         var rule = svg1.selectAll("g.rule").data(y.ticks(5)).enter().append("svg:g").attr("class", "rule")
-        .attr("transform", function(d){return "translate(25 " + -y(d) + ") rotate (270)";});
+        .attr("transform", function(d){return "translate(420 " + -y(d) + ") rotate (270)";});
         
         rule.append("svg:text")
             .attr("dx", ".35em")
@@ -247,8 +245,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
         svg1.append("text")
             .attr("transform", "rotate(-90)")
             .attr("x", w)
-            .attr("y", ".8em")
-            .style("text-anchor", "end")
+            .attr("y", h- p[2] - p[0])
             .text('Annual Emissions (MMTCO2e)');
             
                 keydata = [{name:'CAPPED', color: capcolor}, {name:'UNCAPPED', color: uncapcolor}];
