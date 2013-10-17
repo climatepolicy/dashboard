@@ -9,7 +9,7 @@ var w = document.getElementById(where).offsetWidth,
     y = d3.scale.linear().range([0, h - p[0] - p[2]]),
     capcolor = "#B53C36",
     uncapcolor = "#EAC881",
-    z = d3.scale.ordinal().range(["white", capcolor, capcolor, capcolor, uncapcolor, uncapcolor, uncapcolor, uncapcolor, uncapcolor]);
+    z = d3.scale.ordinal().range(["white", capcolor, capcolor, capcolor, uncapcolor, uncapcolor, uncapcolor, uncapcolor]);
 
 var svg1 = d3.select("#" + where).append("svg:svg")
     .attr("width", w)
@@ -50,6 +50,17 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 			groupname.html(sectortext[0]);
 		}
 		
+		/*function click(){
+			rect.attr("transform", function(d){
+				return "translate(" + x(d.x1) + "," + (-y(d.y0) - y(d.y)) + ")";
+			});
+			policytext.attr("visibility", "hidden");
+			var newlabel = svg.selectAll("horses").data(x.domain()).enter().append("svg:text").attr("x", function(d){
+				return x(d) + x.rangeBand() / 2;
+			}).attr("y", 6).attr("text-anchor", "middle").attr("dy", ".71em").text(function(d, i){
+				return d;
+			})
+		}*/
 		
 		// Compute the x-domain (by date) and y-domain (by top).
 		x.domain(sectors[0].map(function(d){
@@ -132,6 +143,18 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 				return d;
 			}
 		});
+		
+		//add group info	  
+		
+			/*d3.select('#describe').append("svg:svg")
+    			.attr("width", w)
+    			.attr("height", h)
+  				.append("svg:g")
+    			.attr("transform", "translate(" + p[3] + "," + (h - p[2]) + ")")
+				.select('#describe')
+				.append("svg:svg")
+    			.attr("width", 50)
+    			.attr("height", 50)*/
 		
 		var groupname = svg1
 				.append('foreignObject')
