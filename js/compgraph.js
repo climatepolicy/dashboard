@@ -20,7 +20,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
     d3.csv(csvfile, function(data){
             
         // Transpose the data into layers by cause.
-        var sectors = d3.layout.stack()(["Blank",  "Electric Power",  "Industrial", "Transportation","Commercial and Residential","Recycling and Waste", "High GWP", "Agriculture", "Forestry"].map(function(cause){
+        var sectors = d3.layout.stack()(["Blank",  "Electric Power",  "Industrial", "Transportation","Commercial and Residential","Recycling and Waste", "High GWP", "Agriculture and Forestry"].map(function(cause){
             return data.map(function(d){
                 return {
                     x: d.date,
@@ -92,7 +92,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
                                  
         //The line SVG Path we draw
         var lineGraph = capLine.append("path")
-            .attr("d", lineFunction(sectors[8]) + "h" + x.rangeBand())
+            .attr("d", lineFunction(sectors[7]) + "h" + x.rangeBand())
             .attr("stroke", "#666")
             .attr("stroke-width", 1)
             .attr("fill", "none");

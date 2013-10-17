@@ -20,7 +20,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 	
 	d3.csv(csvfile, function(data){
 	    
-	    var sectornames = ["",  "Electric Power",  "Industrial", "Transportation","Commercial and Residential","Recycling and Waste", "High Global Warming Potential", "Agriculture", "Forestry"];
+	    var sectornames = ["",  "Electric Power",  "Industrial", "Transportation","Commercial and Residential","Recycling and Waste", "High Global Warming Potential", "Agriculture and Forestry"];
 			
 		// Transpose the data into layers by cause.
 		var sectors = d3.layout.stack()(sectornames.map(function(cause){
@@ -90,7 +90,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 								 
 		//The line SVG Path we draw
 		var lineGraph = svg1.append("path")
-			.attr("d", lineFunction(sectors[8]) + "h" + x.rangeBand())
+			.attr("d", lineFunction(sectors[7]) + "h" + x.rangeBand())
 			.attr("stroke", "#666")
 			.attr("stroke-width", 2)
 			.attr("fill", "none");
@@ -100,7 +100,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 	       .append("svg:text")
 	       .attr("x", w-right_space)
 	       .attr("y", function(d,i){return -y(vertspots[i]);})
-	        .attr("dy", "0.5em")
+	        .attr("dy", "3px")
 	        .attr("class", "subtext")
 	        .attr("fill", "#666")
 	       .text(function(d,i){return sectornames[i];});
