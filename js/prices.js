@@ -78,7 +78,7 @@ d3.csv("csv/carbon_prices.csv", function(error, data) {
     .append("foreignObject")
       .attr("width", width)
       .attr("height", 100)
-      .attr("transform", "rotate(270) translate(-150 -45)")
+      .attr("transform", "rotate(270) translate(-80 -45)")
       .attr("class", "subtext")
     .append("xhtml:div")
       .html("$/Tonne CO<sub>2</sub>e");
