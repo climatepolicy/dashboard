@@ -3,7 +3,7 @@ function bargraph(csvfile, sectortext, vertspots, where){
 var w = document.getElementById(where).offsetWidth,
     h = w*(3/4),
 	des_space = 100,
-    p = [20, 50, 100, 20],
+    p = [100, 50, 20, 20],
     right_space = 170,
     x = d3.scale.ordinal().rangeRoundBands([50, w - right_space]),
     y = d3.scale.linear().range([0, h - p[0] - p[2]]),
@@ -39,7 +39,6 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 		function mouseOver(){
 			var thisSector = d3.select(this);
 			thisSector.selectAll("rect").style("fill-opacity", "1");
-			thisSector.selectAll(".group-label").attr("visibility", "visible");
 			groupname.html(function(d, i){
 					return thisSector.attr("desc");
 				});
@@ -48,7 +47,6 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 		function mouseOut(){
 			var thisSector = d3.select(this);
 			thisSector.selectAll("rect").style("fill-opacity", "0.8");
-			thisSector.selectAll(".group-label").attr("visibility", "hidden");
 			groupname.html(sectortext[0]);
 		}
 		
@@ -158,25 +156,16 @@ var svg1 = d3.select("#" + where).append("svg:svg")
     			.attr("width", 50)
     			.attr("height", 50)*/
 		
-		var groupname = sector
+		var groupname = svg1
 				.append('foreignObject')
 				.attr("class", "group-label")
 				.attr("x", 0)
-				.attr("y", 50)
-				//.attr("dy", ".35em")
-				//.attr("fill", "black")
-				//.attr("visibility", "hidden")
-				//.attr("font-size", "12")
-				.attr('width', w - p[1] - p[3])
+				.attr("y", -h+p[2])
+				.attr('width', w)
                 .attr('height', 100)
-				
 				.append("xhtml:p")
 				.style("background-color","white")
 				.html(sectortext[0]);
-				//.html('This is some information about whatever');
-				//.html(function(d, i){
-				//	return sectornames[1];
-				//});
 		
 		d3.selectAll("p").style("stroke","red");
 		
