@@ -14,11 +14,12 @@ $(function() {
 
 $(function(){
   $("#accordion").accordion({
-                            header: "h2",
                             collapsible:true,
                             heightStyle: "content",
                             active:false,
+                            icons: {
+                                "header": "inactiveIcon",
+                                "activeHeader": "activeIcon"
+                            }
   });
-   $("#accordion").accordion("option", "icons", 
-        { 'header': 'ui-icon-plus', 'activeHeader': 'ui-icon-minus' });
   });
