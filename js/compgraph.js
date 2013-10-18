@@ -195,9 +195,8 @@ var svg1 = d3.select("#" + where).append("svg:svg")
                 .attr("width", 50)
                 .attr("height", 50)*/
         
-        var groupname = sector
+        var groupname = svg1
                 .append('foreignObject')
-                .attr("class", "group-label")
                 .attr("x", 0)
                 .attr("y", 0)
                 .attr("transform", "rotate(270)")
