@@ -1,15 +1,15 @@
-function bargraph(csvfile, sectortext, vertspots, where){
+function bargraph(csvfile, sectornames, vertspots, where){
 
 var w = document.getElementById(where).offsetWidth,
     h = w*(3/4),
 	des_space = 100,
-    p = [100, 50, 20, 20],
+    p = [20, 50, 100, 20],
     right_space = 170,
     x = d3.scale.ordinal().rangeRoundBands([50, w - right_space]),
     y = d3.scale.linear().range([0, h - p[0] - p[2]]),
     capcolor = "#B53C36",
     uncapcolor = "#EAC881",
-    z = d3.scale.ordinal().range(["white", capcolor, capcolor, capcolor, uncapcolor, uncapcolor, uncapcolor, uncapcolor]);
+    z = d3.scale.ordinal().range(["white", capcolor, capcolor, capcolor, uncapcolor, uncapcolor, uncapcolor, uncapcolor, uncapcolor]);
 
 var svg1 = d3.select("#" + where).append("svg:svg")
     .attr("width", w)
@@ -20,7 +20,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 	
 	d3.csv(csvfile, function(data){
 	    
-	    var sectornames = ["",  "Electric Power",  "Industrial", "Transportation","Commercial and Residential","Recycling and Waste", "High Global Warming Potential", "Agriculture and Forestry"];
+	    var sectornames = ["",  "Electric Power",  "Industrial", "Transportation","Commercial and Residential","Recycling and Waste", "High Global Warming Potential", "Agriculture", "Forestry"];
 			
 		// Transpose the data into layers by cause.
 		var sectors = d3.layout.stack()(sectornames.map(function(cause){
@@ -39,6 +39,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 		function mouseOver(){
 			var thisSector = d3.select(this);
 			thisSector.selectAll("rect").style("fill-opacity", "1");
+			thisSector.selectAll(".group-label").attr("visibility", "visible");
 			groupname.html(function(d, i){
 					return thisSector.attr("desc");
 				});
@@ -47,7 +48,8 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 		function mouseOut(){
 			var thisSector = d3.select(this);
 			thisSector.selectAll("rect").style("fill-opacity", "0.8");
-			groupname.html(sectortext[0]);
+			thisSector.selectAll(".group-label").attr("visibility", "hidden");
+			groupname.html(sectornames[0]);
 		}
 		
 		/*function click(){
@@ -77,7 +79,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 			.enter()
 			.append("svg:g")
 			.attr("class", "sector")
-			.attr("desc", function(d,i){return sectortext[i];})
+			.attr("desc", function(d,i){return sectornames[i];})
 			.style("fill", function(d, i){
 				return z(i);
 			})
@@ -90,7 +92,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 								 
 		//The line SVG Path we draw
 		var lineGraph = svg1.append("path")
-			.attr("d", lineFunction(sectors[7]) + "h" + x.rangeBand())
+			.attr("d", lineFunction(sectors[8]) + "h" + x.rangeBand())
 			.attr("stroke", "#666")
 			.attr("stroke-width", 2)
 			.attr("fill", "none");
@@ -100,7 +102,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 	       .append("svg:text")
 	       .attr("x", w-right_space)
 	       .attr("y", function(d,i){return -y(vertspots[i]);})
-	        .attr("dy", "3px")
+	        .attr("dy", "0.5em")
 	        .attr("class", "subtext")
 	        .attr("fill", "#666")
 	       .text(function(d,i){return sectornames[i];});
@@ -156,16 +158,25 @@ var svg1 = d3.select("#" + where).append("svg:svg")
     			.attr("width", 50)
     			.attr("height", 50)*/
 		
-		var groupname = svg1
+		var groupname = sector
 				.append('foreignObject')
 				.attr("class", "group-label")
 				.attr("x", 0)
-				.attr("y", -h+p[2])
-				.attr('width', w)
+				.attr("y", 50)
+				//.attr("dy", ".35em")
+				//.attr("fill", "black")
+				//.attr("visibility", "hidden")
+				//.attr("font-size", "12")
+				.attr('width', w - p[1] - p[3])
                 .attr('height', 100)
+				
 				.append("xhtml:p")
 				.style("background-color","white")
-				.html(sectortext[0]);
+				.html(sectornames[0]);
+				//.html('This is some information about whatever');
+				//.html(function(d, i){
+				//	return sectornames[1];
+				//});
 		
 		d3.selectAll("p").style("stroke","red");
 		

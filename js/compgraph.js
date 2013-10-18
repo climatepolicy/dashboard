@@ -2,7 +2,7 @@ function compgraph(csvfile, sectornames, where){
 
 var w = document.getElementById(where).offsetWidth,
     h = w,
-    p = [150, 50, 50, 20],
+    p = [140, 50, 80, 20],
     x = d3.scale.ordinal().rangeRoundBands([p[0], h- p[2]]),
     y = d3.scale.linear().range([0, w]),
     capcolor = "#B53C36",
@@ -20,7 +20,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
     d3.csv(csvfile, function(data){
             
         // Transpose the data into layers by cause.
-        var sectors = d3.layout.stack()(["Blank",  "Electric Power",  "Industrial", "Transportation","Commercial and Residential","Recycling and Waste", "High GWP", "Agriculture and Forestry"].map(function(cause){
+        var sectors = d3.layout.stack()(["Blank",  "Electric Power",  "Industrial", "Transportation","Commercial and Residential","Recycling and Waste", "High GWP", "Agriculture", "Forestry"].map(function(cause){
             return data.map(function(d){
                 return {
                     x: d.date,
@@ -50,6 +50,17 @@ var svg1 = d3.select("#" + where).append("svg:svg")
             groupname.html(sectornames[0]);
         }
         
+        /*function click(){
+            rect.attr("transform", function(d){
+                return "translate(" + x(d.x1) + "," + (-y(d.y0) - y(d.y)) + ")";
+            });
+            policytext.attr("visibility", "hidden");
+            var newlabel = svg.selectAll("horses").data(x.domain()).enter().append("svg:text").attr("x", function(d){
+                return x(d) + x.rangeBand() / 2;
+            }).attr("y", 6).attr("text-anchor", "middle").attr("dy", ".71em").text(function(d, i){
+                return d;
+            })
+        }*/
         
         // Compute the x-domain (by date) and y-domain (by top).
         x.domain(sectors[0].map(function(d){
@@ -81,7 +92,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
                                  
         //The line SVG Path we draw
         var lineGraph = capLine.append("path")
-            .attr("d", lineFunction(sectors[7]) + "h" + x.rangeBand())
+            .attr("d", lineFunction(sectors[8]) + "h" + x.rangeBand())
             .attr("stroke", "#666")
             .attr("stroke-width", 1)
             .attr("fill", "none");
@@ -120,22 +131,10 @@ var svg1 = d3.select("#" + where).append("svg:svg")
          .attr("cy", -6)//function(d) { return -y(d.y0) - y(d.y) -10; })
          .attr("r", function(d,i){if(d.policy==='1' && d.y>0 && d.y<300){return 3;} else{return 0;}});
         
-        var policytext = sector.selectAll("g")
+        var policytext = sector.selectAll("text")
             .data(Object)
             .enter()
-            .append("svg:a");
-            
-         /*policytext.append("svg:rect")
-            .attr("transform", function(d){
-                xcoord = x(d.x);
-                return "translate(" + xcoord + ",0) rotate(270)";
-             })
-             .style("stroke", "black")
-             .style("fill", "none")
-             .attr("width", w)
-             .attr("height", x.rangeBand());*/
-            
-         policytext
+            .append("svg:a")
             .attr("xlink:href", function (d){return d.link;})
             .append("svg:text")
             .style("stroke", "blank")
@@ -149,8 +148,6 @@ var svg1 = d3.select("#" + where).append("svg:svg")
                     return d.info;
                 }
             });
-        
-        
             
         var policynumbers = sector.selectAll(".numbers")
             .data(Object)
@@ -186,17 +183,38 @@ var svg1 = d3.select("#" + where).append("svg:svg")
         })
         .style("pointer-events","none");
         
+        //add group info      
         
-        var groupname = svg1
+            /*d3.select('#describe').append("svg:svg")
+                .attr("width", w)
+                .attr("height", h)
+                .append("svg:g")
+                .attr("transform", "translate(" + p[3] + "," + (h - p[2]) + ")")
+                .select('#describe')
+                .append("svg:svg")
+                .attr("width", 50)
+                .attr("height", 50)*/
+        
+        var groupname = sector
                 .append('foreignObject')
+                .attr("class", "group-label")
                 .attr("x", 0)
                 .attr("y", 0)
                 .attr("transform", "rotate(270)")
+                //.attr("dy", ".35em")
+                //.attr("fill", "black")
+                //.attr("visibility", "hidden")
+                //.attr("font-size", "12")
                 .attr('width', w)
                 .attr('height', p[0])
+                
                 .append("xhtml:p")
                 .style("background-color","white")
                 .html(sectornames[0]);
+                //.html('This is some information about whatever');
+                //.html(function(d, i){
+                //  return sectornames[1];
+                //});
         
         d3.selectAll("p").style("stroke","red");
         
@@ -218,7 +236,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
             .append("xhtml")
             .html('Annual Emissions (MMTCO<sub>2</sub>e)');
             
-        keydata = [{name:'CAPPED', color: capcolor}, {name:'UNCAPPED', color: uncapcolor}];
+                keydata = [{name:'CAPPED', color: capcolor}, {name:'UNCAPPED', color: uncapcolor}];
         
         key = svg1.append('svg:g');
         key.selectAll("keyrect")
