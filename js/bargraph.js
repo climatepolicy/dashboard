@@ -1,4 +1,4 @@
-function bargraph(csvfile, sectornames, vertspots, where){
+function bargraph(csvfile, sectortext, vertspots, where){
 
 var w = document.getElementById(where).offsetWidth,
     h = w*(3/4),
@@ -49,7 +49,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 			var thisSector = d3.select(this);
 			thisSector.selectAll("rect").style("fill-opacity", "0.8");
 			thisSector.selectAll(".group-label").attr("visibility", "hidden");
-			groupname.html(sectornames[0]);
+			groupname.html(sectortext[0]);
 		}
 		
 		/*function click(){
@@ -79,7 +79,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 			.enter()
 			.append("svg:g")
 			.attr("class", "sector")
-			.attr("desc", function(d,i){return sectornames[i];})
+			.attr("desc", function(d,i){return sectortext[i];})
 			.style("fill", function(d, i){
 				return z(i);
 			})
@@ -172,7 +172,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 				
 				.append("xhtml:p")
 				.style("background-color","white")
-				.html(sectornames[0]);
+				.html(sectortext[0]);
 				//.html('This is some information about whatever');
 				//.html(function(d, i){
 				//	return sectornames[1];
