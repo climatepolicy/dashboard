@@ -1,4 +1,4 @@
-var margin = {top: 10, right: 30, bottom: 30, left: 25},
+var margin = {top: 10, right: 30, bottom: 30, left: 20},
     width = document.getElementById("pricediv").offsetWidth-60,
     height = 219;
 
@@ -9,7 +9,7 @@ var parseDate = d3.time.format("%m/%d/%Y").parse,
     formatCurrency = function(d) { return "$" + formatValue(d); };
 
 var x = d3.time.scale()
-    .range([0, width-30]);
+    .range([margin.left, width-30]);
 
 var y = d3.scale.linear()
     .range([height, 0]);
@@ -74,11 +74,14 @@ d3.csv("csv/carbon_prices.csv", function(error, data) {
    svg.append("g")
       .attr("class", "y axis")
       .call(yAxis)
-    .append("text")
-      .attr("y", 5)
-      .attr("x", -20)
-      .style("text-anchor", "left")
-      .text("$/Tonne Carbon Dioxide Equivalent");
+      .attr("transform", "translate(" + margin.left + " 0)")
+    .append("foreignObject")
+      .attr("width", width)
+      .attr("height", 100)
+      .attr("transform", "rotate(270) translate(-80 -45)")
+      .attr("class", "subtext")
+    .append("xhtml:div")
+      .html("$/Tonne CO<sub>2</sub>e");
   
   var focus = svg.append("g")
       .attr("class", "focus");

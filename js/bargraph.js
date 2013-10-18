@@ -1,10 +1,11 @@
-function bargraph(csvfile, sectornames, where){
+function bargraph(csvfile, sectornames, vertspots, where){
 
 var w = document.getElementById(where).offsetWidth,
     h = w*(3/4),
 	des_space = 100,
     p = [20, 50, 100, 20],
-    x = d3.scale.ordinal().rangeRoundBands([50, w]),
+    right_space = 170,
+    x = d3.scale.ordinal().rangeRoundBands([50, w - right_space]),
     y = d3.scale.linear().range([0, h - p[0] - p[2]]),
     capcolor = "#B53C36",
     uncapcolor = "#EAC881",
@@ -13,21 +14,21 @@ var w = document.getElementById(where).offsetWidth,
 var svg1 = d3.select("#" + where).append("svg:svg")
     .attr("width", w)
     .attr("height", h)
-	.attr("font-family", 'CronosProLight')
 	.attr("fill", "#666")
-	.attr("font-size", "16px")
   .append("svg:g")
     .attr("transform", "translate(0," + (h - p[2]) + ")");
 	
 	d3.csv(csvfile, function(data){
+	    
+	    var sectornames = ["",  "Electric Power",  "Industrial", "Transportation","Commercial and Residential","Recycling and Waste", "High Global Warming Potential", "Agriculture", "Forestry"];
 			
 		// Transpose the data into layers by cause.
-		var sectors = d3.layout.stack()(["Blank",  "Electric Power",  "Industrial", "Transportation","Commercial and Residential","Recycling and Waste", "High GWP", "Agriculture", "Forestry"].map(function(cause){
-			return data.map(function(d){
+		var sectors = d3.layout.stack()(sectornames.map(function(cause){
+			return data.map(function(d,i){
 				return {
 					x: d.date,
 					y: +d[cause],
-					info: d.date,
+					info: i.date,
 					policy: d.policy,
 					cap: d.cap
 				};
@@ -95,6 +96,16 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 			.attr("stroke", "#666")
 			.attr("stroke-width", 2)
 			.attr("fill", "none");
+			
+	   //label sectors
+	   sector
+	       .append("svg:text")
+	       .attr("x", w-right_space)
+	       .attr("y", function(d,i){return -y(vertspots[i]);})
+	        .attr("dy", "0.5em")
+	        .attr("class", "subtext")
+	        .attr("fill", "#666")
+	       .text(function(d,i){return sectornames[i];});
 	
 		
 		// Add a rect for each date.
@@ -126,6 +137,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 		})
 		
 		.attr("y", 6)
+		.attr("class", "subtext")
 		.attr("text-anchor", "middle")
 		.attr("dy", ".71em")
 		.text(function(d, i){if(!isNaN(d))
@@ -173,15 +185,19 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 			return "translate(20," + -y(d) + ")";
 		});
 		
-		rule.append("svg:text").attr("x", 0).attr("dy", ".35em").text(d3.format(",d"));
+		rule.attr("class", "subtext").append("svg:text").attr("text-anchor", "end").attr("x", p[1]).attr("dx", -25).attr("dy", ".35em").text(d3.format(",d"));
 		
 		// add y-axis label
-		svg1.append("text")
+		svg1.append("foreignObject")
       		.attr("transform", "rotate(-90)")
-      		.attr("x", h-150)
-			.attr("y", "1em")
+      		.attr("x", h-350)
+			.attr("y", "0")
+			.attr("width", h)
+			.attr("height", h)
+			.attr("class", "subtext")
+			.append("xhtml")
       		.style("text-anchor", "end")
-      		.text('Annual Emissions (MMTCO2e)');
+      		.html('Annual Emissions (MMTCO<sub>2</sub>e)');
 			
 				keydata = [{name:'CAPPED', color: capcolor}, {name:'UNCAPPED', color: uncapcolor}];
 		
@@ -191,7 +207,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 			.enter().append("svg:rect")
 			.attr("width", 100)
 			.attr("x", function(d,i){
-				return (i+1)/3*w;
+				return (i+1)/3*(w-right_space-50);
 			})
 			.attr("y", 25)
 			.attr("height", "1.3em")
@@ -200,7 +216,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 			.data(keydata)
 			.enter().append('svg:text')
 			.attr("x", function(d,i){
-				return (i+1)/3*w + 50;
+				return (i+1)/3*(w-right_space-50) +50;
 			})
 			.attr("y", 24)
 			.attr("text-anchor","middle")

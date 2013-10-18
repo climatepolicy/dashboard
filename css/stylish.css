@@ -48,8 +48,8 @@ body {
 
 h1,h2,h3,h4,h5,h6 { font-weight: normal; color: #111; }
 
-h1 { font-size: 3em; line-height: 1; margin-bottom: 0.5em; }
-h2 { font-family: 'ChaparralProRegular'; font-size: 1.2em; margin-bottom: 0.75em; color: #F96302;}
+h1 { font-family: 'ChaparralProRegular'; font-size: 0.9em;  color: #F96302; margin: 4px 0px;}
+h2 { font-size: 1em; line-height: 1; margin-bottom: 1em;}
 h3 { font-size: 1em; line-height: 1; margin-bottom: 1em; }
 h4 { font-size: 1.2em; line-height: 1.25; margin-bottom: 1.25em; }
 h5 { font-size: 1em; font-weight: bold; margin-bottom: 1.5em; }
@@ -64,7 +64,7 @@ h4 img, h5 img, h6 img {
 /* Text elements
 -------------------------------------------------------------- */
 
-p           { margin: 0 0 1.5em; }
+p           { margin: 0 0 1.0em; }
 /*
   These can be used to pull an image at the start of a paragraph, so
   that the text flows around it (usage: <p><img class="left">Text</p>)
@@ -134,6 +134,10 @@ table p.subtext{
 	font-style: italic;
 	font-size: 1em;
 }​
+
+table h1{
+	margin: 3px 0px !important;
+}
 
 
 /* Misc classes
