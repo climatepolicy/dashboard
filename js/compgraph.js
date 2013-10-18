@@ -38,9 +38,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
             var thisSector = d3.select(this);
             thisSector.selectAll("rect").style("fill-opacity", "1");
             thisSector.selectAll(".group-label").attr("visibility", "visible");
-            groupname.html(function(d, i){
-                    return thisSector.attr("desc");
-                });
+            groupname.html(thisSector.attr("desc"));
         }
         
         function mouseOut(){
@@ -49,18 +47,6 @@ var svg1 = d3.select("#" + where).append("svg:svg")
             thisSector.selectAll(".group-label").attr("visibility", "hidden");
             groupname.html(sectornames[0]);
         }
-        
-        /*function click(){
-            rect.attr("transform", function(d){
-                return "translate(" + x(d.x1) + "," + (-y(d.y0) - y(d.y)) + ")";
-            });
-            policytext.attr("visibility", "hidden");
-            var newlabel = svg.selectAll("horses").data(x.domain()).enter().append("svg:text").attr("x", function(d){
-                return x(d) + x.rangeBand() / 2;
-            }).attr("y", 6).attr("text-anchor", "middle").attr("dy", ".71em").text(function(d, i){
-                return d;
-            })
-        }*/
         
         // Compute the x-domain (by date) and y-domain (by top).
         x.domain(sectors[0].map(function(d){
@@ -184,36 +170,16 @@ var svg1 = d3.select("#" + where).append("svg:svg")
         .style("pointer-events","none");
         
         //add group info      
-        
-            /*d3.select('#describe').append("svg:svg")
-                .attr("width", w)
-                .attr("height", h)
-                .append("svg:g")
-                .attr("transform", "translate(" + p[3] + "," + (h - p[2]) + ")")
-                .select('#describe')
-                .append("svg:svg")
-                .attr("width", 50)
-                .attr("height", 50)*/
-        
         var groupname = svg1
                 .append('foreignObject')
                 .attr("x", 0)
                 .attr("y", 0)
                 .attr("transform", "rotate(270)")
-                //.attr("dy", ".35em")
-                //.attr("fill", "black")
-                //.attr("visibility", "hidden")
-                //.attr("font-size", "12")
                 .attr('width', w)
                 .attr('height', p[0])
-                
                 .append("xhtml:p")
                 .style("background-color","white")
                 .html(sectornames[0]);
-                //.html('This is some information about whatever');
-                //.html(function(d, i){
-                //  return sectornames[1];
-                //});
         
         d3.selectAll("p").style("stroke","red");
         
