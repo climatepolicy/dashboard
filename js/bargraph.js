@@ -20,7 +20,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 	
 	d3.csv(csvfile, function(data){
 	    
-	    var sectornames = ["",  "Electric Power",  "Industrial", "Transportation","Commercial and Residential","Recycling and Waste", "High Global Warming Potential", "Agriculture and Forestry"];
+	    var sectornames = ["",  "Electric Power",  "Industrial", "Transportation","Commercial and Residential","Recycling and Waste", "High Warming Potential Gases", "Agriculture and Forestry"];
 			
 		// Transpose the data into layers by cause.
 		var sectors = d3.layout.stack()(sectornames.map(function(cause){
@@ -37,14 +37,12 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 		function mouseOver(){
             var thisSector = d3.select(this);
             thisSector.selectAll("rect").style("fill-opacity", "1");
-            thisSector.selectAll(".group-label").attr("visibility", "visible");
             groupname.html(thisSector.attr("desc"));
         }
         
         function mouseOut(){
             var thisSector = d3.select(this);
             thisSector.selectAll("rect").style("fill-opacity", "0.8");
-            thisSector.selectAll(".group-label").attr("visibility", "hidden");
             groupname.html(sectortext[0]);
         }
 		
@@ -84,8 +82,8 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 		var groupname = svg1
                 .append('foreignObject')
                 .attr("x", 0)
-                .attr("y",20)
-                .attr("transform", "translate(0 " + -h + p[2] + ")")
+                .attr("y", 0)
+                .attr("transform", "translate(0 " + (p[2]-h) + ")")
                 .attr('width', w)
                 .attr('height', p[0])
                 .append("xhtml:div")
@@ -137,7 +135,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 		});
 		
 		rule.attr("class", "subtext").append("svg:text").attr("text-anchor", "end").attr("x", p[1]).attr("dx", -25).attr("dy", ".35em").text(d3.format(",d"));
-		/*
+		
 		// add y-axis label
 		svg1.append("foreignObject")
       		.attr("transform", "rotate(-90)")
@@ -148,7 +146,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 			.attr("class", "subtext")
 			.append("xhtml")
       		.style("text-anchor", "end")
-      		.html('Annual Emissions (MMTCO<sub>2</sub>e)');*/
+      		.html('Annual Emissions (MMTCO<sub>2</sub>e)');
 			
 		keydata = [{name:'CAPPED', color: capcolor}, {name:'UNCAPPED', color: uncapcolor}];
 		

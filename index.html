@@ -73,7 +73,7 @@
         		<div id = "pricediv">
 				<h1>CARBON PRICE</h1>
 				<script type="text/javascript" src ="js/prices.js"></script>
-				<p class = "subtext">Price of 2013 California GHG <span class = "tooltip" title = "An allowance is a tradable permit that allows the emission of one metric ton of CO2e." style="color:blue">Allowance</span> Futures as reported by <a href = "https://www.theice.com/productguide/ProductSpec.shtml?specId=6747556#data">ICE</a>. See prices for <a href = "https://www.theice.com/productguide/ProductSpec.shtml?specId=6747556#data">2013</a>, <a href = "https://www.theice.com/productguide/ProductSpec.shtml;jsessionid=4C0CF40265173EAF3661845192076191?specId=6747557#data">2014</a>, <a href = "https://www.theice.com/productguide/ProductSpec.shtml?specId=6747558#data">2015</a>, <a href = "https://www.theice.com/productguide/ProductSpec.shtml?specId=20328818">2016</a>.</p>
+				<p class = "subtext">Price of 2013 California GHG <a class="tooltip" href="#">Allowance<span>An allowance is a tradable permit that allows the emission of one metric ton of CO<sub>2</sub>e.</span></a> Futures as reported by <a href = "https://www.theice.com/productguide/ProductSpec.shtml?specId=6747556#data">ICE</a>. See prices for <a href = "https://www.theice.com/productguide/ProductSpec.shtml?specId=6747556#data">2013</a>, <a href = "https://www.theice.com/productguide/ProductSpec.shtml;jsessionid=4C0CF40265173EAF3661845192076191?specId=6747557#data">2014</a>, <a href = "https://www.theice.com/productguide/ProductSpec.shtml?specId=6747558#data">2015</a>, <a href = "https://www.theice.com/productguide/ProductSpec.shtml?specId=20328818">2016</a>. Updated weekly.</p>
 
 			</div>
 			</div>
@@ -119,13 +119,15 @@
 			    <div class = "span-7 colborder">
 			    	<h1>CAP AND TRADE</h1>
 					<p>
-						California&rsquo;s <a href = "http://www.arb.ca.gov/cc/capanh3rade/capanh3rade.htm">Cap and Trade Program</a> caps greenhouse gas (GHG) emissions from key sectors in California as a central component of the Assembly Bill 32 (AB32) framework to return California emissions to 1990 levels by 2020. 
+						California&rsquo;s <a href = "http://www.arb.ca.gov/cc/ab32/ab32.htm">Global Warming Solutions Act of 2006 (AB32)</a> set a series of policies and programs across all major sectors to return California emissions to 1990 levels by 2020. The <a href = "http://www.arb.ca.gov/cc/capandtrade/capandtrade.htm">Cap and Trade Program</a> caps greenhouse gas (GHG) emissions from key sectors in California, acting as a backstop to ensure that AB32 GHG reductions are met.  
 					</p>
 					<p>	
-						The California Cap and Trade Program is designed to achieve cost-effective emissions reductions across the capped sectors. The Program sets maximum, statewide greenhouse gas (GHG) emissions for all covered sectors each year (the &ldquo;cap&rdquo;), and allows covered entities to sell off <span class = "tooltip" title="An allowance is a tradable permit that allows the emission of one metric ton of CO2e." style="color:blue">allowances</span> (permits) that they do not need (the &ldquo;trade&rdquo;). The California carbon price is driven by allowance trading. 
+						The California Cap and Trade Program is designed to achieve cost-effective emissions reductions across the capped sectors. 
+						The Program sets maximum, statewide greenhouse gas (GHG) emissions for all covered sectors each year (the &ldquo;cap&rdquo;), and allows covered entities to sell off <a class="tooltip" href="#">allowances<span>An allowance is a tradable permit that allows the emission of one metric ton of CO<sub>2</sub>e.</span></a>. (permits) that they do not need (the &ldquo;trade&rdquo;). 
+						The California carbon price is driven by allowance trading. 
 					</p>
 					<p>	
-						The Cap and Trade Program is expected to drive 3.7% of the targeted greenhouse gas reductions by 2020, while complementary carbon policies will achieve the rest. For general information on how cap and trade systems work, check out this <a href = "http://www.c2es.org/docUploads/climate101-captrade.pdf">C2ES primer on cap and trade for more general information</a>.
+						By 2020, the Cap and Trade Program is expected to drive approximately 22% of targeted greenhouse gas reductions still needed in capped sectors after reductions from AB32&rsquo;s Complementary Policies. For general information on how cap and trade systems work, check out this <a href = "http://www.c2es.org/docUploads/climate101-captrade.pdf">C2ES primer on cap and trade for more general information</a>.
 					</p>	
 					
 			    </div>
@@ -149,7 +151,7 @@
 									"The <b>Transportation</b> sector is affected by a number of policies, including the Pavley Standards, which require significant increases in vehicle fuel efficiency.  Further, the Low Carbon Fuel Standard requires refiners and blenders to source a significant portion of their fuel from renewable sources.",
 									"<b>Commercial and Residential</b> energy efficiency programs are expected to yield nearly 12 MMTCO<sub>2</sub>e in carbon emissions reductions.",
 									"<b>Recycling and Waste</b> is a low-emitting sector, but reduction programs are planned nonetheless.", 
-									"<b>High Global Warming Potential</b> gases are a significant source of emissions today, but policies are designed to nearly eliminate those emissions by 2020.", 
+									"<b>High Global Warming Potential Gases</b> are a significant source of emissions today, but policies are designed to nearly eliminate those emissions by 2020.", 
 									"<b>Agriculture</b> emissions aren't addressed by the cap or complementary policies, but offsets protocols may apply. Current <b>Forestry</b> sector emissions are almost nonexistent, but new programs are designed to make them a significant net carbon sink by 2020."
 									];
 								compgraph("csv/inventory_data.csv", othernames, "compdiv");
@@ -160,13 +162,13 @@
 							<script type="text/javascript">
 								var allospots = [0, 56.91858325,    156.3865976, 296.5904607, 415.3103487, 440.3284842, 461.9054634, 493.0618774];
 								
-								var allocation = ["Projected business-as-usual emissions through 2020 for capped and uncapped sectors. The overlaid black line indicates the cap for each year.  The overlaid line indicates the cap for each year. <i>Mouse over a row to see how permits are allocated to each sector.	</i>", 
+								var allocation = ["Projected business-as-usual emissions through 2020 for capped and uncapped sectors. The overlaid line indicates the cap for each year. <i>Mouse over a row to see how permits are allocated to each sector.	</i>", 
 									"<b>Electricity</b> Sector: allowances are allocated freely to insulate electricity customers from sudden price increases.", 
 									"<b>Industrial</b> Sector: allowances are allocated freely until 2015 for all sectors.  After that, allocation is partially free, depending on leakage risk",  
 									"<b>Transportation</b> Sector: no allowances are freely allocated &#8212; the California Legislature continues to debate how to use auction revenues for the public benefit.",
 									"<b>Commercial and Residential</b> emissions are uncapped, but complementary policies apply (see complementary policies tab).",
 									"<b>Recycling and Waste</b> emissions are uncapped, but complementary policies apply (see complementary policies tab).", 
-									"<b>High Global Warming Potential</b> emissions are uncapped, but complementary policies apply (see complementary policies tab).", 
+									"<b>High Global Warming Potential Gas</b> emissions are uncapped, but complementary policies apply (see complementary policies tab).", 
 									"<b>Agriculture</b> emissions are uncapped, but complementary policies apply (see complementary policies tab). <b>Forestry</b> emissions are uncapped, but complementary policies apply (see complementary policies tab)."
 									];
 								bargraph("csv/projection_data.csv", allocation, allospots, "allodiv");
@@ -175,7 +177,7 @@
 					</div>
 					<div id = "histdiv">
 							<script type="text/javascript">
-								var sectorspots = [0, 46.65,   136.28,  265.85,  374.385, 396, 409,  431.605];
+								var sectorspots = [0, 46.65,   136.28,  265.85,  374.385, 392, 409,  431.605];
 								var sectornames = ["California statewide greenhouse gas emissions from 2000 to 2011. The transportation, electric, and industrial sectors have generated the majority of emissions in California for decades. <i>Mouse over to see sector names.</i>", 
 									"<b>Electricity</b>", 
 									"<b>Industrial</b>",  
@@ -194,7 +196,7 @@
 		    <hr>
 		    <h1>CAP AND TRADE PROGRAM DETAILS</h1>
             <p>
-            The Cap and Trade Program <a href = "http://www.arb.ca.gov/cc/capanh3rade/guidance/chapter2.pdf">covers</a> the power and industrial sectors starting in 2013 and will expand to cover natural gas and transportation fuels in 2015. Once fully in effect, the program will cover roughly 85% of California&rsquo;s GHG emissions. The California Air Resources Board <a href = "http://www.arb.ca.gov">auctions</a> allowances to covered entities.  Allowances are <a href = "http://www.arb.ca.gov/cc/capanh3rade/allowanceallocation/allowanceallocation.htm">allocated freely</a> to electric utilities to mitigate costs on customers. Utilities must use the value associated with the allowances to benefit ratepayers. Free allocation decreases over time. Regulated entities can also meet 8% of their obligations by buying <a href = "http://www.arb.ca.gov/cc/capanh3rade/offsets/offsets.htm#protocols">CARB-approved offsets</a> &mdash; emissions reductions from uncapped sectors.
+            The Cap and Trade Program <a href = "http://www.arb.ca.gov/cc/capandtrade/guidance/chapter2.pdf">covers</a> the power and industrial sectors starting in 2013 and will expand to cover natural gas and transportation fuels in 2015. Once fully in effect, the program will cover roughly 85% of California&rsquo;s GHG emissions. The California Air Resources Board <a href = "http://www.arb.ca.gov">auctions</a> allowances to covered entities.  Allowances are <a href = "http://www.arb.ca.gov/cc/capandtrade/allowanceallocation/allowanceallocation.htm">allocated freely</a> to electric utilities to mitigate costs on customers. Utilities must use the value associated with the allowances to benefit ratepayers. Free allocation decreases over time. Regulated entities can also meet 8% of their obligations by buying <a href = "http://www.arb.ca.gov/cc/capandtrade/offsets/offsets.htm#protocols">CARB-approved offsets</a> &mdash; emissions reductions from uncapped sectors.
             </p>
             <div id = "accordion">
                 <h2><a href = "">Allowance Allocation</a></h2>
@@ -209,9 +211,9 @@
                 <tr>
                     <td>Free Allocation:</td>
                     <td>
-                        <p>Electricity Utilities &mdash; All utility allowances are allocated freely to protect ratepayers from rate shocks. Utilities must use the value associated the allowances to benefit ratepayers.</p>
+                        <p>Electrical Distribution Utilities &mdash; All utility allowances are allocated freely to protect ratepayers from rate shocks. Utilities must use the value associated the allowances to benefit ratepayers.</p>
                         <p>Industry Sectors &mdash; Allocation determined according to <a href = "http://www.fas.org/sgp/crs/misc/R40100.pdf">leakage</a> prevention and sector transition assistance needs. </p>
-                        <p class = "subtext">For more details, see CARB&rsquo;s <a href = 'http://www.arb.ca.gov/cc/capanh3rade/allowanceallocation/allowanceallocation.htm'>allowance allocation</a> page  and Regulatory Guidance Document <a href = "http://www.arb.ca.gov/cc/capandtrade/guidance/20130419%20Guidance%20Document%20Ch%203%20posting.pdf#page=5">Section 3.5</a></p class = "subtext">
+                        <p class = "subtext">For more details, see CARB&rsquo;s <a href = 'http://www.arb.ca.gov/cc/capandtrade/allowanceallocation/allowanceallocation.htm'>allowance allocation</a> page  and Regulatory Guidance Document <a href = "http://www.arb.ca.gov/cc/capandtrade/guidance/20130419%20Guidance%20Document%20Ch%203%20posting.pdf#page=5">Section 3.5</a></p class = "subtext">
                             </td>
                             </tr>
                             <tr>
@@ -223,15 +225,15 @@
                             <li>Advance Auctions offer vintages of the subsequent calendar years.</li>
                             </ul>
                             <p>Entities submit bids in a single-round, sealed-bid auction format. Allowances are awarded to entities starting with the highest bids until all available allowances are exhausted. The “settlement price” is lowest price at which the allowance supply is exhausted. All entities will pay the settlement price or auction reserve price (see below) &mdash; whichever is highest &mdash; for their awarded allowances. </p>
-                            <p class = "subtext">See <a href = "http://www.arb.ca.gov/cc/capanh3rade/guidance/chapter5.pdf#page=2">here</a> for more details on auction procedures and <a href = "http://www.arb.ca.gov/cc/capanh3rade/auction/auction.htm">here</a> for further details and auction schedule updates. </p>
+                            <p class = "subtext">See <a href = "http://www.arb.ca.gov/cc/capandtrade/guidance/chapter5.pdf#page=2">here</a> for more details on auction procedures and <a href = "http://www.arb.ca.gov/cc/capandtrade/auction/auction.htm">here</a> for further details and auction schedule updates. </p>
                             </td>
                             </tr>
                             <tr>
                             <td>Auction Reserve Price: </td>
                             <td>
-                            <p>For each auction, CARB sets an Auction Reserve Price &mdash; a minimum price below which allowances cannot be sold at auction. The Regulation (<a href = "http://www.arb.ca.gov/cc/capanh3rade/ct_rf_april2013.pdf#page=135">&#167; 95911</a>) set the 2012 and 2013 Auction Reserve Price at $10/allowance for both the current and advanced auctions. Starting in 2014, the Auction Reserve Price increases annually by 5% plus the rate of inflation (Consumer Price Index for All Urban Consumers). </p>
+                            <p>For each auction, CARB sets an Auction Reserve Price &mdash; a minimum price below which allowances cannot be sold at auction. The Regulation (<a href = "http://www.arb.ca.gov/cc/capandtrade/ct_rf_april2013.pdf#page=135">&#167; 95911</a>) set the 2012 and 2013 Auction Reserve Price at $10/allowance for both the current and advanced auctions. Starting in 2014, the Auction Reserve Price increases annually by 5% plus the rate of inflation (Consumer Price Index for All Urban Consumers). </p>
                             
-                            <p class = "subtext">For more details, see CARB&rsquo;s Regulatory Guidance Document <a href = "http://www.arb.ca.gov/cc/capanh3rade/guidance/chapter5.pdf#page=7">Section 5.1.4</a></p>
+                            <p class = "subtext">For more details, see CARB&rsquo;s Regulatory Guidance Document <a href = "http://www.arb.ca.gov/cc/capandtrade/guidance/chapter5.pdf#page=7">Section 5.1.4</a></p>
                             </td>
                             </tr>
                             <tr>
@@ -245,7 +247,7 @@
                             <li>2018-2020&#58; 7% of allowance budget</li>
                             </ul>
                             <p>Allowances in the reserve are available for purchase quarterly at three tiers of pre-established prices that increase annually by 5% plus rate of inflation (Consumer Price Index for All Urban Consumers). In 2013, APCR tiers are priced at $40, $45, and $50.</p> 
-                            <p class = "subtext">For more details, see CARB&rsquo;s Regulatory Guidance Document <a href = "http://www.arb.ca.gov/cc/capanh3rade/guidance/chapter5.pdf#page=22">Section 5.2.2</a>. See <a href = "http://nicholasinstitute.duke.edu/sites/default/files/publications/allowance-price-containment-options-for-cap-and-trade-legislation-paper.pdf">here</a> for general information on cost containment mechanisms.</p class = "subtext">
+                            <p class = "subtext">For more details, see CARB&rsquo;s Regulatory Guidance Document <a href = "http://www.arb.ca.gov/cc/capandtrade/guidance/chapter5.pdf#page=22">Section 5.2.2</a>. See <a href = "http://nicholasinstitute.duke.edu/sites/default/files/publications/allowance-price-containment-options-for-cap-and-trade-legislation-paper.pdf">here</a> for general information on cost containment mechanisms.</p class = "subtext">
                             </td>
                             </tr>
                             </table>
@@ -257,9 +259,9 @@
                 <tr>
                 <td>Sectors:</td>
                 <td>
-				<p>2013-2020: Electric utilities and large industrial facilities</p>
+				<p>2013-2020: First deliverers of electricity (in-state and imported) and large industrial facilities</p>
 				<p>2015-2020:	Distributors of transportation fuels, natural gas, and other fuels</p>
-				<p class = "subtext">For more details on covered sectors, see CARB&rsquo;s Regulatory Guidance Document <a href = "http://www.arb.ca.gov/cc/capanh3rade/guidance/chapter2.pdf">Section 2.0</a href = "http://www.arb.ca.gov/cc/capanh3rade/guidance/chapter2.pdf">.  CARB also maintains a <a href = "http://www.arb.ca.gov/cc/capanh3rade/covered_entities_011013_v2.xlsx">current list of covered entities</a>.</p class = "subtext">
+				<p class = "subtext">For more details on covered sectors, see CARB&rsquo;s Regulatory Guidance Document <a href = "http://www.arb.ca.gov/cc/capandtrade/guidance/chapter2.pdf">Section 2.0</a href = "http://www.arb.ca.gov/cc/capandtrade/guidance/chapter2.pdf">.  CARB also maintains a <a href = "http://www.arb.ca.gov/cc/capandtrade/covered_entities_011013_v2.xlsx">current list of covered entities</a>.</p class = "subtext">
                 </td>
                 </tr>
                 <tr>
@@ -279,7 +281,7 @@
                 <li>Fuel suppliers and distributors</li>
                 <li>Carbon dioxide suppliers </li>
 				</ul>
-				<p class = "subtext">For full details, see the Regulation (<a href = "http://www.arb.ca.gov/cc/capanh3rade/ct_rf_april2013.pdf#page=50">&#167; 95811</a>)</p>
+				<p class = "subtext">For full details, see the Regulation (<a href = "http://www.arb.ca.gov/cc/capandtrade/ct_rf_april2013.pdf#page=50">&#167; 95811</a>)</p>
                 </td>
                 </tr>
                 <tr>
@@ -308,14 +310,14 @@
                 <li>Each year, entities must submit allowances for at least 30% of covered emissions from the previous year. </li>
                 <li>The year after the end of a compliance period, entities must submit allowances for remaining covered emissions for the period. </li>
 				</ul>
-				<p class = "subtext">For further details, see CARB&rsquo;s Regulatory Guidance <a href = "http://www.arb.ca.gov/cc/capanh3rade/guidance/20130419%20Guidance%20Document%20Ch%203%20posting.pdf#page=6">Section 3.6.2</a>.</p>
+				<p class = "subtext">For further details, see CARB&rsquo;s Regulatory Guidance <a href = "http://www.arb.ca.gov/cc/capandtrade/guidance/20130419%20Guidance%20Document%20Ch%203%20posting.pdf#page=6">Section 3.6.2</a>.</p>
                 </td>
                 </tr>
                 <tr>
                 <td>Banking: </td>
                 <td>
 				<p>Covered entities can save (&ldquo;bank&rdquo;) allowances for purposes of future compliance to guard against shortages or price swings. They cannot submit future year allowances for compliance with a previous year (i.e., &ldquo;borrow&rdquo; future vintage year allowances).</p>
-				<p class = "subtext">For further details, see CARB&rsquo;s Regulatory Guidance <a href = 'http://www.arb.ca.gov/cc/capanh3rade/guidance/chapter5.pdf#page=17'>Section 5.1.8.</a href = 'http://www.arb.ca.gov/cc/capanh3rade/guidance/chapter5.pdf#page=17'> </p>
+				<p class = "subtext">For further details, see CARB&rsquo;s Regulatory Guidance <a href = 'http://www.arb.ca.gov/cc/capandtrade/guidance/chapter5.pdf#page=17'>Section 5.1.8.</a href = 'http://www.arb.ca.gov/cc/capandtrade/guidance/chapter5.pdf#page=17'> </p>
                 </td>
                 </tr>
                 </table>
@@ -333,16 +335,16 @@
                 <tr>
                 <td>Compliance Offset Protocols:</td>
                 <td>
-				<p>Offset credits can only be quantified using <a href = "http://www.arb.ca.gov/cc/capanh3rade/compliance-offset-protocol-process.pdf">CARB-approved Compliance Offset Protocols</a href = "http://www.arb.ca.gov/cc/capanh3rade/compliance-offset-protocol-process.pdf"> . CARB has adopted four Compliance Offset protocols to date:</p>
+				<p>Offset credits can only be quantified using <a href = "http://www.arb.ca.gov/cc/capandtrade/compliance-offset-protocol-process.pdf">CARB-approved Compliance Offset Protocols</a href = "http://www.arb.ca.gov/cc/capandtrade/compliance-offset-protocol-process.pdf"> . CARB has adopted four Compliance Offset protocols to date:</p>
 				<ul class = "nobullet">
-                <li><a href = "http://www.arb.ca.gov/regact/2010/capanh3rade10/copusforest.pdf">U.S. Forest Projects Compliance Offset Protocol</a href = "http://www.arb.ca.gov/regact/2010/capanh3rade10/copusforest.pdf"></li>
-                <li><a href = "http://www.arb.ca.gov/regact/2010/capanh3rade10/copurbanforestfin.pdf">Urban Forest Projects Compliance Offset Protocol</a href = "http://www.arb.ca.gov/regact/2010/capanh3rade10/copurbanforestfin.pdf"></li>
-                <li><a href = "http://www.arb.ca.gov/regact/2010/capanh3rade10/coplivestockfin.pdf">Livestock Projects Compliance Offset Protocol</a href = "Livestock Projects Compliance Offset Protocol "> </li>
-                <li><a href = "http://www.arb.ca.gov/regact/2010/capanh3rade10/copodsfin.pdf">Ozone Depleting Substance Compliance Offset Protocol</a href = "http://www.arb.ca.gov/regact/2010/capanh3rade10/copodsfin.pdf"> </li>
+                <li><a href = "http://www.arb.ca.gov/regact/2010/capandtrade10/copusforest.pdf">U.S. Forest Projects Compliance Offset Protocol</a href = "http://www.arb.ca.gov/regact/2010/capandtrade10/copusforest.pdf"></li>
+                <li><a href = "http://www.arb.ca.gov/regact/2010/capandtrade10/copurbanforestfin.pdf">Urban Forest Projects Compliance Offset Protocol</a href = "http://www.arb.ca.gov/regact/2010/capandtrade10/copurbanforestfin.pdf"></li>
+                <li><a href = "http://www.arb.ca.gov/regact/2010/capandtrade10/coplivestockfin.pdf">Livestock Projects Compliance Offset Protocol</a href = "Livestock Projects Compliance Offset Protocol "> </li>
+                <li><a href = "http://www.arb.ca.gov/regact/2010/capandtrade10/copodsfin.pdf">Ozone Depleting Substance Compliance Offset Protocol</a href = "http://www.arb.ca.gov/regact/2010/capandtrade10/copodsfin.pdf"> </li>
 				</ul>
 				<p>CARB is currently considering several additional protocols, which would allow additional offset types to generate credits.</p>
                 
-				<p class = "subtext">See <a href = "http://www.arb.ca.gov/cc/capanh3rade/offsets/offsets.htm">here</a> for detailed and updated information on Compliance Offset Protocols.</p>
+				<p class = "subtext">See <a href = "http://www.arb.ca.gov/cc/capandtrade/offsets/offsets.htm">here</a> for detailed and updated information on Compliance Offset Protocols.</p>
                 </td>
                 </tr>
                 <tr>
@@ -356,7 +358,7 @@
                 <td>Qu&eacute;bec:</td>
                 <td>
 				<p>California&rsquo;s cap and trade program will link to the Province of Qu&eacute;bec&rsquo;s cap and trade program on January 1, 2014.</p>
-				<p class = "subtext">See <a href = "http://www.arb.ca.gov/cc/capanh3rade/linkage/linkage.htm">here</a href = "http://www.arb.ca.gov/cc/capanh3rade/linkage/linkage.htm"> for details.</p class = "subtext">
+				<p class = "subtext">See <a href = "http://www.arb.ca.gov/cc/capandtrade/linkage/linkage.htm">here</a href = "http://www.arb.ca.gov/cc/capandtrade/linkage/linkage.htm"> for details.</p class = "subtext">
                 
                 </td>
                 </tr>
@@ -368,7 +370,9 @@
 	<hr>
 	<footer>
 		<p class = "subtext">
-			This page was built using several Open Source projects, including <a href = "http://d3js.org/">D3.js</a>,  <a href = "https://developers.google.com/feed/">Google Feed API</a>, and <a href = "http://jquerytools.org/">jQuery Tools </a>. 
+			This page was built by <a href = "http://www.climatepolicyinitiative.org">Climate Policy Initiative</a> using several Open Source projects, including <a href = "http://d3js.org/">D3.js</a>,  <a href = "https://developers.google.com/feed/">Google Feed API</a>, and <a href = "http://jquery.org/">jQuery</a>.
+			<br>
+			Questions or comments? <a href = "mailto:dashboard@cpisf.org">Contact us</a>.
 		</p>	
 	</footer>
     <script type="text/javascript" src ="js/tabs.js"></script>
