@@ -55,6 +55,8 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 		})]);
 		
 		
+		
+		
 		// Add a group for each sector.
 		var sector = svg1.selectAll("g.sector")
 			.data(sectors)
@@ -67,17 +69,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 			})
 			.on("mouseover", mouseOver).on("mouseout", mouseOut);
 			
-		 var lineFunction = d3.svg.line()
-			.x(function(d) { return x(d.x); })
-			.y(function(d) { return -y(d.cap); })
-			.interpolate("step-after");
-								 
-		//The line SVG Path we draw
-		var lineGraph = svg1.append("path")
-			.attr("d", lineFunction(sectors[7]) + "h" + x.rangeBand())
-			.attr("stroke", "#666")
-			.attr("stroke-width", 2)
-			.attr("fill", "none");
+		
 			
 		var groupname = svg1
                 .append('foreignObject')
@@ -172,6 +164,29 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 			.style("fill", "white")
 			.attr("dy", "1em")
 			.text(function (d) {return d.name});
+			
+		if(where == "allodiv") //these are the differences between the cap and history graphics
+		{
+		//Add the cap
+		svg1.append("svg:text")
+			.attr("x", p[1])
+			.attr("y", -y(162.8))
+			.attr("dx", -30 )
+			.attr("dy", 5)
+			.text("CAP");
+			
+		var lineFunction = d3.svg.line()
+			.x(function(d) { return x(d.x); })
+			.y(function(d) { return -y(d.cap); })
+			.interpolate("step-after");
+								 
+		//The line SVG Path we draw
+		var lineGraph = svg1.append("path")
+			.attr("d", lineFunction(sectors[7]) + "h" + x.rangeBand())
+			.attr("stroke", "#666")
+			.attr("stroke-width", 2)
+			.attr("fill", "none");
+		}
 
 	});
 }

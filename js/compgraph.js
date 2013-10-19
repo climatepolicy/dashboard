@@ -2,7 +2,7 @@ function compgraph(csvfile, sectornames, where){
 
 var w = document.getElementById(where).offsetWidth,
     h = w,
-    p = [150, 50, 50, 20],
+    p = [210, 50, 50, 20],
     x = d3.scale.ordinal().rangeRoundBands([p[0], h- p[2]]),
     y = d3.scale.linear().range([0, w]),
     capcolor = "#B53C36",
