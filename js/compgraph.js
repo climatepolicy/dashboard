@@ -162,7 +162,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
         .attr("dx", "3px")
         .attr("fill","white")
         .attr("transform", "rotate(270)")
-        .text(function(d, i){if(i==0 || i==17)
+        .text(function(d, i){if(i==0 || i==16)
             {
                 return d;
             }

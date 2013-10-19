@@ -20,7 +20,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 	
 	d3.csv(csvfile, function(data){
 	    
-	    var sectornames = ["",  "Electric Power",  "Industrial", "Transportation","Commercial and Residential","Recycling and Waste", "High Global Warming Potential", "Agriculture and Forestry"];
+	    var sectornames = ["",  "Electric Power",  "Industrial", "Transportation","Commercial and Residential","Recycling and Waste", "High Warming Potential Gases", "Agriculture and Forestry"];
 			
 		// Transpose the data into layers by cause.
 		var sectors = d3.layout.stack()(sectornames.map(function(cause){
