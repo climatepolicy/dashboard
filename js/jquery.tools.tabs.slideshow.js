@@ -348,7 +348,7 @@
                         disabledClass: 'disabled',
                         autoplay: false,
                         autopause: true,
-                        interval: 3000, 
+                        interval: 7000, 
                         clickable: true,
                         api: false
                 }
