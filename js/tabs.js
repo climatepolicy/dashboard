@@ -6,7 +6,7 @@ $(function() {
 $(function() {
     // setup ul.tabs to work as tabs for each div directly under div.panes
     $("table.tabs").tabs("div.update_panes > div", {
-        interval:10000,
+        interval: 10000,
         rotate: true
     }).slideshow();
     $("table.tabs").data("slideshow").play();
