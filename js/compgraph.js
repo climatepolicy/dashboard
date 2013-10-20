@@ -69,26 +69,44 @@ var svg1 = d3.select("#" + where).append("svg:svg")
             })
             .on("mouseover", mouseOver).on("mouseout", mouseOut);
        
-         var capLine = svg1.append("svg:g");
          
-         var lineFunction = d3.svg.line()
-            .x(function(d) { return x(d.x); })
-            .y(function(d) { return -y(d.cap); })
-            .interpolate("step-after");
-                                 
-        //The line SVG Path we draw
-        var lineGraph = capLine.append("path")
-            .attr("d", lineFunction(sectors[7]) + "h" + x.rangeBand())
-            .attr("stroke", "#666")
-            .attr("stroke-width", 1)
-            .attr("fill", "none");
+         var capData = [
+            {value: 334.2, name: "Cap"},
+            {value: 427, name: "Goal"}
+            
+         ];
+         
+         var capLine = svg1.selectAll("g.caplabels")
+            .data(capData)
+            .enter()
+            .append("svg:g")
+            .attr("class","subtext");
+         
+        capLine.append("svg:polygon")
+            .attr("points", "0,0 10,0 5,5")
+            .attr("transform", function(d){return "rotate(270) translate(" + (y(d.value)-5) +" " + p[0] + ")";});
         
         capLine.append("svg:text")
             .attr("transform", "rotate(-90)")
-            .attr("x", y(334.2))
+            .attr("x", function(d){ return y(d.value);})
             .attr("y", p[0])
+            .attr("dy", -2)
             .style("text-anchor", "middle")
-            .text('2020 Cap');
+            .text(function(d){return d.name;});
+        
+        capLine.append("svg:polygon")
+            .attr("points", "0,5 10,5 5,0")
+            .attr("transform", function(d){return "rotate(270) translate(" + (y(d.value)-5) +" " + (h-p[2]-5) + ")";})
+        
+        capLine.append("svg:text")
+            .attr("transform", "rotate(-90)")
+            .attr("x", function(d){ return y(d.value);})
+            .attr("y", h-p[2])
+            .attr("dy", 11)
+            .style("text-anchor", "middle")
+            .text(function(d){return d.name;});
+        
+        
         
         // Add a rect for each date.
         var rect = sector.selectAll("rect").data(Object).enter().append("svg:rect")
