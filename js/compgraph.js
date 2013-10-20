@@ -27,7 +27,6 @@ var svg1 = d3.select("#" + where).append("svg:svg")
                     y: +d[cause],
                     info: d.date,
                     policy: d.policy,
-                    cap: d.cap,
                     link: d.link
                 };
             });
@@ -105,8 +104,6 @@ var svg1 = d3.select("#" + where).append("svg:svg")
             .attr("dy", 11)
             .style("text-anchor", "middle")
             .text(function(d){return d.name;});
-        
-        
         
         // Add a rect for each date.
         var rect = sector.selectAll("rect").data(Object).enter().append("svg:rect")
