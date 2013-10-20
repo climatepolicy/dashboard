@@ -36,7 +36,7 @@
    The font-size percentage is of 16px. (0.75 * 16px = 12px) */
 html { font-size:100.01%; }
 body {
-  font-size: 110%;
+  font-size: 105%;
   color: #666;
   background: #fff;
   font-family: "CronosProLight", Arial, Helvetica, sans-serif;
@@ -48,7 +48,7 @@ body {
 
 h1,h2,h3,h4,h5,h6 { font-weight: normal; color: #111; }
 
-h1 { font-family: 'ChaparralProRegular'; font-size: 0.9em;  color: #F96302; margin: 4px 0px;}
+h1 { font-family: 'ChaparralProRegular'; font-size: 1em;  color: #F96302; margin: 4px 0px;}
 h2 { font-size: 1em; line-height: 1; margin-bottom: 1em;}
 h3 { font-size: 1em; line-height: 1; margin-bottom: 1em; }
 h4 { font-size: 1.2em; line-height: 1.25; margin-bottom: 1.25em; }
