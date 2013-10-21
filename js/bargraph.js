@@ -1,6 +1,6 @@
 
 var spots = [0, 46.65,   136.28,  265.85,  374.385, 392, 409,  431.605];
-var names = ["",  "Electric Power",  "Industrial", "Transportation","Commercial and Residential","Recycling and Waste", "High Warming Potential Gases", "Agriculture and Forestry"];
+var names = ["",  "Electric Power",  "Industrial", "Fuels","Commercial and Residential","Recycling and Waste", "High Warming Potential Gases", "Agriculture and Forestry"];
 
 var text = ["California statewide greenhouse gas emissions from 2000 to 2011. The transportation, electric, and industrial sectors have generated the majority of emissions in California for decades. <i>Mouse over to see sector names.</i>", 
 "<b>Electricity</b>", 
@@ -32,7 +32,7 @@ function bargraph(csvfile, sectornames, sectortext, vertspots, where){
 
 var w = document.getElementById(where).offsetWidth,
     h = w*(3/4),
-    p = [150, 50, 20, 20],
+    p = [150, 50, 47, 20],
     right_space = 170,
     x = d3.scale.ordinal().rangeRoundBands([50, w - right_space]),
     y = d3.scale.linear().range([0, h - p[0] - p[2]]),
@@ -167,7 +167,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
       		.style("text-anchor", "end")
       		.html('Annual Emissions (MMTCO<sub>2</sub>e)');
 			
-		var keydata = [{name:'CAPPED', color: capcolor}, {name:'UNCAPPED', color: uncapcolor}];
+		keydata = [{name:'CAPPED', color: capcolor}, {name:'UNCAPPED', color: uncapcolor}];
 		
 		var key = svg1.append('svg:g');
 		key.selectAll("keyrect")
