@@ -21,3 +21,4 @@ $(function(){
    $("#accordion").accordion("option", "icons", 
         { 'header': 'ui-icon-plus', 'activeHeader': 'ui-icon-minus' });
   });
+  
