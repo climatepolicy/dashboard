@@ -1,9 +1,38 @@
-function bargraph(csvfile, sectortext, vertspots, where){
+
+var spots = [0, 46.65,   136.28,  265.85,  374.385, 392, 409,  431.605];
+var names = ["",  "Electric Power",  "Industrial", "Fuels","Commercial and Residential","Recycling and Waste", "High Warming Potential Gases", "Agriculture and Forestry"];
+
+var text = ["California statewide greenhouse gas emissions from 2000 to 2011. The transportation, electric, and industrial sectors have generated the majority of emissions in California for decades. <i>Mouse over to see sector names.</i>", 
+"<b>Electricity</b>", 
+"<b>Industrial</b>",  
+"<b>Transportation</b>",
+"<b>Commercial and Residential</b>",
+"<b>Recycling and Waste</b>", 
+"<b>High Global Warming Potential Gases</b>", 
+"<b>Agriculture</b> and <b>Forestry</b>" 
+];
+bargraph("csv/history_data.csv", names, text, spots, "histdiv");
+
+var allonames = ["",  "Electric Power",  "Industrial", "Transportation","Agriculture and Forestry","Uncapped Electricity/ Industrial", "High Warming Potential Gases", "Other Uncapped"];
+var allospots = [0, 56.91858325,    156.3865976, 296.5904607, 415.3103487, 440.3284842, 461.9054634, 493.0618774];
+
+var allocation = ["Projected business-as-usual emissions through 2020 for capped and uncapped sectors. The overlaid line indicates the cap for each year. <i>Mouse over a row to see how permits are allocated to each sector.	</i>", 
+"<b>Electricity</b> Sector: allowances are allocated freely to insulate electricity customers from sudden price increases.", 
+"<b>Industrial</b> Sector: allowances are allocated freely until 2015 for all sectors.  After that, allocation is partially free, depending on leakage risk",  
+"<b>Transportation</b> Sector: no allowances are freely allocated &#8212; the California Legislature continues to debate how to use auction revenues for the public benefit.",
+"<b>Commercial and Residential</b> emissions are uncapped, but complementary policies apply (see complementary policies tab).",
+"<b>Recycling and Waste</b> emissions are uncapped, but complementary policies apply (see complementary policies tab).", 
+"<b>High Global Warming Potential Gas</b> emissions are uncapped, but complementary policies apply (see complementary policies tab).", 
+"<b>Agriculture</b> emissions are uncapped, but complementary policies apply (see complementary policies tab). <b>Forestry</b> emissions are uncapped, but complementary policies apply (see complementary policies tab)."
+];
+bargraph("csv/projection_data.csv", allonames, allocation, allospots, "allodiv");
+
+							
+function bargraph(csvfile, sectornames, sectortext, vertspots, where){
 
 var w = document.getElementById(where).offsetWidth,
     h = w*(3/4),
-	des_space = 100,
-    p = [150, 50, 20, 20],
+    p = [150, 50, 47, 20],
     right_space = 170,
     x = d3.scale.ordinal().rangeRoundBands([50, w - right_space]),
     y = d3.scale.linear().range([0, h - p[0] - p[2]]),
@@ -19,16 +48,14 @@ var svg1 = d3.select("#" + where).append("svg:svg")
     .attr("transform", "translate(0," + (h - p[2]) + ")");
 	
 	d3.csv(csvfile, function(data){
-	    
-	    var sectornames = ["",  "Electric Power",  "Industrial", "Transportation","Commercial and Residential","Recycling and Waste", "High Warming Potential Gases", "Agriculture and Forestry"];
-			
+	 			
 		// Transpose the data into layers by cause.
 		var sectors = d3.layout.stack()(sectornames.map(function(cause){
 			return data.map(function(d,i){
 				return {
 					x: d.date,
 					y: +d[cause],
-					info: i.date,
+					info: d.date,
 					cap: d.cap
 				};
 			});
@@ -142,7 +169,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 			
 		keydata = [{name:'CAPPED', color: capcolor}, {name:'UNCAPPED', color: uncapcolor}];
 		
-		key = svg1.append('svg:g');
+		var key = svg1.append('svg:g');
 		key.selectAll("keyrect")
 			.data(keydata)
 			.enter().append("svg:rect")
@@ -189,5 +216,5 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 		}
 
 	});
-}
 
+}
