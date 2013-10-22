@@ -3,10 +3,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 	<base target="_blank">
-	
-	
-	<script type="text/javascript" src="//use.typekit.net/fzl3myc.js"></script>
-	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
 	<title>California Carbon Dashboard: Carbon Prices, the Latest News, and California Policy</title> <!--Up to 70 characters-->
 	<meta name='description' content='California Carbon Dashboard Provices the Latest New and Information on the California Carbon Price, Cap and Trade, Emissions Policy, and AB32'>	 <!--Up to 155 characters-->
@@ -26,37 +22,29 @@
 	<meta name='twitter:description' content='California Carbon Dashboard Provices the Latest New and Information on the California Carbon Price, Cap and Trade, Emissions Policy, and AB32'>
 	<meta name='twitter:image' content=''>
 	
-	<!--
-	<link rel = "stylesheet" href = "css/reset.css" type: "text/css" media: "screen">
-	<link rel = "stylesheet" href = "css/stylish.css" type: "text/css" media: "screen">
-	<link rel = "stylesheet" href = "css/tabs.css" type: "text/css" media: "screen">
-	<link rel = "stylesheet" href = "css/grid.css" type: "text/css" media: "screen">
-	<link rel = "stylesheet" href = "css/dashboard.css" type: "text/css" media: "screen">
-	<link rel = "stylesheet" href = "css/prices.css" type: "text/css" media: "screen">
-	<link rel = "stylesheet" href = "css/jquery-ui-1.10.3.custom.css" type: "text/css" media: "screen">
-	-->
-	<link rel = "stylesheet" href = "css/dashboard.min.css" type: "text/css" media: "screen">
-
-	
+	<!--For some reason, bargraph.js won't load via modernizr, so I have to keep d3 outside too.  Need to fix.-->
 	<script type = "text/javascript" src = "js/modernizr.js"></script>
+	<script type = "text/javascript" src = "js/d3.v3.min.js"></script>
+	<script type = "text/javascript" src = "https://www.google.com/jsapi"></script>
+	<script type = "text/javascript" src = "js/newsfeed.js"></script>
+
+
 	<script type = "text/javascript">
-		Modernizr.load([
+		Modernizr.load(["css/dashboard.min.css",
 		//load things
 		{	load: [
 				'js/jquery.js', 
 				'js/jquery.tools.tabs.slideshow.js', 
-				'js/jquery-ui-1.10.3.custom.min.js', 
-				'js/newsfeed.js', 
+				'js/jquery-ui-1.10.3.custom.min.js',
 				'js/tabs.js'
 				]
 		},
 		//load svg things
 		{ 	test: Modernizr.inlinesvg,
-  			yep : ['js/nowarning.js', 'js/d3.v3.min.js','js/prices.js']
+  			yep : ['js/nowarning.js','js/prices.js', 'js/compgraph.js']
 		}]);
 	</script>
-	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-		
+	
 	<script type="text/javascript">
 			feedme("https://news.google.com/news/feeds?hl=en&gl=us&authuser=0&q=(%22cap+and+trade%22+OR+%22ab32%22)+AND+%22california%22&um=1&ie=UTF-8&output=rss", "news", "",100);
 			feedme("http://www.arb.ca.gov/lispub/rss/listserv.rss", "content", "arbcombo", 150);
@@ -135,11 +123,11 @@
 					</div>
 					<div>
 						<div id="content" class = "updatewrapper"><p>Loading...</p></div>
-						<p class = "subtext" style = "float:left">This content is live-updated from the <a href = "http://www.arb.ca.gov/lispub/rss/listserv.rss">California Air Resources Board</a> and is not curated by Climate Policy Initiative.</p>
+						<p class = "subtext" style = "float:left">This content is live-updated from the <a href = "http://www.arb.ca.gov/html/whatsnew.htm">California Air Resources Board</a> and is not curated by Climate Policy Initiative.</p>
 					</div>
 					<div>
 						<div id = "tweets" class = "updatewrapper" style = "overflow: hidden">
-						<p><a class="twitter-timeline" height = "268" href="https://twitter.com/search?q=%23ab32" data-widget-id="347851819915042816" data-chrome="noheader transparent nofooter">Tweets about "#ab32"</a></p>
+						<p><a class="twitter-timeline" height = "258" href="https://twitter.com/search?q=%23ab32" data-widget-id="347851819915042816" data-chrome="noheader transparent nofooter">Tweets about "#ab32"</a></p>
 						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>		
 						</div>
 						<div>
@@ -375,12 +363,5 @@
 			Questions or comments? <a href = "mailto:dashboard@cpisf.org">Contact us</a>.
 		</p>	
 	</footer>
-	
-	
-	<script type = "text/javascript" src = "js/d3.v3.min.js"></script>
-
 	<script type="text/javascript" src ="js/bargraph.js"></script>
-	<script type="text/javascript" src ="js/compgraph.js"></script>
-
-
 </html>
