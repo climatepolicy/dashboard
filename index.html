@@ -7,11 +7,12 @@
 	
 	<script type="text/javascript" src="//use.typekit.net/fzl3myc.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
+	<!--General Meta Tags and Google Plus-->
 	<title>California Carbon Dashboard: Carbon Prices, the Latest News, and California Policy</title> <!--Up to 70 characters-->
 	<meta name='description' content='California Carbon Dashboard Provices the Latest New and Information on the California Carbon Price, Cap and Trade, Emissions Policy, and AB32'>	 <!--Up to 155 characters-->
 	<link rel='publisher' href='https://plus.google.com/108188097526626850974'/> <!--Specify CPI as the publisher-->
 	
+	<!--This stuff is for Facebook-->
 	<meta property="og:title" content="California Carbon Dashboard: Carbon Prices, the Latest News, and California Policy"/>
 	<meta property="og:type" content="website"/>
 	<meta property='og:image' content=''/>
@@ -26,42 +27,6 @@
 	<meta name='twitter:description' content='California Carbon Dashboard Provices the Latest New and Information on the California Carbon Price, Cap and Trade, Emissions Policy, and AB32'>
 	<meta name='twitter:image' content=''>
 	
-	<!--
-	<link rel = "stylesheet" href = "css/reset.css" type: "text/css" media: "screen">
-	<link rel = "stylesheet" href = "css/stylish.css" type: "text/css" media: "screen">
-	<link rel = "stylesheet" href = "css/tabs.css" type: "text/css" media: "screen">
-	<link rel = "stylesheet" href = "css/grid.css" type: "text/css" media: "screen">
-	<link rel = "stylesheet" href = "css/dashboard.css" type: "text/css" media: "screen">
-	<link rel = "stylesheet" href = "css/prices.css" type: "text/css" media: "screen">
-	<link rel = "stylesheet" href = "css/jquery-ui-1.10.3.custom.css" type: "text/css" media: "screen">
-	-->
-	<link rel = "stylesheet" href = "css/dashboard.min.css" type: "text/css" media: "screen">
-
-	
-	<script type = "text/javascript" src = "js/modernizr.js"></script>
-	<script type = "text/javascript">
-		Modernizr.load([
-		//load things
-		{	load: [
-				'js/jquery.js', 
-				'js/jquery.tools.tabs.slideshow.js', 
-				'js/jquery-ui-1.10.3.custom.min.js', 
-				'js/newsfeed.js', 
-				'js/tabs.js'
-				]
-		},
-		//load svg things
-		{ 	test: Modernizr.inlinesvg,
-  			yep : ['js/nowarning.js', 'js/d3.v3.min.js','js/prices.js']
-		}]);
-	</script>
-	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-		
-	<script type="text/javascript">
-			feedme("https://news.google.com/news/feeds?hl=en&gl=us&authuser=0&q=(%22cap+and+trade%22+OR+%22ab32%22)+AND+%22california%22&um=1&ie=UTF-8&output=rss", "news", "",100);
-			feedme("http://www.arb.ca.gov/lispub/rss/listserv.rss", "content", "arbcombo", 150);
-	</script>
-	
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -72,22 +37,33 @@
 	  ga('send', 'pageview');
 	</script>
 	
+	<link rel = "stylesheet" href = "css/reset.css" type: "text/css" media: "screen">
+	<link rel = "stylesheet" href = "css/stylish.css" type: "text/css" media: "screen">
+	<link rel = "stylesheet" href = "css/tabs.css" type: "text/css" media: "screen">
+	<link rel = "stylesheet" href = "css/grid.css" type: "text/css" media: "screen">
+	<link rel = "stylesheet" href = "css/dashboard.css" type: "text/css" media: "screen">
+	<link rel = "stylesheet" href = "css/prices.css" type: "text/css" media: "screen">
+	<link rel = "stylesheet" href = "css/jquery-ui-1.10.3.custom.css" type: "text/css" media: "screen">
+	
+	<script type = "text/javascript" src = "js/d3.v3.min.js"></script>
+	<script type = "text/javascript" src = "js/jquery.js"></script>
+	<script type = "text/javascript" src = "js/jquery.tools.tabs.slideshow.js"></script>
+    <script type = "text/javascript" src = "js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	
+	
+	<script type="text/javascript" src ="js/bargraph.js"></script>
+	<script type="text/javascript" src ="js/compgraph.js"></script>
+	<script type="text/javascript" src ="js/newsfeed.js"></script>
+	<script type="text/javascript">
+			feedme("https://news.google.com/news/feeds?hl=en&gl=us&authuser=0&q=(%22cap+and+trade%22+OR+%22ab32%22)+AND+%22california%22&um=1&ie=UTF-8&output=rss", "news", "",100);
+			feedme("http://www.arb.ca.gov/lispub/rss/listserv.rss", "content", "arbcombo", 150)
+	</script>
 	</head>	
 	
 	<body>
 			
 		<div class = "container" >
-			<div id = "warning" style = "width: 500px; margin-left:auto; margin-right:auto;">
-				<h1>WARNING</h1>
-				<p>Your browser is outdated, so some elements of this page will not display correctly.  Future versions of this page may add support for older browsers, but for now you'll have to update.  Update your browser by clicking one of the images below and following the installation directions:</p>
-				<div style = "width: 134px; margin-left:auto; margin-right:auto;">
-				<a href="https://www.google.com/chrome" style="border: none;"><img src="css/img/chrome_64x64.png" alt="Chrome"></a>
-				<a href="https://getfirefox.com" style="border: none;"><img src="css/img/firefox_64x64.png" alt="Firefox"></a>
-				<a href="https://www.opera.com" style="border: none;"><img src="css/img/opera_64x64.png" alt="Opera"></a>
-				<a href="https://www.apple.com/safari" style="border: none;"><img src="css/img/safari_64x64.png" alt="Safari"></a>
-				</div>
-			</div>
-
 			<div id = "social">			
 			  <a href="http://www.facebook.com/share.php?u=calcarbondash.org" onclick="javascript:window.open(this.href,
 			  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img
@@ -107,12 +83,12 @@
         	</div>	
         	<hr>
 			<div class="span-11 colborder">
-        		
+        		<div id = "pricediv">
 				<h1>CARBON PRICE</h1>
-				<div id = "pricediv"></div>
+				<script type="text/javascript" src ="js/prices.js"></script>
 				<p class = "subtext">Price of 2013 California GHG <a class="tooltip" href="#">Allowance<span>An allowance is a tradable permit that allows the emission of one metric ton of CO<sub>2</sub>e.</span></a> Futures as reported by <a href = "https://www.theice.com/productguide/ProductSpec.shtml?specId=6747556#data">ICE</a>. See prices for <a href = "https://www.theice.com/productguide/ProductSpec.shtml?specId=6747556#data">2013</a>, <a href = "https://www.theice.com/productguide/ProductSpec.shtml;jsessionid=4C0CF40265173EAF3661845192076191?specId=6747557#data">2014</a>, <a href = "https://www.theice.com/productguide/ProductSpec.shtml?specId=6747558#data">2015</a>, <a href = "https://www.theice.com/productguide/ProductSpec.shtml?specId=20328818">2016</a>. Updated weekly.</p>
 
-			
+			</div>
 			</div>
 		    <div class="span-12 last">
 		        <div class = "updates">
@@ -179,16 +155,53 @@
 				</table>
 				<!-- tab "panes" -->
 				<div class="panes">
-					<div>
-						<div id = "compdiv"></div>
+					<div id = "compdiv">
+														
+							<script type="text/javascript">
+								var othernames = ["AB32 establishes a number of important policies&mdash;termed &ldquo;Complementary Policies&rdquo; &mdash; to achieve the bulk of the emissions reductions needed to meet California's statewide 427 MMTCO<sub>2</sub>e emissions goal for 2020. The Cap and Trade Program then acts as a backstop to the Complementary Policies. This graphic shows a snapshot of greenhouse gas emissions in 2020 under business-as-usual conditions and under AB32 implementation. The waterfall indicates the expected contributions of each Complementary Policy to AB32 reductions. <i>Mouse over to see which policies apply to a given sector.  Click on any policy for more details.</i>", 
+									"The <b>Electricity</b> sector is subject to a renewable portfolio standard and renewable energy standard, which together require 33% of electricity come from renewable sources by 2020.  Under the current policies, small scale distributed generation cannot be used toward meeting this goal, but the Governor's Million Solar Roofs program promotes progress in distributed generation as well.", 
+									"The <b>Industrial</b> sector is required to conduct energy efficiency audits and report the results to the Air Resources Board.",  
+									"The <b>Transportation</b> sector is addressed by a number of California policies, including the Pavley Standards, which require significant increases in vehicle fuel efficiency.  Further, the Low Carbon Fuel Standard requires refiners and blenders to source a significant portion of their fuel from renewable sources.",
+									"<b>Commercial and Residential</b> energy efficiency programs are expected to yield nearly 12 MMTCO<sub>2</sub>e in carbon emissions reductions.",
+									"<b>Recycling and Waste</b> is a low-emitting sector, but reduction programs are in place.", 
+									"<b>High Global Warming Potential Gases</b> are a significant source of emissions today, but policies are designed to nearly eliminate those emissions by 2020.", 
+									"<b>Agriculture</b> emissions are not addressed by the cap and trade program or complementary policies, but offset protocols may be developed to meeting the cap. Current <b>Forestry</b> sector emissions are minimal, but new programs are designed to make them a significant net carbon sink by 2020."
+									];
+								compgraph("csv/inventory_data.csv", othernames, "compdiv");
+							</script>
 							<p class = "subtext">Source: California Air Resources Board's <a href = "http://www.arb.ca.gov/cc/scopingplan/sp_measures_implementation_timeline.pdf">Status of Scoping Plan Recommended Measures</a>.</p>
 					</div>
-					<div>
-						<div id = "allodiv"></div>
-							<p class = "subtext">Source: The California Air Resources Board's <a href = "http://www.arb.ca.gov/cc/inventory/data/forecast.htm">2020 Emissions Forecast</a>.</p>
+					<div id = "allodiv">
+							<script type="text/javascript">
+								var allospots = [0, 56.91858325,    156.3865976, 296.5904607, 415.3103487, 440.3284842, 461.9054634, 493.0618774];
+								
+								var allocation = ["Projected business-as-usual emissions through 2020 for capped and uncapped sectors. The overlaid line indicates the cap for each year. <i>Mouse over a row to see how permits are allocated to each sector.	</i>", 
+									"<b>Electricity</b> Sector: allowances are allocated freely to insulate electricity customers from sudden price increases.", 
+									"<b>Industrial</b> Sector: allowances are allocated freely until 2015 for all sectors.  After that, allocation is partially free, depending on leakage risk",  
+									"<b>Transportation</b> Sector: no allowances are freely allocated &#8212; the California Legislature continues to debate how to use auction revenues for the public benefit.",
+									"<b>Commercial and Residential</b> emissions are uncapped, but complementary policies apply (see complementary policies tab).",
+									"<b>Recycling and Waste</b> emissions are uncapped, but complementary policies apply (see complementary policies tab).", 
+									"<b>High Global Warming Potential Gas</b> emissions are uncapped, but complementary policies apply (see complementary policies tab).", 
+									"<b>Agriculture</b> emissions are uncapped, but complementary policies apply (see complementary policies tab). <b>Forestry</b> emissions are uncapped, but complementary policies apply (see complementary policies tab)."
+									];
+								bargraph("csv/projection_data.csv", allocation, allospots, "allodiv");
+							</script>
+							<p class = "subtext">Source: Annual figures are linearly interpolated based on the California Air Resources Board's <a href = "http://www.arb.ca.gov/cc/inventory/inventory.htm">Greenhouse Gas Emissions Inventory</a> and <a href = "http://www.arb.ca.gov/cc/inventory/data/forecast.htm">2020 Emissions Forecast</a>.</p>
 					</div>
-					<div>
-						<div id = "histdiv"></div>	
+					<div id = "histdiv">
+							<script type="text/javascript">
+								var sectorspots = [0, 46.65,   136.28,  265.85,  374.385, 392, 409,  431.605];
+								var sectornames = ["California statewide greenhouse gas emissions from 2000 to 2011. The transportation, electric, and industrial sectors have generated the majority of emissions in California for decades. <i>Mouse over to see sector names.</i>", 
+									"<b>Electricity</b>", 
+									"<b>Industrial</b>",  
+									"<b>Transportation</b>",
+									"<b>Commercial and Residential</b>",
+									"<b>Recycling and Waste</b>", 
+									"<b>High Global Warming Potential Gases</b>", 
+									"<b>Agriculture</b> and <b>Forestry</b>" 
+									];
+								bargraph("csv/history_data.csv", sectornames, sectorspots, "histdiv");
+							</script>
 							<p class = "subtext">Source: The California Air Resources Board's <a href = "http://www.arb.ca.gov/cc/inventory/inventory.htm">Greenhouse Gas Emissions Inventory</a>.</p>
 					</div>
 			    </div>
@@ -375,12 +388,5 @@
 			Questions or comments? <a href = "mailto:dashboard@cpisf.org">Contact us</a>.
 		</p>	
 	</footer>
-	
-	
-	<script type = "text/javascript" src = "js/d3.v3.min.js"></script>
-
-	<script type="text/javascript" src ="js/bargraph.js"></script>
-	<script type="text/javascript" src ="js/compgraph.js"></script>
-
-
+    <script type="text/javascript" src ="js/tabs.js"></script>
 </html>
