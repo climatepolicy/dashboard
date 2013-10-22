@@ -1,4 +1,4 @@
-var othernames = ["AB32 establishes a number of important policies&mdash;termed &ldquo;Complementary Policies&rdquo; &mdash; to achieve the bulk of the emissions reductions needed to meet California's statewide 427 MMTCO<sub>2</sub>e emissions goal for 2020. The Cap and Trade Program then acts as a backstop to the Complementary Policies. This graphic shows a snapshot of greenhouse gas emissions in 2020 under business-as-usual conditions and under AB32 implementation. The waterfall indicates the expected contributions of each Complementary Policy to AB32 reductions. <i>Mouse over to see which policies apply to a given sector.  Click on any policy for more details.</i>", 
+var othernames = ["AB32 establishes a number of important Complementary Policies to achieve the bulk of reductions to meet California's statewide 427 MMTCO2e emissions goal for 2020. The Cap and Trade Program acts as a backstop to these Complementary Policies. This graphic shows greenhouse gas emissions in 2020 under business-as-usual conditions and under AB32 implementation, and the expected contributions of each Complementary Policy to AB32 reductions. <i>Mouse over to see which policies apply to a given sector.  Click on any policy for more details.</i>", 
                 "The <b>Electricity</b> sector is subject to a renewable portfolio standard and renewable energy standard, which together require 33% of electricity come from renewable sources by 2020.  Under the current policies, small scale distributed generation cannot be used toward meeting this goal, but the Governor's Million Solar Roofs program promotes progress in distributed generation as well.", 
                 "The <b>Industrial</b> sector is required to conduct energy efficiency audits and report the results to the Air Resources Board.",  
                 "The <b>Transportation</b> sector is addressed by a number of California policies, including the Pavley Standards, which require significant increases in vehicle fuel efficiency.  Further, the Low Carbon Fuel Standard requires refiners and blenders to source a significant portion of their fuel from renewable sources.",
@@ -7,14 +7,13 @@ var othernames = ["AB32 establishes a number of important policies&mdash;termed 
                 "<b>High Global Warming Potential Gases</b> are a significant source of emissions today, but policies are designed to nearly eliminate those emissions by 2020.", 
                 "<b>Agriculture</b> emissions are not addressed by the cap and trade program or complementary policies, but offset protocols may be developed to meeting the cap. Current <b>Forestry</b> sector emissions are minimal, but new programs are designed to make them a significant net carbon sink by 2020."
                 ];
-compgraph("csv/inventory_data.csv", othernames, "compdiv");
-							
+compgraph("csv/inventory_data.csv", othernames, "compdiv");					
 
 function compgraph(csvfile, sectornames, where){
 
 var w = document.getElementById(where).offsetWidth,
     h = w,
-    p = [210, 50, 50, 20],
+    p = [167, 50, 50, 20],
     x = d3.scale.ordinal().rangeRoundBands([p[0], h- p[2]]),
     y = d3.scale.linear().range([0, w-15]),
     capcolor = "#B53C36",
@@ -80,6 +79,21 @@ var svg1 = d3.select("#" + where).append("svg:svg")
             })
             .on("mouseover", mouseOver).on("mouseout", mouseOut);
        
+       var policyrect = sector.selectAll(".policyrect")
+            .data(Object)
+            .enter()
+            .append("rect")
+            .style("fill", "white")
+            .attr("transform", function(d){
+                xcoord = x(d.x);
+                return "translate(" + xcoord + ", 0) rotate(270)";
+             })
+            .attr("width", function(d, i){
+                if (d.policy==='1' && d.y > 0 && d.y < 300) {
+                    return w;
+                }
+            })
+            .attr("height", x.rangeBand);
          
          var capData = [
             {value: 334.2, name: "Cap: 334.2"},
@@ -118,10 +132,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
             .text(function(d){return d.name;});
         
         // Add a rect for each date.
-        var rect = sector.selectAll("rect").data(Object).enter().append("svg:rect")
-            /*.attr("transform", function(d){
-                return "translate(" + x(d.x) + "," + (-y(d.y0) - y(d.y)) + ")";
-                })*/
+        var rect = sector.selectAll(".coloredrect").data(Object).enter().append("svg:rect")
             .attr("x", function(d){ return x(d.x);})
             .attr("y", function(d){ return (-y(d.y0) - y(d.y));})
             .attr("height", function(d){
@@ -152,6 +163,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
             .append("svg:text")
             .style("stroke", "blank")
             .style("fill", "#F96302")
+            .attr("background-color", "yellow")
             .attr("transform", function(d){
                 xcoord = x(d.x) + x.rangeBand() / 2 + 5;
                 return "translate(" + xcoord + ",-15) rotate(270)";
@@ -161,6 +173,8 @@ var svg1 = d3.select("#" + where).append("svg:svg")
                     return d.info;
                 }
             });
+           
+       
             
         var policynumbers = sector.selectAll(".numbers")
             .data(Object)
@@ -178,6 +192,8 @@ var svg1 = d3.select("#" + where).append("svg:svg")
                     return "-" + d.y;
                 }
             });
+            
+        
         
         // Add a label per date.
         var label = svg1.selectAll("g.labels").data(x.domain()).enter().append("svg:text").attr("x", 0)
@@ -189,7 +205,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
         .attr("dx", "3px")
         .attr("fill","white")
         .attr("transform", "rotate(270)")
-        .text(function(d, i){if(i==0 || i==16)
+        .text(function(d, i){if(i==0 || i==14)
             {
                 return d;
             }
@@ -260,4 +276,3 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 
     });
 }
-

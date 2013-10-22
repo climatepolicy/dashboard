@@ -1,6 +1,5 @@
-
 var spots = [0, 46.65,   136.28,  265.85,  374.385, 392, 409,  431.605];
-var names = ["",  "Electric Power",  "Industrial", "Fuels","Commercial and Residential","Recycling and Waste", "High Warming Potential Gases", "Agriculture and Forestry"];
+var names = ["",  "Electric Power",  "Industrial", "Transportation","Commercial and Residential","Recycling and Waste", "High Warming Potential Gases", "Agriculture and Forestry"];
 
 var text = ["California statewide greenhouse gas emissions from 2000 to 2011. The transportation, electric, and industrial sectors have generated the majority of emissions in California for decades. <i>Mouse over to see sector names.</i>", 
 "<b>Electricity</b>", 
@@ -32,7 +31,7 @@ function bargraph(csvfile, sectornames, sectortext, vertspots, where){
 
 var w = document.getElementById(where).offsetWidth,
     h = w*(3/4),
-    p = [150, 50, 47, 20],
+    p = [150, 50, 20, 20],
     right_space = 170,
     x = d3.scale.ordinal().rangeRoundBands([50, w - right_space]),
     y = d3.scale.linear().range([0, h - p[0] - p[2]]),
@@ -47,8 +46,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
   .append("svg:g")
     .attr("transform", "translate(0," + (h - p[2]) + ")");
 	
-	d3.csv(csvfile, function(data){
-	 			
+  d3.csv(csvfile, function(data){		
 		// Transpose the data into layers by cause.
 		var sectors = d3.layout.stack()(sectornames.map(function(cause){
 			return data.map(function(d,i){
@@ -67,7 +65,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
             groupname.html(thisSector.attr("desc"));
         }
         
-        function mouseOut(){
+    function mouseOut(){
             var thisSector = d3.select(this);
             thisSector.selectAll("rect").style("fill-opacity", "0.8");
             groupname.html(sectortext[0]);
@@ -76,13 +74,10 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 		// Compute the x-domain (by date) and y-domain (by top).
 		x.domain(sectors[0].map(function(d){
 			return d.x;
-		}));
+			}));
 		y.domain([0, d3.max(sectors[sectors.length - 1], function(d){
 			return d.y0 + d.y;
-		})]);
-		
-		
-		
+			})]);
 		
 		// Add a group for each sector.
 		var sector = svg1.selectAll("g.sector")
@@ -99,55 +94,55 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 		
 			
 		var groupname = svg1
-                .append('foreignObject')
-                .attr("x", 0)
-                .attr("y", 0)
-                .attr("transform", "translate(0 " + (p[2]-h) + ")")
-                .attr('width', w)
-                .attr('height', p[0])
-                .append("xhtml:div")
-                .style("background-color","white")
-                .html(sectortext[0]);
+      .append('foreignObject')
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("transform", "translate(0 " + (p[2]-h) + ")")
+      .attr('width', w)
+      .attr('height', p[0])
+      .append("xhtml:div")
+      .style("background-color","white")
+      .html(sectortext[0]);
 			
-	   //label sectors
-	   sector
-	       .append("svg:text")
-	       .attr("x", w-right_space)
-	       .attr("y", function(d,i){return -y(vertspots[i]);})
-	        .attr("dy", "3px")
-	        .attr("class", "subtext")
-	        .attr("fill", "#666")
-	       .text(function(d,i){return sectornames[i];});
+    //label sectors
+    sector
+      .append("svg:text")
+      .attr("x", w-right_space)
+      .attr("y", function(d,i){return -y(vertspots[i]);})
+      .attr("dy", "3px")
+      .attr("class", "subtext")
+      .attr("fill", "#666")
+      .text(function(d,i){return sectornames[i];});
 		
 		// Add a rect for each date.
-		var rect = sector.selectAll("rect").data(Object).enter().append("svg:rect").attr("transform", function(d){
-			return "translate(" + x(d.x) + "," + (-y(d.y0) - y(d.y)) + ")";
-		}).attr("height", function(d){
-			return y(d.y);
-		}).style("stroke", "white")
+		var rect = sector
+    		.selectAll("rect").data(Object)
+    	.enter()
+    	.append("svg:rect")
+    	.attr("transform", function(d){
+					return "translate(" + x(d.x) + "," + (-y(d.y0) - y(d.y)) + ")";
+					})
+    	.attr("height", function(d){return y(d.y);})
+    	.style("stroke", "white")
 			.style("fill",function(d, i){ 
-				if((d.info=="2013"||d.info=="2014")&&d.y>180){return uncapcolor;} // THIS IS NOT ELEGANT
-				
-			}).attr("width", x.rangeBand())
-           .style("fill-opacity", "0.8");
+				if((d.info=="2013"||d.info=="2014")&&d.y>180){return uncapcolor;}})
+    	.attr("width", x.rangeBand())
+      .style("fill-opacity", "0.8");
 		
 		// Add a label per date.
-		var label = svg1.selectAll("g.labels").data(x.domain()).enter().append("svg:text").attr("x", function(d){
-			return x(d) + x.rangeBand() / 2;
-		})
-		
-		.attr("y", 6)
-		.attr("class", "subtext")
-		.attr("text-anchor", "middle")
-		.attr("dy", ".71em")
-		.text(function(d, i){if(!isNaN(d))
-			{
-				return d;
-			}
+		var label = svg1.selectAll("g.labels")	
+    	.data(x.domain())
+    	.enter()
+    	.append("svg:text")
+    	.attr("x", function(d){return x(d) + x.rangeBand() / 2;})
+			.attr("y", 6)
+			.attr("class", "subtext")
+			.attr("text-anchor", "middle")
+			.attr("dy", ".71em")
+			.text(function(d, i){if(!isNaN(d)){return d;}
 		});
 		
 		
-				
 		// Add y-axis rules.
 		var rule = svg1.selectAll("g.rule").data(y.ticks(5)).enter().append("svg:g").attr("class", "rule").attr("transform", function(d){
 			return "translate(20," + -y(d) + ")";
@@ -167,7 +162,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
       		.style("text-anchor", "end")
       		.html('Annual Emissions (MMTCO<sub>2</sub>e)');
 			
-		keydata = [{name:'CAPPED', color: capcolor}, {name:'UNCAPPED', color: uncapcolor}];
+		var keydata = [{name:'CAPPED', color: capcolor}, {name:'UNCAPPED', color: uncapcolor}];
 		
 		var key = svg1.append('svg:g');
 		key.selectAll("keyrect")
@@ -179,7 +174,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 			})
 			.attr("y", 25)
 			.attr("height", "1.3em")
-			.style("fill", function(d){return d.color});
+			.style("fill", function(d){return d.color;});
 		key.selectAll("text")
 			.data(keydata)
 			.enter().append('svg:text')
@@ -190,7 +185,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 			.attr("text-anchor","middle")
 			.style("fill", "white")
 			.attr("dy", "1em")
-			.text(function (d) {return d.name});
+			.text(function (d) {return d.name;});
 			
 		if(where == "allodiv") //these are the differences between the cap and history graphics
 		{
@@ -214,7 +209,8 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 			.attr("stroke-width", 2)
 			.attr("fill", "none");
 		}
+  
 
 	});
-
 }
+
