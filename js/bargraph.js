@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 var spots = [0, 46.65,   136.28,  265.85,  374.385, 392, 409,  431.605];
 var names = ["",  "Electric Power",  "Industrial", "Fuels","Commercial and Residential","Recycling and Waste", "High Warming Potential Gases", "Agriculture and Forestry"];
@@ -34,14 +33,6 @@ function bargraph(csvfile, sectornames, sectortext, vertspots, where){
 var w = document.getElementById(where).offsetWidth,
     h = w*(3/4),
     p = [150, 50, 47, 20],
-=======
-function bargraph(csvfile, sectortext, vertspots, where){
-
-var w = document.getElementById(where).offsetWidth,
-    h = w*(3/4),
-	des_space = 100,
-    p = [150, 50, 20, 20],
->>>>>>> parent of 6a5327a... Baby optimization
     right_space = 170,
     x = d3.scale.ordinal().rangeRoundBands([50, w - right_space]),
     y = d3.scale.linear().range([0, h - p[0] - p[2]]),
@@ -57,16 +48,14 @@ var svg1 = d3.select("#" + where).append("svg:svg")
     .attr("transform", "translate(0," + (h - p[2]) + ")");
 	
 	d3.csv(csvfile, function(data){
-	    
-	    var sectornames = ["",  "Electric Power",  "Industrial", "Transportation","Commercial and Residential","Recycling and Waste", "High Warming Potential Gases", "Agriculture and Forestry"];
-			
+	 			
 		// Transpose the data into layers by cause.
 		var sectors = d3.layout.stack()(sectornames.map(function(cause){
 			return data.map(function(d,i){
 				return {
 					x: d.date,
 					y: +d[cause],
-					info: i.date,
+					info: d.date,
 					cap: d.cap
 				};
 			});
@@ -180,7 +169,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 			
 		keydata = [{name:'CAPPED', color: capcolor}, {name:'UNCAPPED', color: uncapcolor}];
 		
-		key = svg1.append('svg:g');
+		var key = svg1.append('svg:g');
 		key.selectAll("keyrect")
 			.data(keydata)
 			.enter().append("svg:rect")
@@ -227,5 +216,5 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 		}
 
 	});
-}
 
+}
