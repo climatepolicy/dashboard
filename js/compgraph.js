@@ -1,22 +1,10 @@
-var othernames = ["AB32 establishes a number of important policies&mdash;termed &ldquo;Complementary Policies&rdquo; &mdash; to achieve the bulk of the emissions reductions needed to meet California's statewide 427 MMTCO<sub>2</sub>e emissions goal for 2020. The Cap and Trade Program then acts as a backstop to the Complementary Policies. This graphic shows a snapshot of greenhouse gas emissions in 2020 under business-as-usual conditions and under AB32 implementation. The waterfall indicates the expected contributions of each Complementary Policy to AB32 reductions. <i>Mouse over to see which policies apply to a given sector.  Click on any policy for more details.</i>", 
-                "The <b>Electricity</b> sector is subject to a renewable portfolio standard and renewable energy standard, which together require 33% of electricity come from renewable sources by 2020.  Under the current policies, small scale distributed generation cannot be used toward meeting this goal, but the Governor's Million Solar Roofs program promotes progress in distributed generation as well.", 
-                "The <b>Industrial</b> sector is required to conduct energy efficiency audits and report the results to the Air Resources Board.",  
-                "The <b>Transportation</b> sector is addressed by a number of California policies, including the Pavley Standards, which require significant increases in vehicle fuel efficiency.  Further, the Low Carbon Fuel Standard requires refiners and blenders to source a significant portion of their fuel from renewable sources.",
-                "<b>Commercial and Residential</b> energy efficiency programs are expected to yield nearly 12 MMTCO<sub>2</sub>e in carbon emissions reductions.",
-                "<b>Recycling and Waste</b> is a low-emitting sector, but reduction programs are in place.", 
-                "<b>High Global Warming Potential Gases</b> are a significant source of emissions today, but policies are designed to nearly eliminate those emissions by 2020.", 
-                "<b>Agriculture</b> emissions are not addressed by the cap and trade program or complementary policies, but offset protocols may be developed to meeting the cap. Current <b>Forestry</b> sector emissions are minimal, but new programs are designed to make them a significant net carbon sink by 2020."
-                ];
-compgraph("csv/inventory_data.csv", othernames, "compdiv");
-							
-
 function compgraph(csvfile, sectornames, where){
 
 var w = document.getElementById(where).offsetWidth,
     h = w,
     p = [210, 50, 50, 20],
     x = d3.scale.ordinal().rangeRoundBands([p[0], h- p[2]]),
-    y = d3.scale.linear().range([0, w-15]),
+    y = d3.scale.linear().range([0, w]),
     capcolor = "#B53C36",
     uncapcolor = "#EAC881",
     z = d3.scale.ordinal().range(["white", capcolor, capcolor, capcolor, uncapcolor, uncapcolor, uncapcolor, uncapcolor, uncapcolor]);
@@ -32,7 +20,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
     d3.csv(csvfile, function(data){
             
         // Transpose the data into layers by cause.
-        var sectors = d3.layout.stack()(["Blank",  "Electric Power",  "Industrial", "Transportation","Agriculture and Forestry","Uncapped Electricity/ Industrial", "High Warming Potential Gases", "Other Uncapped"].map(function(cause){
+        var sectors = d3.layout.stack()(["Blank",  "Electric Power",  "Industrial", "Transportation","Commercial and Residential","Recycling and Waste", "High GWP", "Agriculture and Forestry"].map(function(cause){
             return data.map(function(d){
                 return {
                     x: d.date,
@@ -82,8 +70,8 @@ var svg1 = d3.select("#" + where).append("svg:svg")
        
          
          var capData = [
-            {value: 334.2, name: "Cap: 334.2"},
-            {value: 427, name: "Goal: 427"}
+            {value: 334.2, name: "Cap"},
+            {value: 427, name: "Goal"}
             
          ];
          
@@ -94,25 +82,25 @@ var svg1 = d3.select("#" + where).append("svg:svg")
             .attr("class","subtext");
          
         capLine.append("svg:polygon")
-            .attr("points", "0,0 10,0 5,10")
-            .attr("transform", function(d){return "rotate(270) translate(" + (y(d.value)-5) +" " + (p[0]-5) + ")";});
+            .attr("points", "0,0 10,0 5,5")
+            .attr("transform", function(d){return "rotate(270) translate(" + (y(d.value)-5) +" " + p[0] + ")";});
         
         capLine.append("svg:text")
             .attr("transform", "rotate(-90)")
             .attr("x", function(d){ return y(d.value);})
-            .attr("y", p[0]-5)
+            .attr("y", p[0])
             .attr("dy", -2)
             .style("text-anchor", "middle")
             .text(function(d){return d.name;});
         
         capLine.append("svg:polygon")
-            .attr("points", "0,10   10,10 5,0")
+            .attr("points", "0,5 10,5 5,0")
             .attr("transform", function(d){return "rotate(270) translate(" + (y(d.value)-5) +" " + (h-p[2]-5) + ")";})
         
         capLine.append("svg:text")
             .attr("transform", "rotate(-90)")
             .attr("x", function(d){ return y(d.value);})
-            .attr("y", h-p[2]+5)
+            .attr("y", h-p[2])
             .attr("dy", 11)
             .style("text-anchor", "middle")
             .text(function(d){return d.name;});
@@ -211,11 +199,8 @@ var svg1 = d3.select("#" + where).append("svg:svg")
         d3.selectAll("p").style("stroke","red");
         
         // Add y-axis rules.
-        var rule = svg1.selectAll("g.rule")
-                .data(y.ticks(4))
-            .enter().append("svg:g")
-                .attr("class", "rule")
-                .attr("transform", function(d){return "translate(" + (h - p[2]) + " " + -y(d) + ") rotate (270)";});
+        var rule = svg1.selectAll("g.rule").data(y.ticks(5)).enter().append("svg:g").attr("class", "rule")
+        .attr("transform", function(d){return "translate(" + (h - p[2]) + " " + -y(d) + ") rotate (270)";});
         
         rule.append("svg:text")
             .attr("class", "subtext")
@@ -231,7 +216,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
             .append("xhtml")
             .html('Annual Emissions (MMTCO<sub>2</sub>e)');
             
-        keydata = [{name:'CAPPED', color: capcolor}, {name:'UNCAPPED', color: uncapcolor}];
+                keydata = [{name:'CAPPED', color: capcolor}, {name:'UNCAPPED', color: uncapcolor}];
         
         key = svg1.append('svg:g');
         key.selectAll("keyrect")
