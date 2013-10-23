@@ -1,7 +1,7 @@
 $(function(){
 var margin = {top: 10, right: 30, bottom: 30, left: 20},
     width = document.getElementById("pricediv").offsetWidth-60,
-    height = 231;
+    height = 275;
 
 var parseDate = d3.time.format("%m/%d/%Y").parse,
     bisectDate = d3.bisector(function(d) { return d.date; }).left,
@@ -79,7 +79,7 @@ d3.csv("csv/carbon_prices.csv", function(error, data) {
     .append("foreignObject")
       .attr("width", width)
       .attr("height", 100)
-      .attr("transform", "rotate(270) translate(-80 -44)")
+      .attr("transform", "rotate(270) translate(-80 -43)")
       .attr("class", "subtext")
     .append("xhtml:div")
       .html("$/Tonne CO<sub>2</sub>e");
