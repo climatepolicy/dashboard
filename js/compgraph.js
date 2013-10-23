@@ -12,8 +12,8 @@ compgraph("csv/inventory_data.csv", othernames, "compdiv");
 function compgraph(csvfile, sectornames, where){
 
 var w = document.getElementById(where).offsetWidth,
-    h = w,
-    p = [167, 50, 50, 20],
+    h = 0.9*w,
+    p = [140, 50, 55, 20],
     x = d3.scale.ordinal().rangeRoundBands([p[0], h- p[2]]),
     y = d3.scale.linear().range([0, w-15]),
     capcolor = "#B53C36",
