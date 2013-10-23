@@ -1,4 +1,4 @@
-var othernames = ["AB32 establishes a number of important Complementary Policies to achieve the bulk of reductions to meet California's statewide 427 MMTCO2e emissions goal for 2020. The Cap and Trade Program acts as a backstop to these Complementary Policies. This graphic shows greenhouse gas emissions in 2020 under business-as-usual conditions and under AB32 implementation, and the expected contributions of each Complementary Policy to AB32 reductions. <i>Mouse over to see which policies apply to a given sector.  Click on any policy for more details.</i>", 
+var othernames = ["AB32 establishes a number of important Complementary Policies to achieve the bulk of reductions to meet California's statewide 427 MMTCO<sub>2</sub>e emissions goal for 2020. The Cap and Trade Program acts as a backstop to these Complementary Policies. This graphic shows greenhouse gas emissions in 2020 under business-as-usual conditions and under AB32 implementation, and the expected contributions of each Complementary Policy to AB32 reductions. <i>Mouse over to see which policies apply to a given sector.  Click on any policy for more details.</i>", 
                 "The <b>Electricity</b> sector is subject to a renewable portfolio standard and renewable energy standard, which together require 33% of electricity come from renewable sources by 2020.  Under the current policies, small scale distributed generation cannot be used toward meeting this goal, but the Governor's Million Solar Roofs program promotes progress in distributed generation as well.", 
                 "The <b>Industrial</b> sector is required to conduct energy efficiency audits and report the results to the Air Resources Board.",  
                 "The <b>Transportation</b> sector is addressed by a number of California policies, including the Pavley Standards, which require significant increases in vehicle fuel efficiency.  Further, the Low Carbon Fuel Standard requires refiners and blenders to source a significant portion of their fuel from renewable sources.",
@@ -219,7 +219,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
                 .attr("y", 0)
                 .attr("transform", "rotate(270)")
                 .attr('width', w)
-                .attr('height', p[0])
+                .attr('height', p[0]-16)
                 .append("xhtml:p")
                 .style("background-color","white")
                 .html(sectornames[0]);
