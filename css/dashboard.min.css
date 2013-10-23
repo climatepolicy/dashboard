@@ -164,9 +164,9 @@ hr.space{background:#fff;color:#fff;visibility:hidden}
 #social img{height:25px;width:25px;float:right;margin-right:5px}
 .notext{font-size:0;line-height:0;text-indent:-4000px}
 .subtext{font-size:.8em;margin-top:0 !important}
-.updatewrapper{height:15em;float:left;overflow-y:scroll;width:100%}
+.updatewrapper{height:16.5em;float:left;overflow-y:scroll;width:100%}
 .update_panes{height:18.5em}
-.panes{height:37em}
+.panes{height:37em; margin-top:5px;}
 .tooltip{border-bottom:1px dotted;color:#666;outline:0;cursor:help;text-decoration:none;position:relative}
 .tooltip span{margin-left:-999em;position:absolute}
 .tooltip:hover span{border-radius:5px 5px;-moz-border-radius:5px;-webkit-border-radius:5px;font-size:12px;color:#666;background-color:#ddd;position:absolute;left:1em;top:2em;z-index:99;margin-left:0;width:225px}
@@ -184,7 +184,7 @@ h4{font-size:1.2em;line-height:1.25;margin-bottom:1.25em}
 h5{font-size:1em;font-weight:bold;margin-bottom:1.5em}
 h6{font-size:1em;font-weight:bold}
 h1 img,h2 img,h3 img,h4 img,h5 img,h6 img{margin:0}
-p{margin:0 0 1.0}
+p{margin-before:8px; -webkit-margin-before:8px; margin-after:0.5em;-webkit-margin-after:0.5em;}
 .left{float:left !important}
 p .left{margin:1.5em 1.5em 1.5em 0;padding:0}
 .right{float:right !important}
@@ -232,7 +232,7 @@ table p.subtext{font-style:italic;font-size:1em}
 table.tabs{padding:0;margin:0;width:100%;margin-top:0;font-family:'CronosProLight';color:#666;border-collapse:collapse;border:0}
 table.tabs th{text-indent:0;padding:0;margin:0 !important;width:auto;list-style-image:none !important;border:0}
 table.tabs a{font-family:'ChaparralProRegular';display:block;text-align:center;text-decoration:none;color:#666;padding:0;margin:0;position:relative;border-top:1px solid #ddd;border-left:1px solid #ddd;border-right:1px solid #ddd;border-bottom:1px solid #ddd;border-top-left-radius:5px;border-top-right-radius:5px}
-table.tabs h1{opacity:.25;margin-bottom:.55em}
+table.tabs h1{opacity:.25;margin-bottom:0em;}
 table.tabs a.current,table.tabs th.current,table.tabs th.current a,table.tabs a.current h1{cursor:default !important;opacity:1.0 !important;border-bottom:1px solid white !important}
 /*! jQuery UI - v1.10.3 - 2013-10-11
 * http://jqueryui.com
