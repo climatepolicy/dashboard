@@ -26,10 +26,10 @@ function feedme(address, divname,keyword, number) {
       			if (entry.title.indexOf(keyword) >= 0){ 
       			    if(address == "https://news.google.com/news/feeds?um=1&ned=us&hl=en&q=ab32+california&output=rss"){
       			       var splitTitle = entry.title.split(" - ");
-      			       html += '<div class = "item"><p><a href="' + entry.link + '">' + splitTitle[0]  + '</a><br>' + splitTitle[1]+ " " + '<span class = "subtext"><br>' + dispDate + '</span></p></div>';
+      			       html += '<p><a href="' + entry.link + '">' + splitTitle[0]  + '</a><br>' + splitTitle[1]+ " " + '<span class = "subtext"><br>' + dispDate + '</span></p>';
       			    }
       			    else{
-      			       html += '<div class = "item"><p><a href="' + entry.link + '">' + entry.title.replace(keyword + " -- ","")  + '</a><span class = "subtext"><br>' + dispDate + '</span></p></div>';
+      			       html += '<p><a href="' + entry.link + '">' + entry.title.replace(keyword + " -- ","")  + '</a><span class = "subtext"><br>' + dispDate + '</span></p>';
       			    }
       				
       			}
