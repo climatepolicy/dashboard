@@ -145,16 +145,16 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 		
 		// Add y-axis rules.
 		var rule = svg1.selectAll("g.rule").data(y.ticks(5)).enter().append("svg:g").attr("class", "rule").attr("transform", function(d){
-			return "translate(20," + -y(d) + ")";
+			return "translate(0," + -y(d) + ")";
 		});
 		
-		rule.attr("class", "subtext").append("svg:text").attr("text-anchor", "end").attr("x", p[1]).attr("dx", -25).attr("dy", ".35em").text(d3.format(",d"));
+		rule.attr("class", "subtext").append("svg:text").attr("text-anchor", "end").attr("x", p[1]).attr("dy", ".35em").text(d3.format(",d"));
 		
 		// add y-axis label
 		svg1.append("foreignObject")
       		.attr("transform", "rotate(-90)")
       		.attr("x", h-350)
-			.attr("y", "0")
+			.attr("y", 0)
 			.attr("width", h)
 			.attr("height", h)
 			.attr("class", "subtext")
