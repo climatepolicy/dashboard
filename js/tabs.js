@@ -16,7 +16,7 @@ $(function(){
                             header: "h2",
                             collapsible:true,
                             heightStyle: "content",
-                            active:false,
+                            active:false
   });
    $("#accordion").accordion("option", "icons", 
         { 'header': 'ui-icon-plus', 'activeHeader': 'ui-icon-minus' });
