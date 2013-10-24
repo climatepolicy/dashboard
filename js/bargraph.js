@@ -12,17 +12,17 @@ var text = ["California statewide greenhouse gas emissions from 2000 to 2011. Th
 ];
 bargraph("csv/history_data.csv", names, text, spots, "histdiv");
 
-var allonames = ["",  "Electric Power",  "Industrial", "Transportation","Agriculture and Forestry","Uncapped Electricity/ Industrial", "High Warming Potential Gases", "Other Uncapped"];
+var allonames = ["",  "Electric Power",  "Industrial", "Transp. Fuels & Nat. Gas","Agriculture and Forestry","Uncapped Electricity & Industrial", "High Warming Potential Gases", "Other Uncapped"];
 var allospots = [0, 56.91858325,    156.3865976, 296.5904607, 415.3103487, 440.3284842, 461.9054634, 493.0618774];
 
 var allocation = ["Projected business-as-usual emissions through 2020 for capped and uncapped sectors. The overlaid line indicates the cap for each year. <i>Mouse over a row to see how permits are allocated to each sector.	</i>", 
-"<b>Electricity</b> Sector: allowances are allocated freely to insulate electricity customers from sudden price increases.", 
-"<b>Industrial</b> Sector: allowances are allocated freely until 2015 for all sectors.  After that, allocation is partially free, depending on leakage risk",  
-"<b>Transportation</b> Sector: no allowances are freely allocated &#8212; the California Legislature continues to debate how to use auction revenues for the public benefit.",
-"<b>Commercial and Residential</b> emissions are uncapped, but complementary policies apply (see complementary policies tab).",
-"<b>Recycling and Waste</b> emissions are uncapped, but complementary policies apply (see complementary policies tab).", 
-"<b>High Global Warming Potential Gas</b> emissions are uncapped, but complementary policies apply (see complementary policies tab).", 
-"<b>Agriculture</b> emissions are uncapped, but complementary policies apply (see complementary policies tab). <b>Forestry</b> emissions are uncapped, but complementary policies apply (see complementary policies tab)."
+"<b>Electric Power</b> Sector: allowances are allocated freely to electrical distribution utilities (i.e., public utilities and investor-owned utilities) to insulate electricity customers from sudden price increases.", 
+"<b>Industrial</b> Sector: an industry receives free allowances according to its exposure to leakage and transition assistance needs. Allocation is based on facility output and sector-specific emissions efficiency benchmarking and declines over time.",  
+"<b>Transportation Fuels & Natural Gas</b> Sector: no allowances are freely allocated.",
+"<b>Agriculture</b> emissions are uncapped, but complementary policies apply (see complementary policies tab). <b>Forestry</b> emissions are uncapped, but complementary policies apply (see complementary policies tab).",
+"<b>Uncapped Electricity/Industrial</b>: The cap does not cover small-scale sources that do not meet the Cap and Trade Program&#39;s emissions threshold or other inclusion criteria.",
+"<b>High Global Warming Potential Gas</b> emissions are uncapped, but complementary policies apply (see complementary policies tab).",
+"<b>Other Uncapped</b> includes a range of sources outside the electric power and industrial sectors that do not meet the Cap and Trade’s inclusion criteria."
 ];
 bargraph("csv/projection_data.csv", allonames, allocation, allospots, "allodiv");
 
