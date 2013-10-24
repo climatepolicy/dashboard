@@ -161,9 +161,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
             .append("svg:a")
             .attr("xlink:href", function (d){return d.link;})
             .append("svg:text")
-            .style("stroke", "blank")
-            .style("fill", "#F96302")
-            .attr("background-color", "yellow")
+            .attr("class", "policytext")
             .attr("transform", function(d){
                 xcoord = x(d.x) + x.rangeBand() / 2 + 5;
                 return "translate(" + xcoord + ",-15) rotate(270)";
@@ -173,6 +171,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
                     return d.info;
                 }
             });
+            
            
        
             
