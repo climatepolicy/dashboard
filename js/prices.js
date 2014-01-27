@@ -1,144 +1,87 @@
-$(function(){
-var margin = {top: 10, right: 30, bottom: 30, left: 20},
+var margin = {top: 10, right: 40, bottom: 30, left: 42},
     width = document.getElementById("pricediv").offsetWidth-60,
-    height = 275;
+    height = 278;
 
-var parseDate = d3.time.format("%m/%d/%Y").parse,
-    bisectDate = d3.bisector(function(d) { return d.date; }).left,
-    formatValue = d3.format(",.2f"),
-    formatDate = d3.time.format("%B %e"),
-    formatCurrency = function(d) { return "$" + formatValue(d); };
+var parseDate = d3.time.format("%m/%d/%Y").parse;
 
 var x = d3.time.scale()
-    .range([margin.left, width-30]);
+    .range([0, width]);
 
 var y = d3.scale.linear()
     .range([height, 0]);
 
+var color = d3.scale.category10();
+
 var xAxis = d3.svg.axis()
-    .scale(x)
+     .scale(x)
     .tickFormat(d3.time.format("20%y"))
     .ticks(d3.time.years, 1)
     .orient("bottom");
 
 var yAxis = d3.svg.axis()
     .scale(y)
-    .ticks(5)
     .orient("left");
 
 var line = d3.svg.line()
+    .defined(function(d) { return d.close != 0; })
+    .interpolate("basis")
     .x(function(d) { return x(d.date); })
     .y(function(d) { return y(d.close); });
 
 var svg = d3.select("#pricediv").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-    //.style("font-size", "11px")
-    .style("font-family", 'CronosProLight')
     .style("fill","#666")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("csv/carbon_prices.csv", function(error, data) {
+d3.csv("csv/data.csv", function(error, data) {
+  color.domain(d3.keys(data[0]).filter(function(key) { return key !== "date"; }));
+
   data.forEach(function(d) {
     d.date = parseDate(d.date);
-    d.close = +d.close;
   });
 
-  data.sort(function(a, b) {
-    return a.date - b.date;
+  var vintages = color.domain().map(function(name) {
+    return {
+      name: name,
+      values: data.map(function(d) {
+        return {date: d.date, close: +d[name]};
+      })
+    };
   });
 
-  x.domain([data[0].date, data[data.length - 1].date]);
-  y.domain(d3.extent(data, function(d) { return d.close; }));
+  x.domain(d3.extent(data, function(d) { return d.date; }));
+
+  y.domain([
+    d3.min(vintages, function(c) { return d3.min(c.values, function(v) { if (v.close>0){return v.close;} }); }),
+    d3.max(vintages, function(c) { return d3.max(c.values, function(v) { return v.close; }); })
+  ]);
 
   svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis);
 
-  path = svg.append("path")
-      .datum(data)
-      .attr("class", "line")
-      .attr("d", line);
-      
-   var totalLength = path.node().getTotalLength();
-
-    path
-      .attr("stroke-dasharray", totalLength + " " + totalLength)
-      .attr("stroke-dashoffset", totalLength)
-      .transition()
-        .duration(2000)
-        .ease("linear")
-        .attr("stroke-dashoffset", 0);
-      
-   svg.append("g")
+  svg.append("g")
       .attr("class", "y axis")
       .call(yAxis)
-      .attr("transform", "translate(" + margin.left + " 0)")
     .append("foreignObject")
       .attr("width", width)
       .attr("height", 100)
-      .attr("transform", "rotate(270) translate(-80 -43)")
+      .attr("transform", "rotate(270) translate(-80 -45)")
       .attr("class", "subtext")
     .append("xhtml:div")
       .html("$/Tonne CO<sub>2</sub>e");
-  
-  var focus = svg.append("g")
-      .attr("class", "focus");
 
-  focus.append("circle")
-      .attr("r", 4.5);
+  var vintage = svg.selectAll(".vintage")
+      .data(vintages)
+    .enter().append("g")
+      .attr("class", "vintage");
 
-  focus.append("text")
-      .attr("x", 9)
-      .style("background-color",'white')
-      .attr("dy", "0em");
-      
-  var currentDate = svg.append("g")
-      .attr("class", "focus");
+  vintage.append("path")
+      .attr("class", "line")
+      .attr("d", function(d) { return line(d.values); })
+      .style("stroke", function(d) { return color(d.name); });
 
-  currentDate.append("line")
-      .attr("x0", 0)
-      .attr("y0", 0)
-      .attr("x1", 0)
-      .attr("y1", -height+10)
-      .style("stroke", "gray");
-      
-  currentDate.append("text")
-      .style("text-anchor", "middle")
-      .attr("x", 9)
-      .attr("dy", ".35em");
-	
-  focusIt();
-
-  svg.append("rect")
-      .attr("class", "overlay")
-      .attr("width", width)
-      .attr("height", height)
-      .on("mouseover", function() { focus.style("display", null); })
-      .on("mouseout", function() { focusIt(); })
-      .on("mousemove", mousemove);
-      
-  function focusIt(){
-  	focus.attr("transform", "translate(" + (width-30) + "," + y(data[data.length-1].close) + ")");
-  	focus.select("text").text(formatCurrency(data[data.length-1].close));
-  	
-  	currentDate.attr("transform", "translate(" + (width-30) + "," + height + ")");
-    currentDate.select("text").text(formatDate(data[data.length-1].date));
-  }
-
-  function mousemove() {
-    var x0 = x.invert(d3.mouse(this)[0]),
-        i = bisectDate(data, x0, 1),
-        d0 = data[i - 1],
-        d1 = data[i],
-        d = x0 - d0.date > d1.date - x0 ? d1 : d0;
-    focus.attr("transform", "translate(" + x(d.date) + "," + y(d.close) + ")");
-    focus.select("text").text(formatCurrency(d.close));
-    
-    currentDate.attr("transform", "translate(" + x(d.date) + "," + height + ")");
-    currentDate.select("text").text(formatDate(d.date));
-  }
-});
 });
