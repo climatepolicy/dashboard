@@ -2,7 +2,11 @@ var margin = {top: 10, right: 40, bottom: 30, left: 42},
     width = document.getElementById("pricediv").offsetWidth-60,
     height = 278;
 
-var parseDate = d3.time.format("%m/%d/%Y").parse;
+var parseDate = d3.time.format("%m/%d/%Y").parse
+    bisectDate = d3.bisector(function(d) { return d.date; }).left,
+    formatValue = d3.format(",.2f"),
+    formatDate = d3.time.format("%B %e"),
+    formatCurrency = function(d) { return "$" + formatValue(d); };
 
 var x = d3.time.scale()
     .range([0, width]);
@@ -40,6 +44,7 @@ d3.csv("csv/data.csv", function(error, data) {
 
   data.forEach(function(d) {
     d.date = parseDate(d.date);
+    d.close = +d;
   });
 
   var vintages = color.domain().map(function(name) {
@@ -83,5 +88,60 @@ d3.csv("csv/data.csv", function(error, data) {
       .attr("class", "line")
       .attr("d", function(d) { return line(d.values); })
       .style("stroke", function(d) { return color(d.name); });
+      
+  var focus = vintage.append("g")
+      .attr("class", "focus");
+
+  focus.append("line")
+      .attr("x1", 0)
+      .attr("y1", 20)
+      .attr("x2", 0)
+      .attr("y2", height)
+      .style("stroke", "#666");
+      
+  focus.append("text")
+      .style("text-anchor", "middle")
+      .style("background-color",'white')
+      .attr("x", 9)
+      .attr("dx", -10)
+      .attr("dy", 15);
+      //.attr("dy", function(d,i){ return 5+i*15;}); use this if we ever have multiple lines on top of each
+
+  focusIt();
+
+   svg.append("rect")
+      .attr("class", "overlay")
+      .attr("width", width)
+      .attr("height", height)
+      .on("mouseover", function() {focus.style("display", null); })
+      .on("mouseout", function() { focusIt(); })
+      .on("mousemove", mousemove);
+      
+  function focusIt(){
+    focus.attr("transform", "translate(" + width + ",0)");  
+    focus.select("text").text(function(d){ 
+      if( d.values[d.values.length-1].close > 0)
+      {
+        return formatCurrency(d.values[d.values.length-1].close);
+      } 
+    });
+
+  }
+
+  function mousemove() {
+    var x0 = x.invert(d3.mouse(this)[0]),
+        i = bisectDate(data, x0, 1),
+        d0 = data[i - 1],
+        d1 = data[i],
+        d = x0 - d0.date > d1.date - x0 ? d1 : d0;
+
+    focus.attr("transform", "translate(" + x(d.date) + ",0)");
+    focus.select("text").text(function(d){ 
+      if( d.values[i].close > 0)
+      {
+        return formatCurrency(d.values[i].close);
+      } 
+    });
+  }
 
 });
