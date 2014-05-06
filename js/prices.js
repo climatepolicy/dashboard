@@ -107,6 +107,14 @@ d3.csv("csv/data.csv", function(error, data) {
       .attr("dy", 15);
       //.attr("dy", function(d,i){ return 5+i*15;}); use this if we ever have multiple lines on top of each
 
+  datetext = focus.append("svg:text")
+      .style("text-anchor", "middle")
+      .style("background-color",'white')
+      .attr("x", 9)
+      .attr("dx", -10)
+      .attr("dy", 0)
+      .attr("font-size", 12);
+
   focusIt();
 
    svg.append("rect")
@@ -119,6 +127,12 @@ d3.csv("csv/data.csv", function(error, data) {
       
   function focusIt(){
     focus.attr("transform", "translate(" + width + ",0)");  
+    datetext.text(function(d){ 
+      if( d.values[d.values.length-1].close > 0)
+      {
+        return formatDate(d.values[d.values.length-1].date);
+      } 
+    });
     focus.select("text").text(function(d){ 
       if( d.values[d.values.length-1].close > 0)
       {
@@ -136,6 +150,12 @@ d3.csv("csv/data.csv", function(error, data) {
         d = x0 - d0.date > d1.date - x0 ? d1 : d0;
 
     focus.attr("transform", "translate(" + x(d.date) + ",0)");
+    datetext.text(function(d){ 
+      if( d.values[d.values.length-1].close > 0)
+      {
+        return formatDate(d.values[i].date);
+      } 
+    });
     focus.select("text").text(function(d){ 
       if( d.values[i].close > 0)
       {
