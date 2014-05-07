@@ -448,4 +448,4 @@ table.tabs a.current,table.tabs th.current,table.tabs th.current a,table.tabs a.
 .item .bottom{position:absolute; bottom:16px; left:0;}
 .policytext {fill:#F96302;}
 .policytext:hover{fill:#09f;}
-
+.graphtext{height:124px; display:block;}

@@ -12,9 +12,10 @@ compgraph("csv/inventory_data.csv", othernames, "compdiv");
 function compgraph(csvfile, sectornames, where){
 
 var w = document.getElementById(where).offsetWidth,
-    h = 0.9*w,
-    p = [140, 50, 55, 20],
-    x = d3.scale.ordinal().rangeRoundBands([p[0], h- p[2]]),
+    h = 0.9*w-124,
+    p = [16, 50, 55, 20],
+        hackOffset = 0, //this is to fix some errors in a hacky way.
+    x = d3.scale.ordinal().rangeRoundBands([p[0], h- p[2] ]),
     y = d3.scale.linear().range([0, w-15]),
     capcolor = "#B53C36",
     uncapcolor = "#EAC881",
@@ -121,12 +122,12 @@ var svg1 = d3.select("#" + where).append("svg:svg")
         
         capLine.append("svg:polygon")
             .attr("points", "0,10   10,10 5,0")
-            .attr("transform", function(d){return "rotate(270) translate(" + (y(d.value)-5) +" " + (h-p[2]-5) + ")";})
+            .attr("transform", function(d){return "rotate(270) translate(" + (y(d.value)-5) +" " + (h-p[2]-5-hackOffset) + ")";})
         
         capLine.append("svg:text")
             .attr("transform", "rotate(-90)")
             .attr("x", function(d){ return y(d.value);})
-            .attr("y", h-p[2]+5)
+            .attr("y", h-p[2]+5-hackOffset)
             .attr("dy", 11)
             .style("text-anchor", "middle")
             .text(function(d){return d.name;});
@@ -212,15 +213,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
         .style("pointer-events","none");
         
         //add group info      
-        var groupname = svg1
-                .append('foreignObject')
-                .attr("x", 0)
-                .attr("y", 0)
-                .attr("transform", "rotate(270)")
-                .attr('width', w)
-                .attr('height', p[0]-16)
-                .append("xhtml:p")
-                .style("background-color","white")
+        var groupname = d3.select("#" + where + " p")
                 .html(sectornames[0]);
         
         d3.selectAll("p").style("stroke","red");
@@ -230,7 +223,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
                 .data(y.ticks(4))
             .enter().append("svg:g")
                 .attr("class", "rule")
-                .attr("transform", function(d){return "translate(" + (h - p[2]) + " " + -y(d) + ") rotate (270)";});
+                .attr("transform", function(d){return "translate(" + (h - p[2] - hackOffset) + " " + -y(d) + ") rotate (270)";});
         
         rule.append("svg:text")
             .attr("class", "subtext")
@@ -240,7 +233,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
         // add y-axis label
         svg1.append("foreignObject")
             .attr("class", "subtext")
-            .attr("transform", function(d){return "translate(" + (h - p[2] + 5) + " " + "0) rotate(270)";})
+            .attr("transform", function(d){return "translate(" + (h - p[2] + 5 - hackOffset) + " " + "0) rotate(270)";})
             .attr("width", w)
             .attr("height", "1.5em")
             .append("xhtml")
@@ -256,7 +249,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
             .attr("x", function(d,i){
                 return (i+1)/3*w-50;
             })
-            .attr("y", h-p[2]+25)
+            .attr("y", h-p[2]+25-hackOffset)
             .attr("transform", "rotate(270)")
             .attr("height", "1.3em")
             .style("fill", function(d){return d.color});
@@ -266,7 +259,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
             .attr("x", function(d,i){
                 return (i+1)/3*w;
             })
-            .attr("y", h-p[2]+25)
+            .attr("y", h-p[2]+25-hackOffset)
             .attr("transform", "rotate(270)")
             .attr("text-anchor","middle")
             .style("fill", "white")

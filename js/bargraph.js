@@ -30,8 +30,8 @@ bargraph("csv/projection_data.csv", allonames, allocation, allospots, "allodiv")
 function bargraph(csvfile, sectornames, sectortext, vertspots, where){
 
 var w = document.getElementById(where).offsetWidth,
-    h = w*(3/4),
-    p = [150, 50, 20, 20],
+    h = w*(2/3),
+    p = [0, 50, 50, 20],
     right_space = 170,
     x = d3.scale.ordinal().rangeRoundBands([50, w - right_space]),
     y = d3.scale.linear().range([0, h - p[0] - p[2]]),
@@ -93,16 +93,8 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 			
 		
 			
-		var groupname = svg1
-      .append('foreignObject')
-      .attr("x", 0)
-      .attr("y", 0)
-      .attr("transform", "translate(0 " + (p[2]-h) + ")")
-      .attr('width', w)
-      .attr('height', p[0])
-      .append("xhtml:div")
-      .style("background-color","white")
-      .html(sectortext[0]);
+		var groupname = d3.select("#" + where + " p")
+                .html(sectortext[0]);
 			
     //label sectors
     sector

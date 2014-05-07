@@ -2,7 +2,7 @@ var margin = {top: 10, right: 40, bottom: 30, left: 42},
     width = document.getElementById("pricediv").offsetWidth-60,
     height = 278;
 
-var parseDate = d3.time.format("%m/%d/%Y").parse
+var parseDate = d3.time.format("%m/%d/%Y").parse,
     bisectDate = d3.bisector(function(d) { return d.date; }).left,
     formatValue = d3.format(",.2f"),
     formatDate = d3.time.format("%B %e"),
