@@ -5,7 +5,7 @@ var othernames = ["AB32 relies on a number of important Complementary Policies t
     "<b>Agriculture</b> Sector emissions are not directly addressed by AB32 programs, but offset protocols to reduce emissions via agriculture may be developed to help meet the cap. Current <b>Forestry</b> Sector emissions are minimal, but new programs are designed to make them a significant net carbon sink by 2020.",
     "Small-scale sources that do not meet the Cap and Trade Program emissions thresholds or other inclusion criteria are not covered by the Cap. Energy efficiency programs may improve emissions from some sources in the <b>Uncapped Electricity/Industrial</b> group.",
     "<b>High Global Warming Potential Gases</b> are a significant source of emissions today, but policies are designed to nearly eliminate those emissions by 2020.", 
-    "Some <b>Other Uncapped<b/> sources such as recycling and waste contribute low-levels of emissions, but are addressed by further reduction programs."
+    "Some <b>Other Uncapped</b> sources such as recycling and waste contribute low-levels of emissions, but are addressed by further reduction programs."
     ];
 compgraph("csv/inventory_data.csv", othernames, "compdiv");					
 
