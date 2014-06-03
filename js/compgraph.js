@@ -1,4 +1,4 @@
-var othernames = ["AB32 relies on a number of important complementary policies to achieve the bulk of reductions to meet California's statewide 427 MMTCO<sub>2</sub>e emissions goal for 2020. The Cap and Trade Program acts as a backstop to these complementary policies. This graphic shows greenhouse gas emissions in 2020 under business-as-usual conditions and under AB32 implementation, as well as the expected contributions of each complementary policy to AB32 reductions. <i>Mouse over to see which policies apply to a given sector. Click on any policy for CARB&rsquo;s most recent regulatory details. </i>", 
+var othernames = ["AB32 relies on a number of important complementary policies to achieve the bulk of reductions to meet California's statewide 427 million metric tons of CO2 equivalent (MMTCO<sub>2</sub>e) emissions goal for 2020. The Cap and Trade Program acts as a backstop to these complementary policies. This graphic shows greenhouse gas emissions in 2020 under business-as-usual conditions and under AB32 implementation, and the expected contributions of each complementary policy to AB32 reductions. Mouse over to see which policies apply to a given sector. Click on any policy for CARB&rsquo;s most recent regulatory details. <i>Mouse over to see which policies apply to a given sector.  Click on any policy for more details.</i>", 
     "The <b>Electric Power</b> Sector must meet a renewable portfolio standard (included in 2020 baseline) and renewable energy standard, which together require 33% of electricity to come from renewable sources by 2020.  Small scale distributed generation cannot currently be used toward meeting this goal, but the Million Solar Roofs program promotes progress in distributed generation. Commercial and residential energy efficiency programs are expected to yield nearly 12 MMTCO<sub>2</sub>e in emissions reductions.",
     "The <b>Industrial</b> sector is required to conduct energy efficiency audits and report the results to the Air Resources Board.",  
     "The <b>Transportation Fuels & Natural Gas</b> Sector is addressed by a number of California policies, including the Pavley Standards (included in 2020 baseline), which require substantial increases in vehicle fuel efficiency.  Further, the Low Carbon Fuel Standard requires refiners and blenders to source a significant portion of their fuel from renewable sources.",
@@ -12,8 +12,8 @@ compgraph("csv/inventory_data.csv", othernames, "compdiv");
 function compgraph(csvfile, sectornames, where){
 
 var w = document.getElementById(where).offsetWidth,
-    h = 0.9*w-124, // decreasing the second # will move the plot down (?)
-    p = [16, 50, 55, 20], // this sets the margins of the svg [top,,bottom,]
+    h = 0.9*w-100, // changing the second # will move the plot down
+    p = [40, 50, 55, 20], // this sets the margins of the svg [top,,bottom,]
         hackOffset = 0, //this is to fix some errors in a hacky way.
     x = d3.scale.ordinal().rangeRoundBands([p[0], h- p[2] ]),
     y = d3.scale.linear().range([0, w-15]),
