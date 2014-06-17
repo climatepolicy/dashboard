@@ -41,12 +41,24 @@ var svg = d3.select("#pricediv").append("svg")
 
 d3.csv("csv/V14 Dec14 prices and volumes.csv", function(error, data) {
   var headers = d3.keys(data[0]).filter(function(key) { return key !== "date"; });
+  // create an index into headers for the ones that are settle prices. pass that into color.domain
+  var volumes = [];
+  for(index = 0; index < headers.length; index++) {
+      //headers.forEach(function(h){ // determines if a given column contains volume in theory
+      var end = headers[index].substring(12, headers[index].length);
+      if(end == "volume") {
+        volumes.push(index);
+      } 
+  };
+  // volumes now containes the indices of the volume columns
 
   color.domain(headers);
   //d3.keys(data[0]) returns column headers. .filter returns those that arent 'date', 
   // finally, color is a scale (i think) that maps the domain (a set of names) to a range (the colors)
   // if volumes are column headers, the definition of this domain will need to be changed
   // which means a substantial amount of the rest of this code will probably need to change too
+
+  //Changing the color.domain definition will be key //
 
   var volumes = headers.forEach(function(h)(
     var end = h.substring(12, h.length);
