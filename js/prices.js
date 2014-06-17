@@ -27,7 +27,7 @@ var yAxis = d3.svg.axis()
     .orient("left");
 
 var line = d3.svg.line()
-    .defined(function(d) { return d.close != 0; })
+    .defined(function(d) { return d.close != 0; }) // this would change
     .interpolate("basis")
     .x(function(d) { return x(d.date); })
     .y(function(d) { return y(d.close); });
@@ -39,19 +39,39 @@ var svg = d3.select("#pricediv").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("csv/data.csv", function(error, data) {
-  color.domain(d3.keys(data[0]).filter(function(key) { return key !== "date"; }));
+d3.csv("csv/V14 Dec14 prices and volumes.csv", function(error, data) {
+  var headers = d3.keys(data[0]).filter(function(key) { return key !== "date"; });
 
-  data.forEach(function(d) {
+  color.domain(headers);
+  //d3.keys(data[0]) returns column headers. .filter returns those that arent 'date', 
+  // finally, color is a scale (i think) that maps the domain (a set of names) to a range (the colors)
+  // if volumes are column headers, the definition of this domain will need to be changed
+  // which means a substantial amount of the rest of this code will probably need to change too
+
+  var volumes = headers.forEach(function(h)(
+    var end = h.substring(12, h.length);
+    
+    if(end == "volumes") {
+      return h;
+    }
+
+  ));
+
+  data.forEach(function(d) { // redefines the structure of data for us. this needs to change first
     d.date = parseDate(d.date);
-    d.close = +d;
+    d.close = d;
   });
 
   var vintages = color.domain().map(function(name) {
     return {
-      name: name,
-      values: data.map(function(d) {
-        return {date: d.date, close: +d[name]};
+      name: name, 
+      // the name of the wrapper object is the column header (one of the values of the color domain)
+      // the wrapper object contains an object for every date entry (every row)
+      // these objects contain the date and the value for that column header.
+
+      // 
+      values: data.map(function(d) { 
+        return {date: d.date, close: d[name]}; 
       })
     };
   });
@@ -87,7 +107,7 @@ d3.csv("csv/data.csv", function(error, data) {
   vintage.append("path")
       .attr("class", "line")
       .attr("d", function(d) { return line(d.values); })
-      .style("stroke", function(d) { return color(d.name); });
+      .style("stroke", function(d) { return color(d.name); }); 
       
   var focus = vintage.append("g")
       .attr("class", "focus");
