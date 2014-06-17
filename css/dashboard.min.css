@@ -169,7 +169,7 @@ hr.space{background:#fff;color:#fff;visibility:hidden}
 .panes{height:37em; margin-top:5px;}
 .tooltip{border-bottom:1px dotted;color:#666;outline:0;cursor:help;text-decoration:none;position:relative}
 .tooltip span{margin-left:-999em;position:absolute}
-.tooltip:hover span{border-radius:5px 5px;-moz-border-radius:5px;-webkit-border-radius:5px;font-size:16px;color:#666;background-color:#ddd;position:absolute;left:1em;top:2em;z-index:99;margin-left:0;width:400px}
+.tooltip:hover span{border-radius:5px 5px;-moz-border-radius:5px;-webkit-border-radius:5px;font-size:14px;color:#666;background-color:#ddd;position:absolute;left:1em;top:2em;z-index:99;margin-left:0;width:300px}
 .tooltip:hover img{border:0;margin:-10px 0 0 -55px;float:left;position:absolute}
 .tooltip:hover em{font-size:12px;display:block;padding:.2em 0 .6em 0}
 @font-face{font-family:'ChaparralProRegular';src:url('font-face/chaparralpro-regular-webfont.eot?#iefix');src:local('ChaparralProRegular'),url('font-face/chaparralpro-regular-webfont.eot?#iefix') format('embedded-opentype'),url('font-face/chaparralpro-regular-webfont.woff') format('woff'),url('font-face/chaparralpro-regular-webfont.ttf') format('truetype'),url('font-face/chaparralpro-regular-webfont.svg#ChaparralProRegular') format('svg');font-weight:normal;font-style:normal}
