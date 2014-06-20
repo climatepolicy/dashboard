@@ -41,17 +41,17 @@ var svg = d3.select("#pricediv").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("csv/V14 Dec14 prices and volumes.csv", function(error, data) {
+d3.csv("csv/live graphing prices and volumes.csv", function(error, data) {
   var headers = d3.keys(data[0]).filter(function(key) { return key !== "date"; });
   // create an index into headers for the ones that are settle prices. pass that into color.domain
-  var volumes = [];
+  /*var volumes = [];
   for(index = 0; index < headers.length; index++) {
       // creates an array with the indices of the volume columns
       var end = headers[index].substring(12, headers[index].length);
       if(end == "volume") {
         volumes.push(index);
       } 
-  };
+  };*/
   // volumes now containes the indices of the volume columns
 
   var prices = [];
@@ -60,11 +60,11 @@ d3.csv("csv/V14 Dec14 prices and volumes.csv", function(error, data) {
       var end = headers[index].substring(12, headers[index].length);
       if(end == "price") {
         prices.push(headers[index]);
-      } else {
+      } /*else {
         console.log(end)
-      }
+      }*/
   };
-  console.log(prices);
+  
   color.domain(prices);
   //d3.keys(data[0]) returns column headers. .filter returns those that arent 'date', 
   // finally, color is a scale (i think) that maps the domain (a set of names) to a range (the colors)
@@ -73,8 +73,8 @@ d3.csv("csv/V14 Dec14 prices and volumes.csv", function(error, data) {
 
   //Changing the color.domain definition will be key //
 
-  data.forEach(function(d) { // redefines the structure of data for us. this needs to change prolly
-    d.date = parseDate(d.date);
+  data.forEach(function(d) { // redefines the structure of data for us. this needs to change prolly,
+    d.date = parseDate(d.date); // but maybe not since its not much used in current setup
     d.close = d;
   });
 
@@ -184,9 +184,8 @@ d3.csv("csv/V14 Dec14 prices and volumes.csv", function(error, data) {
       } 
     });
     voltext.text(function(d){ 
-      if( d.values[d.values.length-1].vol > -1)
+      if( d.values[d.values.length-1].vol > -1 & d.values[d.values.length-1].vol !== "")
       {
-        //console.log(formatVolume(d.values[i].vol));
         return formatVolume(d.values[d.values.length-1].vol);
       } 
     });
@@ -215,10 +214,8 @@ d3.csv("csv/V14 Dec14 prices and volumes.csv", function(error, data) {
     });
     
     voltext.text(function(d){ 
-      //console.log(d.values[i].vol)
-      if( d.values[i].vol > -1 & d.values[i].vol !== undefined)
+      if( d.values[i].vol > -1 & d.values[i].vol !== "")
       {
-        //console.log(formatVolume(d.values[i].vol));
         return formatVolume(d.values[i].vol);
       } 
     });
