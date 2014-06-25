@@ -148,7 +148,19 @@ d3.csv("csv/live graphing prices and volumes.csv", function(error, data) {
       .attr("dx", -10)
       .attr("dy", 15);
       //.attr("dy", function(d,i){ return 5+i*15;}); use this if we ever have multiple lines on top of each
-
+      
+  focus.append("svg:rect")
+      .attr("width",100)
+      .attr("height",40)
+      .style("fill","#D0D0D0")
+      .style("stroke","#666")
+      .style("stroke-width",2)
+      .style("opacity",0.3)
+      .attr("x", -50)
+      .attr("y", -10)
+      .attr("rx",5)
+      .attr("ry",5); 
+      
   datetext = focus.append("svg:text")
       .style("text-anchor", "middle")
       .style("background-color",'white')
