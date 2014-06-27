@@ -706,6 +706,7 @@ date,V13 Dec13 - price,V13 Dec14 - price,V13 Dec14 - volume,V14 Dec14 - price,V1
 5/28/2014,,,,11.77,0
 5/29/2014,,,,11.87,70
 5/30/2014,,,,11.9,1
+<<<<<<< HEAD:csv/V14 Dec14 prices and volumes.csv
 6/2/2014,,,,11.91,346
 6/3/2014,,,,11.91,0
 6/4/2014,,,,11.95,0
@@ -721,3 +722,5 @@ date,V13 Dec13 - price,V13 Dec14 - price,V13 Dec14 - volume,V14 Dec14 - price,V1
 6/18/2014,,,,11.92,10
 6/19/2014,,,,11.94,305
 6/20/2014,,,,11.92,0
+=======
+>>>>>>> origin/volume:csv/OLD V14 Dec14 prices and volumes.csv
