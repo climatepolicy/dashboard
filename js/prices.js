@@ -16,7 +16,7 @@ var y = d3.scale.linear()
     .range([height, 0]);
 
 var color = d3.scale.category10()
-    .range(["#B53C36","#DC6B28","#DC6B28"]);//,"#EAC881"]);
+    .range(["#B53C36"]);//,"#EAC881"]);
 
 var xAxis = d3.svg.axis()
      .scale(x)
@@ -152,7 +152,7 @@ d3.csv("csv/live graphing prices and volumes.csv", function(error, data) {
   focus.append("svg:rect")
       .attr("width",100)
       .attr("height",40)
-      .style("fill","#D0D0D0")
+      .style("fill","#F5FAF9")
       .style("stroke","#666")
       .style("stroke-width",2)
       .style("opacity",0.3)
