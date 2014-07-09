@@ -7,16 +7,7 @@ function feedme(address, divname,keyword, number) {
         // Grab the container we will put the results into
         var container = document.getElementById(divname);
         container.innerHTML = '';
-    
-        // Loop through the feeds, putting the titles onto the page.
-        // Check out the result object for a list of properties returned in each entry.
-        // http://code.google.com/apis/ajaxfeeds/documentation/reference.html#JSON
-        /*for (var i = 0; i < result.feed.entries.length; i++) {
-          var entry = result.feed.entries[i];
-          if (entry.title.indexOf('arbcombo') >= 0){ 
-              var div = document.createElement("div");
-          div.appendChild(document.createTextNode(entry.title.replace("arbcombo -- ","")));
-          container.appendChild(div);}*/
+
          var html = '';
            for (var i = 0; i < result.feed.entries.length; i++) {
       			var entry = result.feed.entries[i];
@@ -28,6 +19,16 @@ function feedme(address, divname,keyword, number) {
       			       var splitTitle = entry.title.split(" - ");
       			       html += '<div class = "item"><a href="' + entry.link + '">' + splitTitle[0]  + '</a><br><span class = "subtext">' + splitTitle[1] + " " + '<br><span class = "bottom">' + dispDate + '</span></span></div>';
       			    }
+                else if (divname == "cpi")
+                {
+                  var categories = entry.categories;
+                  var key = "AB32";
+                  for (var j = 0; j < categories.length; j++){
+                    if (categories[j].indexOf(key) >= 0) {
+                      html += '<div class = "item"><a href="' + entry.link + '">' + entry.title + '</a><span class = "subtext"><br><span class = "bottom">' + dispDate + '<span></span></div>';
+                    }
+                  }
+                }
       			    else{
       			       html += '<div class = "item"><a href="' + entry.link + '">' + entry.title.replace(keyword + " -- ","")  + '</a><span class = "subtext"><br><span class = "bottom">' + dispDate + '<span></span></div>';
       			    }
