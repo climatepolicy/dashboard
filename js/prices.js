@@ -7,7 +7,7 @@ var parseDate = d3.time.format("%m/%d/%Y").parse,
     formatValue = d3.format(",.2f"),
     formatDate = d3.time.format("%B %e"),
     formatCurrency = function(d) { return "$" + formatValue(d); };
-    formatVolume = function(d) {return "Trading Volume: "+ d;}
+    formatVolume = function(d) {return "Volume: "+ d;}
 
 var x = d3.time.scale()
     .range([0, width]);
@@ -150,13 +150,13 @@ d3.csv("csv/live graphing prices and volumes.csv", function(error, data) {
       //.attr("dy", function(d,i){ return 5+i*15;}); use this if we ever have multiple lines on top of each
       
   focus.append("svg:rect")
-      .attr("width",100)
+      .attr("width",80)
       .attr("height",40)
       .style("fill","#F5FAF9")
       .style("stroke","#666")
       .style("stroke-width",2)
       .style("opacity",0.3)
-      .attr("x", -50)
+      .attr("x", -40)
       .attr("y", -10)
       .attr("rx",5)
       .attr("ry",5); 
