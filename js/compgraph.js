@@ -12,7 +12,7 @@ compgraph("csv/inventory_data.csv", othernames, "compdiv");
 function compgraph(csvfile, sectornames, where){
 
 var w = document.getElementById(where).offsetWidth,
-    h = 0.87*w-124, // decreasing the second # will move the plot down (?)
+    h = 0.87*w-130, // decreasing the second # will move the plot down (?)
     p = [16, 50, 20, 20], // this sets the margins of the svg [top,,bottom,]
         hackOffset = 0, //this is to fix some errors in a hacky way.
     x = d3.scale.ordinal().rangeRoundBands([p[0], h- p[2] ]),
