@@ -143,7 +143,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
 		rule.attr("class", "subtext").append("svg:text").attr("text-anchor", "end").attr("x", p[1]).attr("dy", ".35em").text(d3.format(",d"));
 		
 		// add y-axis label
-		svg1.append("foreignObject")
+		axislabel = d3.select("#" + where).append("div")
       		.attr("transform", "rotate(-90)")
       		.attr("x", h-350)
 			.attr("y", 0)

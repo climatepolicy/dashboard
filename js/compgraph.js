@@ -12,8 +12,8 @@ compgraph("csv/inventory_data.csv", othernames, "compdiv");
 function compgraph(csvfile, sectornames, where){
 
 var w = document.getElementById(where).offsetWidth,
-    h = 0.9*w-124, // decreasing the second # will move the plot down (?)
-    p = [16, 50, 55, 20], // this sets the margins of the svg [top,,bottom,]
+    h = 0.87*w-124, // decreasing the second # will move the plot down (?)
+    p = [16, 50, 20, 20], // this sets the margins of the svg [top,,bottom,]
         hackOffset = 0, //this is to fix some errors in a hacky way.
     x = d3.scale.ordinal().rangeRoundBands([p[0], h- p[2] ]),
     y = d3.scale.linear().range([0, w-15]),
@@ -231,7 +231,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
             .text(d3.format(",d"));
         
         // add y-axis label
-        svg1.append("foreignObject")
+        d3.select("#" + where).append("div")
             .attr("class", "subtext")
             .attr("transform", function(d){return "translate(" + (h - p[2] + 5 - hackOffset) + " " + "0) rotate(270)";})
             .attr("width", w)
@@ -241,7 +241,10 @@ var svg1 = d3.select("#" + where).append("svg:svg")
             
         keydata = [{name:'CAPPED', color: capcolor}, {name:'UNCAPPED', color: uncapcolor}];
         
-        key = svg1.append('svg:g');
+        key = d3.select("#" + where).append("svg:svg")
+            .attr("width", w)
+            .attr("height", "1.3em")
+            .attr("fill", "#666").append('svg:g');
         key.selectAll("keyrect")
             .data(keydata)
             .enter().append("svg:rect")
@@ -249,8 +252,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
             .attr("x", function(d,i){
                 return (i+1)/3*w-50;
             })
-            .attr("y", h-p[2]+25-hackOffset)
-            .attr("transform", "rotate(270)")
+            .attr("y", 0)
             .attr("height", "1.3em")
             .style("fill", function(d){return d.color});
         key.selectAll("text")
@@ -259,8 +261,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
             .attr("x", function(d,i){
                 return (i+1)/3*w;
             })
-            .attr("y", h-p[2]+25-hackOffset)
-            .attr("transform", "rotate(270)")
+            .attr("y", 0)
             .attr("text-anchor","middle")
             .style("fill", "white")
             .attr("dy", "1em")
