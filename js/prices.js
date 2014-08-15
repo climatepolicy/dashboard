@@ -1,4 +1,4 @@
-var margin = {top: 10, right: 40, bottom: 30, left: 42},
+var margin = {top: 10, right: 40, bottom: 30, left: 25},
     width = document.getElementById("pricediv").offsetWidth-60,
     height = 278;
 
@@ -33,6 +33,13 @@ var line = d3.svg.line()
     .interpolate("basis")
     .x(function(d) { return x(d.date); })
     .y(function(d) { return y(d.close); });
+
+var axislabel = d3.select("#pricediv").append("div")
+      .attr("class", "subtext")
+      .style("width", "120px")
+      .style("height", "12px")
+      .attr("transform", "rotate(270)")
+      .html("$/Tonne CO<sub>2</sub>e");
 
 var svg = d3.select("#pricediv").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -112,14 +119,8 @@ d3.csv("csv/live graphing prices and volumes.csv", function(error, data) {
 
   svg.append("g")
       .attr("class", "y axis")
-      .call(yAxis)
-    .append("foreignObject")
-      .attr("width", width)
-      .attr("height", 100)
-      .attr("transform", "rotate(270) translate(-80 -45)")
-      .attr("class", "subtext")
-    .append("xhtml:div")
-      .html("$/Tonne CO<sub>2</sub>e");
+      .call(yAxis);
+
 
   var vintage = svg.selectAll(".vintage")
       .data(vintages)
