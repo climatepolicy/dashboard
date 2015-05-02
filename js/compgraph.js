@@ -1,3 +1,5 @@
+// this is the complimentary policies graphic. changes to this don't effect the other tabs
+
 var othernames = ["AB32 relies on a number of important complementary policies to achieve the bulk of reductions to meet California's statewide 427 MMTCO<sub>2</sub>e emissions goal for 2020. The Cap and Trade Program acts as a backstop to these complementary policies. This graphic shows greenhouse gas emissions in 2020 under business-as-usual conditions and under AB32 implementation, as well as the expected contributions of each complementary policy to AB32 reductions. <i>Mouse over to see which policies apply to a given sector. Click on any policy for CARB&rsquo;s most recent regulatory details. </i>", 
     "The <b>Electric Power</b> Sector must meet a renewable portfolio standard (included in 2020 baseline) and renewable energy standard, which together require 33% of electricity to come from renewable sources by 2020.  Small scale distributed generation cannot currently be used toward meeting this goal, but the Million Solar Roofs program promotes progress in distributed generation. Commercial and residential energy efficiency programs are expected to yield nearly 12 MMTCO<sub>2</sub>e in emissions reductions.",
     "The <b>Industrial</b> sector is required to conduct energy efficiency audits and report the results to the Air Resources Board.",  
@@ -12,7 +14,7 @@ compgraph("csv/inventory_data.csv", othernames, "compdiv");
 function compgraph(csvfile, sectornames, where){
 
 var w = document.getElementById(where).offsetWidth,
-    h = 0.87*w-130, // decreasing the second # will move the plot down (?)
+    h = 0.87*w-70, // decreasing the second # will move the plot down (?)
     p = [16, 50, 20, 20], // this sets the margins of the svg [top,,bottom,]
         hackOffset = 0, //this is to fix some errors in a hacky way.
     x = d3.scale.ordinal().rangeRoundBands([p[0], h- p[2] ]),

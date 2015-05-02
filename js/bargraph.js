@@ -1,3 +1,5 @@
+//this covers the Emissions Cap and Emissions History graphs
+
 var spots = [0, 46.65,   136.28,  265.85,  374.385, 392, 409,  431.605];
 var names = ["",  "Electric Power",  "Industrial", "Transportation","Commercial and Residential","Recycling and Waste", "High Warming Potential Gases", "Agriculture and Forestry"];
 
@@ -30,7 +32,7 @@ bargraph("csv/projection_data.csv", allonames, allocation, allospots, "allodiv")
 function bargraph(csvfile, sectornames, sectortext, vertspots, where){
 
 var w = document.getElementById(where).offsetWidth,
-    h = w*(2/3),
+    h = w*(3/4),
     p = [0, 50, 50, 20],
     right_space = 170,
     x = d3.scale.ordinal().rangeRoundBands([50, w - right_space]),
