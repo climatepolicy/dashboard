@@ -19,6 +19,6 @@ $(function(){
                             active:false
   });
    $("#accordion").accordion("option", "icons", 
-        { 'header': 'ui-icon-plus', 'activeHeader': 'ui-icon-minus' });
+        { 'header': 'ui-icon-carat-1-e', 'activeHeader': 'ui-icon-carat-1-s' });
   });
   
