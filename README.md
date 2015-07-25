@@ -1,0 +1,3 @@
+This repository is the backend of the California Carbon Dashboard.
+
+This site is based on [Github Pages](https://pages.github.com/), so the "live" branch is the one titled "gh-pages." The "master" branch is generally kept in sync with "gh-pages," but can also be used for staging changes. That said, if you're doing a weird experiment and aren't sure if it's going to stick, it probably makes sense to create a new branch.
