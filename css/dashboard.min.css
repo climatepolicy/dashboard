@@ -1,4 +1,4 @@
-﻿.container{width:950px;margin:0 auto}
+.container{width:950px;margin:0 auto}
 .showgrid{background:url(src/grid.png)}
 .column,.span-1,.span-2,.span-3,.span-4,.span-5,.span-6,.span-7,.span-8,.span-9,.span-10,.span-11,.span-12,.span-13,.span-14,.span-15,.span-16,.span-17,.span-18,.span-19,.span-20,.span-21,.span-22,.span-23,.span-24{float:left;margin-right:10px}
 .last{margin-right:0}
@@ -175,7 +175,7 @@ hr.space{background:#fff;color:#fff;visibility:hidden}
 @font-face{font-family:'ChaparralProRegular';src:url('font-face/chaparralpro-regular-webfont.eot?#iefix');src:local('ChaparralProRegular'),url('font-face/chaparralpro-regular-webfont.eot?#iefix') format('embedded-opentype'),url('font-face/chaparralpro-regular-webfont.woff') format('woff'),url('font-face/chaparralpro-regular-webfont.ttf') format('truetype'),url('font-face/chaparralpro-regular-webfont.svg#ChaparralProRegular') format('svg');font-weight:normal;font-style:normal}
 @font-face{font-family:'CronosProLight';src:url('font-face/cronospro-lt-webfont.eot?#iefix');src:local('CronosProLight'),url('font-face/cronospro-lt-webfont.eot?#iefix') format('embedded-opentype'),url('font-face/cronospro-lt-webfont.woff') format('woff'),url('font-face/cronospro-lt-webfont.ttf') format('truetype'),url('font-face/cronospro-lt-webfont.svg#CronosProLight') format('svg');font-weight:normal;font-style:normal}
 html{font-size:100.01%}
-body{font-size:105%;color:#666;background:#fff;font-family:"CronosProLight",Arial,Helvetica,sans-serif}
+body{font-size:105%;color:black;background:#fff;font-family:"CronosProLight",Arial,Helvetica,sans-serif}
 h1,h2,h3,h4,h5,h6{font-weight:normal;color:#111}
 h1{font-family:'ChaparralProRegular';font-size:1em;color:#f96302;margin:4px 0}
 h2{font-size:1em;line-height:1;margin-bottom:1em}
