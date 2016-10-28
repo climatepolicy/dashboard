@@ -100,7 +100,7 @@ var svg1 = d3.select("#" + where).append("svg:svg")
          
          var capData = [
             {value: 334.2, name: "Cap: 334.2"},
-            {value: 427, name: "Goal: 427"}
+            {value: 431, name: "Goal: 431"}
             
          ];
          
