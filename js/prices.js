@@ -28,9 +28,31 @@ var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left");
 
+//function to calculate a moving average
+movingAvg = function(n) {
+    return function (points) {
+        points = points.map(function(each, index, array) {
+            var to = index + n - 1;
+            var subSeq, sum;
+            if (to < points.length) {
+                subSeq = array.slice(index, to + 1);
+                sum = subSeq.reduce(function(a,b) { 
+                    return [a[0] + b[0], a[1] + b[1]]; 
+                });
+                return sum.map(function(each) { return each / n; });
+            }
+            return undefined;
+        });
+        points = points.filter(function(each) { return typeof each !== 'undefined' })
+        // Note that one could re-interpolate the points 
+        // to form a basis curve (I think...)
+        return points.join("L");
+    }
+}
+
 var line = d3.svg.line()
     .defined(function(d) { return d.close != 0; }) // this would change
-    .interpolate("basis")
+    .interpolate(movingAvg(5))
     .x(function(d) { return x(d.date); })
     .y(function(d) { return y(d.close); });
 
@@ -210,7 +232,7 @@ d3.csv("csv/live graphing prices and volumes.csv", function(error, data) {
     });
 
   }
-
+/*
   function mousemove() {
     var x0 = x.invert(d3.mouse(this)[0]),
         i = bisectDate(data, x0, 1),
@@ -239,6 +261,6 @@ d3.csv("csv/live graphing prices and volumes.csv", function(error, data) {
         return formatCurrency(d.values[i].close);
       } 
     });
-  }
+  }*/
 
 });
