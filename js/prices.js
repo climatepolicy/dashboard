@@ -232,7 +232,7 @@ d3.csv("csv/output.csv", function(error, data) {
     });
 
   }
-/*
+
   function mousemove() {
     var x0 = x.invert(d3.mouse(this)[0]),
         i = bisectDate(data, x0, 1),
@@ -261,6 +261,6 @@ d3.csv("csv/output.csv", function(error, data) {
         return formatCurrency(d.values[i].close);
       } 
     });
-  }*/
+  }
 
 });
