@@ -25,7 +25,7 @@ function feedme(address, divname,keyword, number) {
                   var key = "AB32";
                   for (var j = 0; j < categories.length; j++){
                     if (categories[j].indexOf(key) >= 0) {
-                      html += '<div class = "item"><a href="' + entry.link + '">' + entry.title + '</a><br><span class = "subtext">' + entry.author + " " + '</a><span class = "subtext"><br><span class = "bottom">' + dispDate + '<span></span></div>';
+                      html += '<div class = "item"><a href="' + entry.link + '">' + entry.title + '</a><br><span class = "subtext">' + " " + '</a><span class = "subtext"><br><span class = "bottom">' + dispDate + '<span></span></div>';
                     }
                   }
                 }
