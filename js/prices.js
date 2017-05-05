@@ -70,7 +70,7 @@ var svg = d3.select("#pricediv").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("csv/live graphing prices and volumes.csv", function(error, data) {
+d3.csv("csv/output.csv", function(error, data) {
   var headers = d3.keys(data[0]).filter(function(key) { return key !== "date"; });
   // create an index into headers for the ones that are settle prices. pass that into color.domain
   /*var volumes = [];
