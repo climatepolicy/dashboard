@@ -1,6 +1,6 @@
 google.load("feeds", "1");
 
-function feedme(address, divname,keyword, number) {   
+function feedme(address, divname,keyword, number) {
     // Our callback function, for when a feed is loaded.
     function feedLoaded(result) {
       if (!result.error) {
@@ -13,11 +13,11 @@ function feedme(address, divname,keyword, number) {
       			var entry = result.feed.entries[i];
       			var date = new Date(entry.publishedDate);
       			var dispDate = date.toDateString();
-      			
-      			if (entry.title.indexOf(keyword) >= 0){ 
+
+      			if (entry.title.indexOf(keyword) >= 0){
       			    if(divname == "news"){
       			       var splitTitle = entry.title.split(" - ");
-      			       html += '<div class = "item"><a href="' + entry.link + '">' + splitTitle[0]  + '</a><br><span class = "subtext">' + splitTitle[1] + " " + '<br><span class = "bottom">' + dispDate + '</span></span></div>';
+      			       html += '<div class = "item"><a href="' + entry.link + '">' + splitTitle[0]  + '</a><br><span class = "subtext">' + " " + '<br><span class = "bottom">' + dispDate + '</span></span></div>';
       			    }
                 else if (divname == "cpi")
                 {
@@ -32,24 +32,23 @@ function feedme(address, divname,keyword, number) {
       			    else{
       			       html += '<div class = "item"><a href="' + entry.link + '">' + entry.title.replace(keyword + " -- ","")  + '</a><span class = "subtext"><br><span class = "bottom">' + dispDate + '<span></span></div>';
       			    }
-      				
+
       			}
    			 }
    		container.innerHTML = html;
-        
+
         }
       }
-    
-    
+
+
     function OnLoad() {
       // Create a feed instance that will grab Digg's feed.
       var feed = new google.feeds.Feed(address);
       feed.setNumEntries(number);
-    
+
       // Calling load sends the request off.  It requires a callback function.
       feed.load(feedLoaded);
     }
-    
+
     google.setOnLoadCallback(OnLoad);
     }
-    
